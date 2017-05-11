@@ -1,0 +1,1 @@
+<img data-img="[[+idx]]" src="[[+image:phpthumbof=`w=1400&h=940&zc=1`]]" alt="[[+title]]">

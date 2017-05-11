@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="[[++cultureKey]]">
+<head>
+    <meta charset="UTF-8">
+    <base href="[[++site_url]]">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[[*pagetitle:striptags]]</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/font.css">
+    <link rel="stylesheet" href="assets/css/active-house.css">
+    [[$seo.tpl]]
+</head>
+<body>
+
+<div class="wrapper">
+    <!--left side-->
+    [[$left-side]]
+    <!--menu-->
+    <header class="header">
+        [[Wayfinder?
+        &startId=`0`
+        &excludeDocs=`27`
+        &level=`2`
+        &innerClass=`menu-subitems`
+        &outerClass=`menu-bg`
+        &innerRowTpl=`innerRowTpl`
+        &innerTpl=`m.menu-innerTPL`
+        &outerTpl=`m.menu-outerTPL`
+        &rowTpl=`m.menu-itemTPL`
+        ]]
+    </header>
+    <!--right side-->
+    [[$right-side]]
+
+    <!--callback-->
+    <a href="" class="callback scale-js-2">
+        <div class="callback-wrap">
+            <img src="assets/images/callback.png" alt="callback">
+        </div>
+    </a>
+
+    <!--content-->
+    <div class="content">
+        <div class="page-title">
+            <h1>[[*pagetitle:limit=`16`]]</h1>
+            <h2>[[*longtitle]]</h2>
+        </div>
+        <div class="action">
+            <div class="actions">
+                <div class="action-head">
+                    <div class="action-logo">%</div>
+                    <div class="action-title">[[%actions ? &namespace=`unna`]]</div>
+                </div>
+                [[!getResources?
+                &parents=`36`
+                &limit=`1`
+                &sortby=`{published:ASC}`
+                &tpl=`razdel-action-item-TPL`
+                &showHidden=`1`
+                ]]
+
+            </div>
+            <a href="[[~36]]" class="all-actions">
+                <span>[[%all:ucfirst ? &namespace=`unna`]] [[%actions ? &namespace=`unna`]]</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="17px" viewBox="0 0 72.05 43.92">
+                    <defs>
+                        <style>.svg-all-actions {
+                                fill: none;
+                                stroke: #000;
+                                stroke-miterlimit: 10;
+                                stroke-width: 7px
+                            }</style>
+                    </defs>
+                    <title>arrow</title>
+                    <path class="svg-all-actions" d="M69.68 20.68H0M46 .78l24.52 19.95L46 43.19"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+
+    <!--footer-->
+    <div class="footer">
+        <!--left-->
+        <div class="foot-left">
+            <a href="[[~27]]" class="unna-dev"><img src="assets/images/unna-develop.png" alt=""></a>
+            <div class="cube active">
+                <img class="cube-img" src="assets/images/cube.png" alt="">
+                <span class="cube-text">отключить анимацию</span>
+            </div>
+        </div>
+        <!--more btn center-->
+        <div class="btn-more">
+            <div class="btn-more-wrap">
+                <img src="assets/images/mouse.png" alt="mouse">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!--right-->
+        <div class="foot-right">
+            <!--sit on site-->
+            <div class="on-site">
+                <div class="on-site-count">[[!online_people]]</div>
+                <div class="on-site-text">[[%people.on.site? &namespace=`unna`]]</div>
+            </div>
+            <!--fresh-->
+            <div class="fresh">
+                <div class="created">[[%site.developed? &namespace=`unna`]]</div>
+                <a href="http://freshweb.agency/" target="_blank">
+                    <div class="fresh-logo">
+                        <span>F</span><span>R</span><span>E</span><span>S</span><span>H</span></div>
+                </a>
+                <div class="creative">CREATIVE WEB AGENCY</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--scripts-->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="assets/js/nav.js"></script>
+<!--<script src="assets/js/head-menu.js"></script>-->
+<script src="assets/js/scale.js"></script>
+<script src="assets/js/start-anim.js"></script>
+</body>
+</html>

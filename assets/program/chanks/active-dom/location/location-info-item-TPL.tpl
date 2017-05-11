@@ -1,0 +1,2 @@
+<span data-group="[[+location-group:in=`building,metro`:then=`default`:else=`[[+location-group]]`]]"
+      [[+location-group:in=`building,metro`:then=`class="visible"`]]>[[+location-lat]]&[[+location-lng]]&[[+pagetitle]]&[[+description]]&[[+location-icon:stripString=`./`]]&[[+location-group]][[+location-group:in=`building,metro`:then=`&white`]]</span>

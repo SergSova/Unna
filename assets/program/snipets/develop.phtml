@@ -1,0 +1,27 @@
+<?php
+//action
+$result = array();
+$q      = $modx->newQuery( 'modResource',
+	array(
+		'parent'      => 36,
+		'published'   => 1,
+		'deleted'     => 0,
+		'context_key' => $modx->resource->context_key
+	) );
+$q->sortby( 'menuindex', 'ASC' );
+/** @var modResource $actions */
+$actions = $modx->getCollection( 'modResource', $q );
+foreach ( $actions as $action ) {
+	array_push( $result, "$action->pagetitle==$action->id" );
+}
+return implode('||',$result);
+
+//base-image
+$output = $modx->runSnippet( 'getImageList',
+	array(
+		'tvname'          => 'migx-apartment-galery',
+		'docid'           => $modx->resource->id,
+		'tpl'             => '@CODE: <img src="[[+image]]" alt="">==[[+image]]',
+		'outputSeparator' => '||'
+	) );
+return $output;

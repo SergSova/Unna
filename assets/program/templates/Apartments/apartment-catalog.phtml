@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="[[*context_key]]">
+<head>
+    <base href="[[++site_url]]">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>[[*pagetitle]]</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
+    <link rel="stylesheet" href="assets/css/apartment.css"/>
+    [[$seo.tpl]]
+</head>
+<body>
+<div class="wrapper">
+    <!--left side-->
+    [[$left-side]]
+
+    <!--right side-->
+    [[$right-side]]
+
+    <!--arrows-->
+    [[!prev-next-Page? &tpl=`prev-next-Page-tpl`]]
+
+    <div class="container content">
+        <h1 class="header">[[#[[*parent]].pagetitle]]</h1>
+        <h2 class="sub_header">[[*pagetitle]]</h2>
+        <div class="aparts">
+            <div class="filters">
+                [[*id:is=`2`:then=`[[!setFilter]]`]]
+                <form>
+                    [[*id:is=`2`:then=`[[$apartments-filter]]`]]
+                    [[*id:is=`3`:then=`[[$premises-filter]]`]]
+                </form>
+            </div>
+            <div class="aparts_list">
+                [[*id:is=`2`:then=`[[!filtredApartment?&limit=`3`&offset=`3`]]`]]
+                [[*id:is=`3`:then=`[[$premises-list]]`]]
+            </div>
+        </div>
+    </div>
+    [[$foot]]
+</div>
+<!--scripts-->
+<script
+        src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+<script src="assets/js/slick.min.js" type="text/javascript"></script>
+<script src="assets/js/lightbox.min.js" type="text/javascript"></script>
+<script src="assets/js/jquery.mCustomScrollbar.min.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/scale.js"></script>
+<script src="assets/js/foot-menu.js"></script>
+<script src="assets/js/start-anim.js"></script>
+<script src="assets/js/filter.js"></script>
+<script src="assets/js/app.min.js"></script>
+</body>
+</html>

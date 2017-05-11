@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="[[++cultureKey]]">
+
+<head>
+    <base href="[[++site_url]]">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Main mobile</title>
+    [[$seo.tpl]]
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto:100,300,400,700&amp;subset=cyrillic"
+          rel="stylesheet">
+    <!--<link rel="stylesheet" href="assets/css/fonts.css">-->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/base-mobile.css">
+    <link rel="stylesheet" href="assets/css/main-mobile.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="assets/js/lib/queryLoader.js"></script>
+</head>
+
+<body>
+<div id="preload">
+    <div class="white white-left"></div>
+    <div class="white white-right"></div>
+    <div class="white-center white-center-left"></div>
+    <div class="white-center white-center-right"></div>
+    <div class="line-top line"></div>
+    <div class="line-bottom line"></div>
+    <div class="logo"><img src="assets/images/logo-preload.png" alt="unna logo"></div>
+</div>
+<div id="callback">
+    <div class="container">
+        <div class="align-middle">
+            <div class="form">
+                <div class="close">
+                    <div class="cross">
+                        <div class="cross-line"></div>
+                        <div class="cross-line"></div>
+                    </div>
+                </div>
+                <form action="mail.php">
+                    <input type="text" name="name" placeholder="имя">
+                    <input type="text" name="phone" placeholder="телефон">
+                    <input type="text" name="email" placeholder="e-mail">
+                    <input type="text" name="comment" placeholder="сообщение">
+                    <button class="green-button">отправить <i class="icon-right-arrow"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="mobile-menu">
+    <div class="container">
+        <div class="top">
+            <div class="left clearfix">
+                <div class="menu-sandwich">
+                    <div class="sandwich-items">
+                        <div class="sandwich-item"></div>
+                        <div class="sandwich-item"></div>
+                        <div class="sandwich-item"></div>
+                    </div>
+                </div>
+                <div class="menu-lang">
+                    <a href="#">UA</a>
+                    <a class="active" href="#">RU</a>
+                </div>
+            </div>
+            <a class="logo" href="/"><img src="assets/images/logo-menu.png" alt="unna logo"></a>
+            <div class="right">
+                <div class="menu-phone">
+                    <a href="tel:+38[[++kontakt-phone]]" class="mobile-phone"><i class="icon-phone"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            [[Wayfinder?
+            &startId=`0`
+            &excludeDocs=`27`
+            &level=`2`
+            &innerClass=`sub`
+            &outerClass=`menu-bg`
+            &outerTpl=`m.menu-mobile-outerTPL`
+            &innerRowTpl=`m.inner-mobile-row-Tpl`
+            &innerTpl=`m.menu-mobile-innerTPL`
+            &rowTpl=`m.menu-modile-itemTPL`
+            ]]
+            <a href="#" class="more-button green-button callback-open">узнать подробнее <i class="icon-right-arrow"></i></a>
+        </div>
+    </div>
+</div>
+<header>
+    <div class="container">
+        <div class="menu-sandwich">
+            <div class="sandwich-items">
+                <div class="sandwich-item"></div>
+                <div class="sandwich-item"></div>
+                <div class="sandwich-item"></div>
+            </div>
+        </div>
+        <div class="menu-apartment">
+            <a class="link-delay" href="get-apartment.html"></a>
+            <div class="menu-apart-white">
+                <div class="menu-apart-items">
+                    <div class="menu-apart-item"><div class="circle"></div></div>
+                    <div class="menu-apart-item"><div class="circle"></div></div>
+                    <div class="menu-apart-item"><div class="circle"></div></div>
+                </div>
+            </div>
+            <span>[[%select? &namespace=`unna`]] [[%apartment? &namespace=`unna`]]</span>
+        </div>
+        <div class="menu-phone">
+            <a href="tel:+38[[++kontakt-phone]]" class="mobile-phone"><i class="icon-phone"></i></a>
+        </div>
+        <div class="menu-lang">
+            <a href="">UA</a>
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="container">
+        <h1>[[#1.pagetitle]]</h1>
+
+        <img src="assets/images/logo.png" class="logo" alt="Unna logo">
+        <div class="live-cam">
+            <a class="link-delay" href="live-cam-site.html"></a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="27px" viewBox="0 0 22.67 23.24">
+                <defs>
+                    <style>
+                        .webcam-1 {
+                            fill: none;
+                            stroke: #fff;
+                            stroke-miterlimit: 10;
+                        }
+                    </style>
+                </defs>
+                <title>web-cam</title>
+                <g>
+                    <path class="webcam-1"
+                          d="M15.6,18.87c-.09.23-1.08.44-1.37.64-2.41.21-2.83.58-7.08-.59-3.91.3-6.65,1-6.65,1.83,0,1.1,4.85,2,10.83,2s10.83-.89,10.83-2C22.17,19.87,19.88,19.13,15.6,18.87Z"></path>
+                    <g class="web-cam-cent">
+                        <ellipse class="webcam-1" cx="11.24" cy="10.12" rx="10.54" ry="9.62"></ellipse>
+                        <ellipse class="webcam-1" cx="11.24" cy="10.12" rx="5.55" ry="5.06"></ellipse>
+                        <ellipse class="webcam-1" cx="11.24" cy="10.22" rx="3.9" ry="3.56"></ellipse>
+                    </g>
+                </g>
+            </svg>
+            <span>[[%web.link ? &namespace=`unna`]]</span>
+        </div>
+    </div>
+</section>
+<section class="section2 about" id="[[#7.alias]]">
+    <div class="container">
+        <h2>[[#7.pagetitle:striptags]]</h2>
+        <p>[[#7.content]]</p>
+        <!--        <img src="assets/images/mobile-main2.jpg" alt="Unna full house">-->
+        <div class="links">
+            <a href="#">
+                <img src="assets/images/booklet-icon.png" alt="download booklet">
+                <span>[[%download:ucfirst? &namespace=`unna`]] [[%buklet? &namespace=`unna`]]</span>
+            </a>
+            <a href="#">
+                <i class="icon-video-player"></i>
+                <span>[[%look:ucfirst? &namespace=`unna`]] [[%video? &namespace=`unna`]][[%presentation? &namespace=`unna`]]</span>
+            </a>
+        </div>
+        <div class="mobile-scroll"><img src="assets/images/scroll-icon.png" alt="scroll icon"></div>
+    </div>
+</section>
+<section class="section3 location" id="[[#8.alias]]">
+    <div class="container">
+        <h2>[[#8.pagetitle:striptags]]</h2>
+        <div class="content-text scale-js-1">
+            <div class="location-hide active">
+                <i class="icon-eye-see"></i>
+                <span>[[%location.all? &namespace=`unna`]]</span>
+            </div>
+            <div class="location-filter">
+                <div class="location-type" data-group="sport">
+                    <i class="icon-dumbbell"></i>
+                </div>
+                <div class="location-type" data-group="kids">
+                    <i class="icon-teddy-bear"></i>
+                </div>
+                <div class="location-type" data-group="study">
+                    <i class="icon-mortarboard"></i>
+                </div>
+                <div class="location-type" data-group="medicine">
+                    <i class="icon-first-aid-kit"></i>
+                </div>
+                <div class="location-type" data-group="parks">
+                    <i class="icon-tree"></i>
+                </div>
+                <div class="location-type" data-group="shopping">
+                    <i class="icon-shopping-cart"></i>
+                </div>
+            </div>
+        </div>
+        <div id="locationMap"></div>
+        <div id="locationInfo">
+            [[$location-map-info]]
+        </div>
+    </div>
+</section>
+<section class="section4 genplan" id="[[#29.alias]]">
+    <div class="container">
+        <h2>[[#29.pagetitle:striptags]]</h2>
+        <img src="[[#29.genplan]]" alt="Unna генплан">
+    </div>
+</section>
+<section class="section5 advantages" id="[[#9.alias]]">
+    <div class="container">
+        <h2>[[#9.pagetitle:striptags]]</h2>
+        <div class="slider">
+            [[!getImageList?
+            &tvname=`migx-advantages`
+            &docid=`9`
+            &tpl=`advantage-mobile-slider-item`]]
+        </div>
+    </div>
+</section>
+<section class="section6 haracteristics" id="[[#10.alias]]">
+    <div class="container">
+        <h2>[[#10.pagetitle:striptags]]</h2>
+        <ul>
+            [[!getImageList? &docid=`10` &tvname=`migx-tex-haracteristics` &tpl=`@CODE:
+            <li>[[+haracter]]</li>
+            `]]
+        </ul>
+    </div>
+</section>
+<section class="section7 developer" id="[[#30.alias]]">
+    <div class="container">
+        <h2>[[#30.pagetitle:striptags]]</h2>
+        <img src="assets/images/logo-small.png" alt="Unna logo">
+        <p>[[#30.content]]</p>
+    </div>
+</section>
+<section class="section8 perspective">
+    <div class="container">
+        <h2>Проекты в перспективе</h2>
+        [[!getImageList?
+        &docid=`30`
+        &tvname=`migx-project-colection`
+        &tpl=`@CODE: <a href="[[+link]]"><img src="[[+image]]" alt="[[+title]]"></a>
+        <h3>[[+title]]</h3>`
+        ]]
+        <p>[[#30.content:striptags:limit=`250`]]</p>
+    </div>
+</section>
+<section class="section9 partners">
+    <div class="container">
+        <h2>Партнеры</h2>
+        <div class="pertners">
+            [[!getImageList?
+            &docid=`30`
+            &tvname=`migx-partners-colection`
+            &tpl=`@CODE: <a href="[[+link]]"><img src="[[+icon]]" alt="[[+title]] logo" title="[[+title]]"></a>`
+            ]]
+        </div>
+    </div>
+</section>
+<section class="section10 documentation" id="[[#5.alias]]">
+    <div class="container">
+        <h2>[[#5.pagetitle:striptags]]</h2>
+        <ul>
+            [[!getImageList?
+            &tvname=`migx_documents`
+            &docid=`5`
+            &tpl=`@CODE:
+            <li>[[+title]] <a href="[[+file]]"><i
+                            class="icon-pdf-file-outlined-interface-symbol"></i></a></li>
+            `]]
+        </ul>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="arrows">
+            <a href="#" class="left-arrow">Контакты<i class="icon-left-arrow-g"></i></a>
+            <a href="#" class="right-arrow">Планировки<i class="icon-right-arrow-g"></i></a>
+        </div>
+        <div class="footer-logo">
+            <img src="assets/images/logo-white.png" alt="logo unna">
+        </div>
+        <div class="fresh-logo">Сайт разработан веб-студией Fresh</div>
+    </div>
+</footer>
+<!--scripts-->
+<!--libs-->
+<script type='text/javascript'>
+    QueryLoader.init();
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy85hurU5pPvup9lMcp2H6y5G3LrrsEXE" async defer></script>
+<script src="http://code.jquery.com/jquery-migrate-3.0.0.js"></script>
+<script src="assets/js/lib/slick.min.js"></script>
+<script src="assets/js/base-mobile.js"></script>
+<script src="assets/js/main-mobile.js"></script>
+
+<!---->
+</body>
+
+</html>

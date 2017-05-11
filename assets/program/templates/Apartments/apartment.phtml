@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="[[*context_key]]">
+<head>
+    <base href="[[++site_url]]">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>[[*pagetitle]]</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
+    <link rel="stylesheet" href="assets/css/apartment.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <!--left side-->
+    [[$left-side]]
+
+    <!--right side-->
+    [[$right-side]]
+
+    <!--arrows-->
+    [[!prev-next-Page? &tpl=`prev-next-Page-tpl` &docid=`[[*parent]]`]]
+
+    <div class="container content">
+        <h1 class="header">
+            [[*pagetitle]] [[%metr? &namespace=`unna`]]<sup>2</sup>
+        </h1>
+        <a class="prev_page" href="javascript:history.back();">
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 72.05 43.92">
+                <defs>
+                    <style>.svg-all-actions {
+                            fill: none;
+                            stroke: #fff;
+                            stroke-miterlimit: 10;
+                            stroke-width: 7px
+                        }</style>
+                </defs>
+                <title>arrow</title>
+                <path class="svg-all-actions" d="M69.68 20.68H0M46 .78l24.52 19.95L46 43.19"></path>
+            </svg>
+            <span>[[*template:is=`14`:then=`[[%to.selected.apartments? &namespace=`unna`]]`:else=`[[%to.selection.premises? &namespace=`unna`]]`]]</span>
+        </a>
+        <div class="apart [[*template:is=`20`:then=`apart_inside`]]">
+            <div class="left_block">
+                <div class="compass"></div>
+                [[*template:is=`14`:then=`[[$apartment-info]]`]]
+                [[*template:is=`20`:then=`[[$premises-info]]`]]
+            </div>
+            <div class="right_block">
+                [[*template:is=`14`:then=`[[$apartment-right-blok]]`]]
+                [[*template:is=`20`:then=`[[$premises-right-blok]]`]]
+                <a class="show_more" href="#modal">[[%learn? &namespace=`unna`]] [[%more? &namespace=`unna`]]</a>
+            </div>
+        </div>
+    </div>
+
+    [[$foot?&parent=`[[#[[*parent]].parent]]`]]
+</div>
+
+<!--scripts-->
+<script
+        src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/js/slick.min.js"></script>
+<script type="text/javascript" src="assets/js/lightbox.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.min.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/scale.js"></script>
+<script src="assets/js/foot-menu.js"></script>
+<script src="assets/js/start-anim.js"></script>
+<script type="text/javascript" src="assets/js/app.min.js"></script>
+</body>
+</html>

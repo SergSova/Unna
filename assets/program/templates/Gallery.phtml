@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="[[++context_key]]">
+<head>
+    <base href="[[++site_url]]">
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[[*pagetitle]]</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+    [[*id:in=`21,22`:then=`
+    <link rel="stylesheet" href="assets/css/architecture.css">
+    `]]
+    [[*id:is=`33`:then=`
+    <link rel="stylesheet" href="assets/css/building.css">
+    `]]
+    [[$seo.tpl]]
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!--left side-->
+    [[$left-side]]
+
+    <!--right side-->
+    [[$right-side]]
+
+    <!--arrows-->
+    [[!prev-next-Page]]
+
+    <!--content-->
+    <div class="content">
+        <div class="content-wrap">
+            <h1>[[#[[*parent]].pagetitle]]</h1>
+            <h2>[[*pagetitle]]</h2>
+            <div class="content-text">
+                <!--more btn-->
+                <div class="btn-more">
+                    <div class="btn-more-wrap">
+                        <img src="assets/images/mouse.png" alt="mouse">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                [[*id:in=`21,22`:then=`[[$architecture]]`]]
+                [[*id:is=`33`:then=`[[$building]]`]]
+            </div>
+        </div>
+    </div>
+
+    [[$foot]]
+</div>
+
+
+<!--scripts-->
+<!--libs-->
+<script
+        src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+<!--<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>-->
+<script src="assets/js/lightbox.min.js"></script>
+<!---->
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/scale.js"></script>
+<script src="assets/js/foot-menu.js"></script>
+<script src="assets/js/start-anim.js"></script>
+[[*id:in=`21,22`:then=`
+<script src="assets/js/architecture.js"></script>
+`]]
+[[*id:is=`33`:then=`
+<script src="assets/js/building.js"></script>
+`]]
+
+</body>
+</html>
