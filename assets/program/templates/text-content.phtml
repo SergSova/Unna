@@ -35,8 +35,8 @@
     [[$seo.tpl]]
 </head>
 <body>
-<!--[[*katalog_image_bg:!empty=`style="background-image: url([[*katalog_image_bg]])"`]]-->
-<div class="wrapper" >
+<!---->
+<div class="wrapper" [[*katalog_image_bg:!empty=`style="background-image: url([[*katalog_image_bg]])"`]]>
 
     <!--left side-->
     [[$left-side]]
@@ -48,7 +48,6 @@
     [[!prev-next-Page]]
 
     [[*id:is=`6`:then=`[[$contact_chank]]`:else=`
-
     <!--content-->
     <div class="content">
         <div class="content-wrap">

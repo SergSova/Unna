@@ -48,11 +48,11 @@ $modx->setPlaceholder( '_last', 0 );
 foreach ( $objects as $res ) {
 	if ( $res->id == $curent->parent || $res->id == $curent->id ) {
 		//prev Page
-		if ( $index != 0 ) {
+		if ( $index == 0 ) {
 			$modx->setPlaceholder( '_first', 1 );
-			break;
+			$index = 27;
+//			continue;
 		}
-		$index = $index;
 //		$index = $index != 0 ? $index;
 
 		$prev = $modx->getObject( 'modResource', $index );

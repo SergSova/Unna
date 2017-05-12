@@ -12,7 +12,7 @@
         </div>
     </div>
     `:else=`
-    [[!*id:ne=`6`:and:ne=`12`:then=`
+    [[*id:ne=`6`:and:ne=`12`:then=`
     <div class="foot-menu">
         [[$footer-menu?&parent=`[[+parent]]`]]
     </div>
