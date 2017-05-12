@@ -1,9 +1,7 @@
 <footer>
     <div class="container">
-        <div class="arrows">
-            <a href="#" class="left-arrow">Контакты<i class="icon-left-arrow-g"></i></a>
-            <a href="#" class="right-arrow">Планировки<i class="icon-right-arrow-g"></i></a>
-        </div>
+        [[!prev-next-Page? &tpl=`prev-next-Page-mobile-tpl`]]
+
         <div class="footer-logo">
             <img src="assets/images/logo-white.png" alt="logo unna">
         </div>

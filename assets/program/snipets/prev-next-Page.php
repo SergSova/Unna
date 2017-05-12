@@ -5,8 +5,10 @@
  * @var $objects modResource[]
  */
 
-$p404  = $modx->config['error_page'];
-$chank = $modx->getOption( 'tpl', $scriptProperties, 'prev-next-Page-tpl' );
+$detect = new Mobile_Detect();
+$p404   = $modx->config['error_page'];
+$chank  = $modx->getOption( 'tpl', $scriptProperties, 'prev-next-Page-tpl' );
+
 if ( $docid ) {
 	$resource = $modx->getObject( 'modResource', $docid );
 	$curent   = $resource;
@@ -46,7 +48,12 @@ $modx->setPlaceholder( '_last', 0 );
 foreach ( $objects as $res ) {
 	if ( $res->id == $curent->parent || $res->id == $curent->id ) {
 		//prev Page
-		$index = $index != 0 ? $index : $modx->config['site_start'];
+		if ( $index != 0 ) {
+			$modx->setPlaceholder( '_first', 1 );
+			break;
+		}
+		$index = $index;
+//		$index = $index != 0 ? $index;
 
 		$prev = $modx->getObject( 'modResource', $index );
 		$modx->setPlaceholder( 'prev-id', $prev->id );
@@ -62,7 +69,8 @@ foreach ( $objects as $res ) {
 	if ( $flag ) {
 		//next Page
 		if ( $res->id == $p404 ) {
-			$res = $modx->getObject( 'modResource', $modx->config['site_start'] );
+//			$res = $modx->getObject( 'modResource', $modx->config['site_start'] );
+			$modx->setPlaceholder( '_last', 1 );
 		}
 		$modx->setPlaceholder( 'next-id', $res->id );
 		if ( $res->get( 'menutitle' ) != '' ) {

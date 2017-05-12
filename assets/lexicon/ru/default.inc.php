@@ -14,12 +14,13 @@ $_lang = array(
 	'off'                    => 'отключить',
 	'on'                     => 'включить',
 	'more'                   => 'подробнее',
-	'larger'                   => 'больше',
+	'larger'                 => 'больше',
 	'people.on.site'         => 'сейчас на сайте человек',
 	'site.developed'         => 'сайт разработан',
 	'uah'                    => 'грн',
 	'metr'                   => 'м',
 	'area'                   => 'площадь',
+	'floor'                   => 'этаж',
 	'total'                  => 'общая',
 	'living'                 => 'жилая',
 	'price'                  => 'стоимость',
@@ -56,6 +57,6 @@ $_lang = array(
 	'work_schedule'          => 'Пн - Пт',
 	'weekend_schedule'       => 'Сб - Вс',
 	//___________________________________
-	'facebook'       => 'Мы в Facebook',
+	'facebook'               => 'Мы в Facebook',
 
 );
