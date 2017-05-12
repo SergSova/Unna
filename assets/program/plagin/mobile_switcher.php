@@ -1,5 +1,4 @@
 <?php
-
 /** @var modX $modx */
 if ( $modx->event->name == 'OnLoadWebDocument' && $modx->context->get( 'key' ) != "mgr" ) {
 	require_once( MODX_BASE_PATH . 'Mobile_Detect.php' );

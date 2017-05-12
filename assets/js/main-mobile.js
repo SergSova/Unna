@@ -4,7 +4,7 @@ var map;
 
 $(window).on('load',function() {
 
-    var myLatlng = { lat: 50.471706, lng: 30.601709 };
+    var myLatlng = { lat: 50.467306, lng: 30.601709 };
 
 
     map = new google.maps.Map(document.getElementById('locationMap'), {
@@ -27,7 +27,7 @@ $(window).on('load',function() {
 });
 
 var markersInfo = [];
-var emptyIcon = "assets/images/marker-empty.png";
+var emptyIcon = "assets/image/marker-empty.png";
 
 function collectMarkersInfo(objects) {
     markersInfo = [];
@@ -172,77 +172,3 @@ function hideButtonShow() {
     $('.location-hide').addClass('active');
     $('.location-hide span').html('Показать все окружение');
 }
-
-$('#mobile-menu .menu-lang a.active').click(function(event) {
-    event.preventDefault(event);
-});
-
-// ************************************************************* slider
-
-$('.slider').each(function() {
-    $(this).slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: true,
-        prevArrow: '<i class="icon-left-arrow slick-prev slick-arrow"></i>',
-        nextArrow: '<i class="icon-right-arrow slick-next slick-arrow"></i>'
-    });
-});
-
-// ************************************************************** link with delay click
-
-$('.link-delay').each(function() {
-    $(this).click(function() {
-        event.preventDefault(event);
-        var url = $(this).attr('href');
-        setTimeout(function() {
-            $(location).attr('href', url);
-        }, 1500);
-    });
-});
-
-// ************************************************************** menu sandwitch click
-
-var heightSetted = false;
-$('.menu-sandwich').click(function() {
-    $('#mobile-menu').fadeToggle(400, function () {
-        // set max-height of items menu
-        if (!heightSetted){
-            var maxHeight = $('#mobile-menu').height() - $('#mobile-menu .top').outerHeight();
-            $('#mobile-menu .content').css('max-height', maxHeight);
-            heightSetted = true;
-        }
-    });
-    setTimeout(function() {
-        $('.menu-sandwich').toggleClass('rotate');
-    }, 100);
-    // hide opened menu items
-    $('#mobile-menu .menu-item').each(function() {
-        $(this).removeClass('active').find('.sub').hide('400');
-    });
-});
-
-// ************************************************************** mobile menu item click
-
-$('#mobile-menu .header-menu a').click(function(event) {
-    var that = $(this);
-    if (that.siblings('.sub').length > 0) {
-        event.preventDefault(event);
-        that.parent('li').toggleClass('active').siblings('li').each(function() {
-            $(this).removeClass('active').find('.sub').hide('400');
-        });
-        that.siblings('.sub').toggle('400');
-    }
-});
-
-// ************************************************************** callback open
-
-$('.callback-open').click(function(event) {
-    event.preventDefault(event);
-    $('#callback').fadeIn(400);
-});
-
-$('#callback .close').click(function(event) {
-    event.preventDefault(event);
-    $('#callback').fadeOut('400');
-});

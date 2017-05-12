@@ -6,16 +6,8 @@
 </section>
 <section class="section2">
     <div class="container">
-        <div class="news">
-            [[!getResources?
-            &parents=`[[*id]]`
-            &tpl=`news_item_TPL`
-            &limit=`3`
-            &tvPrefix=``
-            &includeTVs=`1`
-            &includeContent=`1`
-            &showHidden=`1`
-            ]]
+        <div class="news" data-all="[[+total]][[!getResources?&parents=`[[*id]]`&tpl=`@INLINE`&showHidden=`1`]]">
+            [[!more_News_Ajax]]
         </div>
         <div class="news-more">
             <a href="facebook.com" target="_blank" rel="nofollow">[[%facebook? &namespace=`unna`]]</a>

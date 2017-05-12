@@ -14,6 +14,9 @@ function filterApart(curr){
         success: function(res){
             var leng = $(res).length,
                 list = $('.aparts_list .mCSB_container');
+            if (window.matchMedia("(max-width: 1024px)").matches) {
+                list = $('.aparts_list');
+            }
             if(leng != 0) {
                 setTimeout(function(){
                     $('.range-slider').removeClass('disabled');
