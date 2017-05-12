@@ -3,6 +3,7 @@ $(window).load(function () {
   var content = wrap.find('.content-wrap');
   var foot = wrap.find('.footer');
   var text = wrap.find('.content-text');
+  var h = $(window).height();
   //slider
   var slider = wrap.find('.slider');
   var sliderLen = slider.find('.slider-container img').length;
@@ -12,6 +13,11 @@ $(window).load(function () {
   var sections = wrap.find('.list-section');
   var currentSection = 0;
   isWheel = true;
+
+  //hidding SEO text
+  if(h < 800) {
+    wrap.find('.advan-text').css('display', 'none');
+  }
 
   //height content
   sizeTextContent();

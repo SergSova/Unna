@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
 
-    [[*id:isnot=`9`:and:isnot=`36`:and:isnot=`6`:then=`
+    [[*id:in=`9,36,29,6`:then=``:else=`
     <link rel="stylesheet" href="assets/css/complex.css">
     `]]
     [[*id:is=`9`:then=`
@@ -24,6 +24,9 @@
     `]]
     [[*id:in=`36,12`:then=`
     <link rel="stylesheet" href="assets/css/actions.css">
+    `]]
+    [[*id:is=`29`:then=`
+    <link rel="stylesheet" href="assets/css/masplan.css">
     `]]
 
     [[$seo.tpl]]
@@ -53,6 +56,7 @@
                 [[*id:is=`5`:then=`[[$documents]]`]]
                 [[*id:in=`36,12`:then=`[[$stocks]]`]]
                 [[*id:is=`8`:then=`[[$location-content]]`]]
+                [[*id:is=`29`:then=`<img src="[[*genplan]]" alt="Unna genplan">`]]
 
                 <p>[[*content]]</p>
             </div>
@@ -89,8 +93,8 @@
 <!---->
 <script src="assets/js/nav.js"></script>
 <script src="assets/js/scale.js"></script>
-<script src="assets/js/start-anim.js"></script>
 <script src="assets/js/foot-menu.js"></script>
+<script src="assets/js/start-anim.js"></script>
 [[*id:isnot=`6`:and:isnot=`9`:and:isnot=`36`:then=`
 <script src="assets/js/complex.js"></script>
 `]]
@@ -99,6 +103,9 @@
 `]]
 [[*id:in=`36,12`:then=`
 <script src="assets/js/actions.js"></script>
+`]]
+[[*id:is=`5`:then=`
+<script src="../assets/js/documentation.js"></script>
 `]]
 
 </body>

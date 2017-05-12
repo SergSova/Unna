@@ -1,6 +1,5 @@
-<div class="content-text">
     <div class="advan-list">
-        [[!getImageList?
+[[!getImageList?
         &tvname=`migx-advantages`
         &docid=`[[*id]]`
         &tpl=`advantage-title-item-tpl`]]
@@ -12,4 +11,4 @@
         &docid=`[[*id]]`
         &tpl=`advantage-content-item-tpl`]]
     </div>
-</div>
+
