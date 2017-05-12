@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="foot-left">
+    <div class="foot-left scale-js-1">
         <a href="[[++site_url]]"><img class="unna-dev" src="assets/images/unna-develop.png" alt=""></a>
     </div>
 
@@ -17,7 +17,7 @@
     </div>
     `]]
 
-    <div class="foot-right">
+    <div class="foot-right foot-scale">
         <!--sit on site-->
         <div class="on-site">
             <div class="on-site-count">[[!online_people]]</div>

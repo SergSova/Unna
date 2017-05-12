@@ -1331,7 +1331,7 @@ a.callback .callback-wrap img {
   display: inline-block;
 }
 .slider-logo {
-  background-image: url("../images/sprite-green.png");
+  /*background-image: url("../images/sprite-green.png");*/
   background-repeat: no-repeat;
 }
 .slider-nav > * {

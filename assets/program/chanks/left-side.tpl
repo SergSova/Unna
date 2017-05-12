@@ -1,5 +1,5 @@
 <aside class="left-side">
-    <a href="[[++site_url]]" class="arrow-to-main"><?xml version="1.0" encoding="iso-8859-1"?>
+    <a href="[[++site_url]]" class="arrow-to-main">
         <span>На главную</span>
         <i class="icon-left-arrow-g"></i>
     </a>
@@ -19,9 +19,9 @@
         <a href="[[~2]]" class="menu-apartment">
             <div class="menu-apart-white">
                 <div class="menu-apart-items">
-                    <div class="menu-apart-item"></div>
-                    <div class="menu-apart-item"></div>
-                    <div class="menu-apart-item"></div>
+                    <div class="menu-apart-item"><span></span></div>
+                    <div class="menu-apart-item"><span></span></div>
+                    <div class="menu-apart-item"><span></span></div>
                 </div>
             </div>
         </a>
