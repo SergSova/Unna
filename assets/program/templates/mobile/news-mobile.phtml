@@ -1,0 +1,28 @@
+[[$mobile-head]]
+<section class="section1">
+    <div class="container">
+        <h1>[[*pagetitle]]</h1>
+    </div>
+</section>
+<section class="section2">
+    <div class="container">
+        <div class="news">
+            [[!getResources?
+            &parents=`[[*id]]`
+            &tpl=`news_item_TPL`
+            &limit=`3`
+            &tvPrefix=``
+            &includeTVs=`1`
+            &includeContent=`1`
+            &showHidden=`1`
+            ]]
+        </div>
+        <div class="news-more">
+            <a href="facebook.com" target="_blank" rel="nofollow">[[%facebook? &namespace=`unna`]]</a>
+            <a id="loadMoreNews" class="green-button" href="#">[[%larger? &namespace=`unna`]] [[%nesw?
+                &namespace=`unna`]] <i class="icon-right-arrow"></i></a>
+        </div>
+    </div>
+</section>
+
+[[$mobile-foot]]

@@ -1,0 +1,34 @@
+[[$mobile-head]]
+<section class="section1">
+    <div class="container">
+        <h1>[[#6.pagetitle]]</h1>
+    </div>
+</section>
+<section class="section2">
+    <div class="container">
+        [[!getImageList?
+        &docid=`[[*id]]`
+        &tvname=`migx_contact`
+        &tpl=`contact_mobile_map_item_TPL`
+        &limit=`2`
+        ]]
+    </div>
+</section>
+<section class="section3">
+    <div class="container">
+        <div id="contactsMap"></div>
+    </div>
+</section>
+<div id="map-popup">
+    <div class="popup-inner">
+        <a href="#" target="_blank">[[%open_Google_map]]</a>
+    </div>
+</div>
+<div id="direction-popup">
+    <div class="align-middle">
+        <div class="popup-inner">
+            <img src="assets/images/driving-direction.png" alt="Как доехать">
+        </div>
+    </div>
+</div>
+[[$mobile-foot]]

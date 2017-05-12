@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
 
-    [[*id:in=`9,36,29,6`:then=``:else=`
+    [[*id:in=`9,36,29,6,5,10`:then=``:else=`
     <link rel="stylesheet" href="assets/css/complex.css">
     `]]
     [[*id:is=`9`:then=`
@@ -25,15 +25,18 @@
     [[*id:in=`36,12`:then=`
     <link rel="stylesheet" href="assets/css/actions.css">
     `]]
-    [[*id:is=`29`:then=`
+    [[*id:in=`29,10`:then=`
     <link rel="stylesheet" href="assets/css/masplan.css">
+    `]]
+    [[*id:is=`5`:then=`
+    <link rel="stylesheet" href="assets/css/documentation.css">
     `]]
 
     [[$seo.tpl]]
 </head>
 <body>
-
-<div class="wrapper">
+<!--[[*katalog_image_bg:!empty=`style="background-image: url([[*katalog_image_bg]])"`]]-->
+<div class="wrapper" >
 
     <!--left side-->
     [[$left-side]]
@@ -54,9 +57,10 @@
             <div class="content-text">
                 [[*id:is=`9`:then=`[[$advantages]]`]]
                 [[*id:is=`5`:then=`[[$documents]]`]]
-                [[*id:in=`36,12`:then=`[[$stocks]]`]]
                 [[*id:is=`8`:then=`[[$location-content]]`]]
+                [[*id:in=`12,36`:then=`[[$stocks]]`]]
                 [[*id:is=`29`:then=`<img src="[[*genplan]]" alt="Unna genplan">`]]
+                [[*id:is=`30`:then=`[[$developer_chank]]`]]
 
                 <p>[[*content]]</p>
             </div>

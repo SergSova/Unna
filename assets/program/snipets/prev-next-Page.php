@@ -29,6 +29,7 @@ $q->sortby( 'menuindex', 'ASC' );
 
 $objects = $modx->getCollection( 'modResource', $q );
 
+
 /*foreach ( $objects as $object ) {
 	var_dump($object->id);
 }
