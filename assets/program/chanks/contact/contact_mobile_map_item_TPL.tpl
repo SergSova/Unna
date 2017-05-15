@@ -14,7 +14,7 @@
         </p>
     </div>
     <div class="contact-info">
-        <p><i class="icon-phone"></i> <a href="tel:+38[[+phone]]"></a>+38[[+phone]]</p>
+        <p><i class="icon-phone"></i> <a href="tel:[[+phone]]"></a>[[+phone]]</p>
         <p><i class="icon-mail"></i> <a href="mail:[[+email]]">[[+email]]</a></p>
     </div>
     <div class="buttons">

@@ -18,7 +18,7 @@
                     <td class="desc">[[%area? &namespace=`unna`]]</td>
                 </tr>
                 <tr>
-                    <td class="num">[[+bisnes-price]] <span>[[%uah]]/[[%metr? &namespace=`unna`]]<sup>2</sup></td>
+                    <td class="num">[[+bisnes-price]] <span>[[%uah? &namespace=`unna`]]/[[%metr? &namespace=`unna`]]<sup>2</sup></td>
                     <td class="desc">[[%price? &namespace=`unna`]] 1 [[%metr? &namespace=`unna`]]<sup>2</sup></td>
                 </tr>
             </table>

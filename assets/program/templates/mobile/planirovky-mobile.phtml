@@ -60,7 +60,7 @@
                         <div class="body">
                             <ul>
                                 <li>
-                                    <div class="range-slider">
+                                    <div class="range-slider sizes disabled" >
                                         <div class="ui-slider-range-left"></div>
                                         <div class="ui-slider-range"></div>
                                         <div class="ui-slider-range-right"></div>
@@ -78,7 +78,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="range-slider">
+                                    <div class="range-slider prices disabled" >
                                         <div class="ui-slider-range-left"></div>
                                         <div class="ui-slider-range"></div>
                                         <div class="ui-slider-range-right"></div>
@@ -88,11 +88,11 @@
                                            data-value="[[+price-min]]"></a>
                                         <a href="#" class="ui-slider-handle right-handle"
                                            data-value="[[+price-max]]"></a>
-                                        <input type="hidden" name="full-area-from" value=""/>
-                                        <input type="hidden" name="full-area-to" value=""/>
+                                        <input type="hidden" name="full-price-from" value=""/>
+                                        <input type="hidden" name="full-price-to" value=""/>
                                     </div>
                                     <div class="filter-title">
-                                        [[%cena? &namespace=`unna`]], [[%thousand? &namespace=`unna`]] [[%uah]]
+                                        [[%cena? &namespace=`unna`]], [[%thousand? &namespace=`unna`]] [[%uah? &namespace=`unna`]]
                                     </div>
                                 </li>
                             </ul>

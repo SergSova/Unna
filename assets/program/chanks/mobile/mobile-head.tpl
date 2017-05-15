@@ -44,6 +44,7 @@
     [[*id:is=`[[babelId?&id=`31`]]`:then=`
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
     <script type="text/javascript" src="assets/js/slick.min.js"></script>
     <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.min.js"></script>
@@ -71,12 +72,12 @@
                         <div class="cross-line"></div>
                     </div>
                 </div>
-                <form action="mail.php">
+                <form action="send_mail.php">
                     <input type="text" name="name" placeholder="имя">
                     <input type="text" name="phone" placeholder="телефон">
                     <input type="text" name="email" placeholder="e-mail">
                     <input type="text" name="comment" placeholder="сообщение">
-                    <button class="green-button">отправить <i class="icon-right-arrow"></i></button>
+                    <button class="green-button">[[%send?&namespace=`unna`]] <i class="icon-right-arrow"></i></button>
                 </form>
             </div>
         </div>
@@ -94,8 +95,7 @@
                     </div>
                 </div>
                 <div class="menu-lang">
-                    <a href="#">UA</a>
-                    <a class="active" href="#">RU</a>
+                    [[!BabelLinks? &tpl=`tpl.babel`&showCurrent=`1`]]
                 </div>
             </div>
             <a class="logo" href="/"><img src="assets/images/logo-menu.png" alt="unna logo"></a>
@@ -117,7 +117,8 @@
             &innerTpl=`m.menu-mobile-innerTPL`
             &rowTpl=`m.menu-modile-itemTPL`
             ]]
-            <a href="#" class="more-button green-button callback-open">узнать подробнее <i class="icon-right-arrow"></i></a>
+            <a href="#" class="more-button green-button callback-open">[[%learn? &namespace=`unna`]] [[%more?
+                &namespace=`unna`]] <i class="icon-right-arrow"></i></a>
         </div>
     </div>
 </div>
@@ -151,7 +152,7 @@
             <a href="tel:+38[[++kontakt-phone]]" class="mobile-phone"><i class="icon-phone"></i></a>
         </div>
         <div class="menu-lang">
-            <a href="ua">UA</a>
+            [[!BabelLinks? &tpl=`tpl.babel`]]
         </div>
     </div>
 </header>

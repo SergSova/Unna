@@ -55,8 +55,7 @@
     `]]
     <div class="big-menu">
         <div class="bm-langs">
-            <a href="" class="lang-ru active">RU</a>
-            <a href="" class="lang-ua">UA</a>
+            [[!BabelLinks? &tpl=`tpl.babel`&showCurrent=`1`]]
         </div>
         [[Wayfinder?
         &startId=`0`

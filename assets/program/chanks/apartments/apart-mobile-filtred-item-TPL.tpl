@@ -46,7 +46,7 @@
                 <tr>
                     <td class="num">[[+tv.price]]</td>
                     <td>
-                        <span>[[%uah]]/[[%metr? &namespace=`unna`]]<sup>2</sup></span>
+                        <span>[[%uah? &namespace=`unna`]]/[[%metr? &namespace=`unna`]]<sup>2</sup></span>
                     </td>
                     <td class="desc">[[%price? &namespace=`unna`]] 1 [[%metr? &namespace=`unna`]]<sup>2</sup></td>
                 </tr>

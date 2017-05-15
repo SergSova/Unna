@@ -79,7 +79,7 @@
 					   data-value="[[+price-max]]"></a>
 				</div>
 				<div class="filter-title">
-					[[%cena? &namespace=`unna`]], [[%thousand? &namespace=`unna`]] [[%uah]]
+					[[%cena? &namespace=`unna`]], [[%thousand? &namespace=`unna`]] [[%uah? &namespace=`unna`]]
 				</div>
 			</li>
 		</ul>

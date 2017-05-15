@@ -11,10 +11,22 @@
           rel="stylesheet">
     <link rel="stylesheet" href="assets/css/font.css">
     <link rel="stylesheet" href="assets/css/active-house.css">
+    <link rel="stylesheet" href="assets/css/queryLoader.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="assets/js/lib/queryLoader.js"></script>
     [[$seo.tpl]]
 </head>
 <body>
-
+<div id="preload">
+    <div class="white white-left"></div>
+    <div class="white white-right"></div>
+    <div class="white-center white-center-left"></div>
+    <div class="white-center white-center-right"></div>
+    <div class="line-top line"></div>
+    <div class="line-bottom line"></div>
+    <div class="logo"><img src="assets/images/logo-preload.png" alt="unna logo"></div>
+</div>
 <div class="wrapper" style="background-image: url([[*katalog_image_bg]])">
     <!--left side-->
     [[$left-side]]
@@ -90,8 +102,9 @@
 
 
 <!--scripts-->
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script type='text/javascript'>
+	QueryLoader.init();
+</script>
 <script src="assets/js/nav.js"></script>
 <script src="assets/js/head-menu.js"></script>
 <script src="assets/js/scale.js"></script>
