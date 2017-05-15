@@ -3,6 +3,7 @@ $(window).load(function () {
   var content = wrap.find('.content-wrap');
   var foot = wrap.find('.footer');
   var text = wrap.find('.content-text');
+
   var isWheel = true;
   var hC;
   var gallery = wrap.find('.gallery-wrap');
@@ -72,47 +73,92 @@ $(window).load(function () {
     }
   }
 
-
-  //parallax
-  // gallery.mousemove(function (e) {
-  //   curX = e.clientX;
-  //   curY = e.clientY;
-  //   diffX = curX - prevX;
-  //   diffY = curY - prevY;
-  //   if (diffX) {
-  //     sumX += diffX;
-  //   } else if (diffY) {
-  //     sumY += diffY;
-  //   }
-  //   prevX = curX;
-  //   prevY = curY;
-  //   wrap.find('.content-text').css({transform: 'translate('+ sumX / -13 +'px, ' + sumY / -13 +'px)'});
-  //   gallery.find('.img-sector:eq('+ sector +') .img-wrap:eq(1) .img-shadow').css({transform: 'translate('+ -(sumX / 60) +'px, ' + -(sumY / 60) +'px)'});
-  //   gallery.find('.img-sector:eq('+ sector +') .img-wrap:eq(2) .img-shadow').css({transform: 'translate('+ sumX / 30 +'px, ' + sumY / 30 +'px)'});
-  // });
-
-
-
-
-
-  // window.addEventListener('scrollUp', scrollToTop);
-  // window.addEventListener('scrollDown', scrollToDown);
-
   //resing elems
   $(window).resize(function () {
     sizeTextContent();
     scaleImg()
   });
+
+
+
+  ///slider
+  //open slider
+  var slider = wrap.find('.slider');
+  var sliderLen;
+  var index;
+  var indexIn;
+  wrap.find('.img-wrap').click(function () {
+    index = $(this).find('img').data('img');
+    indexIn = slider.find('.slider-container').children('[data-img="'+ index +'"]').find('img:eq(0)').data('img-in');
+    sliderLen = slider.find('.slider-container').children('[data-img="'+ index +'"]').find('img').length;
+
+    slider.css('display', 'block');
+    slider.find('.slider-container')
+      .children('[data-img="'+ index +'"]').addClass('active')
+      .find('img:eq(0)').addClass('active-in');
+    slider.find('.slider-top').children('[data-img="'+ index +'"]').addClass('active')
+      .children('[data-img-in="'+ indexIn +'"]').addClass('active-in');
+    //counter
+    slider.find('.count-current').html(indexIn);
+    slider.find('.count-max').html(sliderLen);
+    resizeImg();
+
+  });
+  //close slider
+  wrap.find('.slider-close').click(function () {
+    slider.css('display', 'none');
+    slider.find('.active').removeClass('active');
+    slider.find('.active-in').removeClass('active-in');
+  });
+  //paging
+  wrap.find('.slider-right').click(function () {
+    indexIn++;
+    sliding();
+  });
+  wrap.find('.slider-left').click(function () {
+    indexIn--;
+    sliding();
+  });
+  function sliding() {
+    // check index
+    if (indexIn > sliderLen) {
+      indexIn = 1
+    } else if (indexIn < 1) {
+      indexIn = sliderLen
+    }
+    console.log(indexIn);
+    // change image
+    slider.find('.count-current').html(indexIn);
+    slider.find('.active-in').removeClass('active-in');
+    slider.find('.slider-container').children('[data-img="'+ index +'"]').addClass('active')
+      .find('[data-img-in="'+ indexIn +'"]').addClass('active-in');
+    slider.find('.slider-top').children('[data-img="'+ index +'"]').addClass('active')
+      .children('[data-img-in="'+ indexIn +'"]').addClass('active-in');
+    resizeImg();
+  }
+
+  //resize slider image
+  function resizeImg() {
+    var w = $(window).width();
+    var h = $(window).height();
+    var imgRatio = 1400 / 940;
+    var windowRatio = w / h;
+
+    if (w < 1400 || h < 940) {
+      if(imgRatio > windowRatio) {
+        slider.find('.slider-container').css({display: 'block'}).find('img').removeClass('by-height');
+      } else {
+        slider.find('.slider-container').css({display: 'inline-block'}).find('img').addClass('by-height');
+      }
+    } else {
+      slider.find('.slider-container').css({display: 'block'}).find('img').removeClass('by-height');
+    }
+  }
+
+
+
 });
 
-//scrollbar
-// (function ($) {
-//   $(window).on("load", function () {
-//     $(".content-text").mCustomScrollbar({
-//       alwaysShowScrollbar: 1
-//     });
-//   });
-// })(jQuery);
 
 
 

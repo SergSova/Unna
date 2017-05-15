@@ -1,7 +1,8 @@
 <div class="gallery-wrap">
-	[[!getImageList?
+    [[!getImageList?
 	&docid=`[[*id]]`
 	&tvname=`migx_Gallery`
 	&tpl=`building-img-sector-TPL`
 	]]
 </div>
+<p></p>

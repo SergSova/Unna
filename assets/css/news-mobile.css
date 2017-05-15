@@ -1,0 +1,94 @@
+.section1 {
+  background: url("../images/mobile-news1.jpg") no-repeat center center; }
+
+.section2 {
+  padding: 100px 62px; }
+
+.news .article {
+  margin-bottom: 60px; }
+  .news .article:last-child {
+    margin-bottom: 0; }
+  .news .article.opened .text div.short {
+    opacity: 0; }
+  .news .article.opened .text div.full {
+    opacity: 1;
+    z-index: 1; }
+  .news .article.opened .buttons .read-more i {
+    transform: rotate(-90deg); }
+  .news .article h4 {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #00976f;
+    font-size: 30px;
+    padding: 10px 0; }
+  .news .article .text {
+    position: relative;
+    overflow: hidden; }
+    .news .article .text div {
+      transition: .4s linear; }
+      .news .article .text div p {
+        text-align: left; }
+      .news .article .text div img {
+        padding: 30px 0; }
+      .news .article .text div.short {
+        opacity: 1; }
+      .news .article .text div.full {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1; }
+  .news .article .buttons {
+    padding: 20px 0; }
+    .news .article .buttons div {
+      font-size: 26.7px;
+      font-weight: 300;
+      display: inline-block; }
+      .news .article .buttons div.read-more {
+        float: right;
+        cursor: pointer; }
+        .news .article .buttons div.read-more i {
+          transform: rotate(90deg);
+          display: inline-block;
+          font-size: 22px;
+          transition: .3s linear; }
+
+.news-more {
+  text-align: center;
+  margin-top: 25px; }
+  .news-more a:first-child {
+    display: block;
+    font-size: 20px;
+    padding: 15px 0;
+    color: #00976f; }
+  .news-more a:last-child {
+    margin: 15px 0; }
+    .news-more a:last-child i {
+      display: inline-block;
+      transform: rotate(90deg);
+      font-size: 18px; }
+
+@media all and (max-width: 767px) {
+  .section2 {
+    padding: 40px 0; }
+  .news .article {
+    margin-bottom: 30px; }
+    .news .article h4 {
+      font-size: 20px;
+      padding: 15px 0; }
+    .news .article .text div img {
+      padding: 20px 0; }
+    .news .article .buttons {
+      padding: 15px 0; }
+      .news .article .buttons div {
+        font-size: 19px; }
+        .news .article .buttons div.read-more i {
+          font-size: 16px; }
+  .news-more a:first-child {
+    font-size: 16px;
+    padding: 10px 0; }
+  .news-more a:last-child {
+    font-size: 16px;
+    margin: 10px 0; }
+    .news-more a:last-child i {
+      font-size: 12px; } }

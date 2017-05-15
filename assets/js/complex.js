@@ -22,11 +22,18 @@ $(window).load(function () {
   $(window).resize(function () {
     heightTextContent();
   });
+
+  wrap.find('.docum-load').click(function () {
+    $(this).find('i')
+      .removeClass('icon-pdf-file-outlined-interface-symbol')
+      .addClass('icon-download')
+  })
 });
 
+
 //scrollbar
-(function($){
-  $(window).on("load",function(){
+(function ($) {
+  $(window).on("load", function () {
     $(".content-text").mCustomScrollbar();
   });
 })(jQuery);

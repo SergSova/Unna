@@ -1,0 +1,63 @@
+[[$mobile-head]]
+<section class="section1">
+    <div class="container">
+        <h1>[[*pagetitle]]</h1>
+    </div>
+</section>
+<section class="section2">
+    <div class="container">
+        <hr>
+        [[getResources?
+        &parents=`14`
+        &sortby=`{menuindex:ASC}`
+        &limit=`0`
+        &includeTVs=`1`
+        &includeContent=`1`
+        &showUnpublished=`1`
+        &showHidden=`1`
+        &tpl=`mobile-purch-condition-TPL`
+        &outputSeparator=`<hr>`
+        ]]
+        <hr>
+        <div class="info">
+            <h2>Акции <i class="icon-right-arrow"></i></h2>
+            <div class="hidden"><!--якорь по id акции-->
+                <div class="actions" data-all="[[+total-actions]][[!getResources?&parents=`36`
+                    &totalVar=`total-actions`&tpl=`@INLINE`&showHidden=`1`]]">
+                    [[getResources?
+                    &parents=`36`
+                    &sortby=`{menuindex:ASC}`
+                    &limit=`0`
+                    &includeTVs=`1`
+                    &includeContent=`1`
+                    &showUnpublished=`1`
+                    &showHidden=`1`
+                    &tvPrefix=``
+                    &tpl=`mobile-action-item-TPL`
+                    &outputSeparator=`<hr>`
+                    &where=`{"context_key:=":[[*context_key]]}`
+                    ]]
+                </div>
+                <div class="news-more">
+                    <a id="loadMoreNews" class="green-button" href="#">больше акций <i class="icon-right-arrow"></i></a>
+                </div>
+                <div class="form">
+                    <form action="/send_mail.php" method="post">
+                        <input type="hidden" name="action" value="send_mail">
+                        <input type="hidden" name="to" value="sergeysova@ukr.net">
+                        <input type="hidden" name="subject" value="Смотреть больше">
+                        <input type="text" name="name" id="form-name" placeholder="имя">
+                        <input type="tel" name="phone" id="form-tel" placeholder="телефон">
+                        <input type="email" name="mail" id="form-email" placeholder="e-mail">
+                        <input type="text" name="message" id="form-text" placeholder="сообщение">
+                        <button type="submit" class="green-button" id="form-submit">узнать подробнее <i
+                                    class="icon-right-arrow"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+[[$mobile-foot]]

@@ -20,6 +20,13 @@ $(window).load(function () {
     } else {
       form.css({transform: 'scale(1)'});
     }
+
+    if(hC > form.height()) {
+      form.css({
+        top: (hC - form.height()) / 2
+      });
+    }
+
   }
 
   content.on('mouseenter', 'div.ext', function () {

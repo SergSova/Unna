@@ -30,7 +30,7 @@
 			</li>
 			<li>
 				<label class="filter_row">
-					<input type="checkbox" name="levels" value="2"/>
+					<input type="radio" name="levels" value="2"/>
 					<div>
 						<span class="num">2x</span>
 						<span>[[%levels? &namespace=`unna`]]</span>
@@ -47,7 +47,7 @@
 	<div class="body ">
 		<ul>
 			<li>
-				<div class="range-slider prices disabled">
+				<div class="range-slider sizes disabled">
 					<div class="ui-slider-range-left"></div>
 					<div class="ui-slider-range"></div>
 					<div class="ui-slider-range-right"></div>
@@ -65,7 +65,7 @@
 				</div>
 			</li>
 			<li>
-				<div class="range-slider sizes disabled">
+				<div class="range-slider prices disabled">
 					<div class="ui-slider-range-left"></div>
 					<div class="ui-slider-range"></div>
 					<div class="ui-slider-range-right"></div>

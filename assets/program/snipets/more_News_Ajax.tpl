@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @var $modx modX
  * @var $scriptProperties string

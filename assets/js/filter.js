@@ -85,17 +85,30 @@ function initRangeFilter(){
     leftHandle.removeClass('moved');
     rightHandle.removeClass('moved');
 
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+        leftHandle.css('left', '0%').css({
+            'width': '7.2vmin',
+            'height': '7.2vmin',
+            'margin-top': '-3.6vmin'
+        });
+        rightHandle.css({
+            'width': '7.2vmin',
+            'height': '7.2vmin',
+            'margin-top': '-3.6vmin'
+        });
+    } else {
+        leftHandle.css('left', '0%').css({
+            'width': '2.61vw',
+            'height': '2.61vw',
+            'margin-top': '-1.305vw'
+        });
+        rightHandle.css({
+            'width': '2.61vw',
+            'height': '2.61vw',
+            'margin-top': '-1.305vw'
+        });
+    }
 
-    leftHandle.css('left', '0%').css({
-        'width': '2.61vw',
-        'height': '2.61vw',
-        'margin-top': '-1.305vw'
-    });
-    rightHandle.css({
-        'width': '2.61vw',
-        'height': '2.61vw',
-        'margin-top': '-1.305vw'
-    });
     LHwidthProc = leftHandle.outerWidth()*100/$('.range-slider').width();
     RHwidthProc = rightHandle.outerWidth()*100/$('.range-slider').width();
 

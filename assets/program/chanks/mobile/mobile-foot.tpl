@@ -21,6 +21,9 @@
 [[*id:is=`12`:then=`
 <script src="assets/js/news-mobile.js"></script>
 `]]
+[[*id:is=`4`:then=`
+<script src="assets/js/purchase-conditions-mobile.js"></script>
+`]]
 <script src="assets/js/base-mobile.js"></script>
 [[*id:is=`6`:then=`
 <script src="assets/js/contacts-mobile.js"></script>

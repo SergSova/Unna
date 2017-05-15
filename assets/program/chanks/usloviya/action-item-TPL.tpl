@@ -1,6 +1,10 @@
 <div class="action-wrap clearfix" data-id="[[+id]]">
 	<h3 class="action-head">[[+pagetitle:elipsis=`30`]]</h3>
-	<p class="action-img"><img src="[[+tv.action_image]]" alt="[[+pagetitle]]"></p>
+	<p class="action-img">
+        [[+tv.action_image:!empty=`
+        <img src="[[+tv.action_image]]" alt="[[+pagetitle]]">
+        `]]
+    </p>
 	<div class="action-text">[[+content]]</div>
 	<p class="action-date">[[+tv.action-date:strtotime:date=`%d.%m.%Y`]]</p>
 	<a href="" class="action-more">

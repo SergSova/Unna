@@ -139,8 +139,8 @@ function contactsHoverVelue(obj) {
     var elementScale = scaleCorrection*0.7;
 
     var finishLeft = $('.right-side').offset().left + $('.right-side').outerWidth()-obj.outerWidth()*elementScale/scaleCorrection;
-    var finishTop = $('.right-top').offset().top + $('.right-top').outerHeight() + 40*scaleCorrection;
-
+    var finishTop = $('.right-top').offset().top + $('.right-top').outerHeight() + 200*scaleCorrection;
+    console.log(finishTop);
     var transformX = (finishLeft-elementLeft);
     var transformY = finishTop-elementTop;
 

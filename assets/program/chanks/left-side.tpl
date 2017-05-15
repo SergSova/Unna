@@ -27,7 +27,7 @@
         </a>
         <div class="panel-text">[[%select? &namespace=`unna`]]<br>[[%apartment? &namespace=`unna`]]</div>
     </div>
-    [[*parent:is=`0`:then=`
+    [[*id:in=`27`:then=`
     <div class="panel-3">
         <div class="cam-wrap">
             <a href="[[~23]]" class="live-cam ">

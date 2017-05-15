@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="foot-left scale-js-1">
-        <a href="[[++site_url]]"><img class="unna-dev" src="assets/images/unna-develop.png" alt=""></a>
+        <a class="unna-dev" href="[[++site_url]]"><img  src="assets/images/unna-develop.png" alt=""></a>
     </div>
 
     [[+parent:in=`0`then=`
