@@ -5,7 +5,6 @@
  * @var $objects modResource[]
  */
 
-$detect = new Mobile_Detect();
 $p404   = $modx->config['error_page'];
 $chank  = $modx->getOption( 'tpl', $scriptProperties, 'prev-next-Page-tpl' );
 

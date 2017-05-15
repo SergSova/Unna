@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto:100,300,400,700&amp;subset=cyrillic"
           rel="stylesheet">
     <!--<link rel="stylesheet" href="assets/css/fonts.css">-->
-    [[*id:ne=`31`:then=`
+    [[*id:ne=`[[babelId?&id=`31`]]`:then=`
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/slick.css">
     `:else=`
@@ -19,33 +19,35 @@
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
     `]]
     <link rel="stylesheet" href="assets/css/base-mobile.css">
-    [[*id:is=`1`:then=`
+    [[*id:is=`[[babelId?&id=`1`]]`:then=`
     <link rel="stylesheet" href="assets/css/main-mobile.css">
     `]]
-    [[*id:is=`6`:then=`
+    [[*id:is=`[[babelId?&id=`6`]]`:then=`
     <link rel="stylesheet" href="assets/css/contacts-mobile.css">
     `]]
-    [[*id:is=`12`:then=`
+    [[*id:is=`[[babelId?&id=`12`]]`:then=`
     <link rel="stylesheet" href="assets/css/news-mobile.css">
     `]]
-    [[*id:is=`31`:then=`
+    [[*id:is=`[[babelId?&id=`31`]]`:then=`
     <link rel="stylesheet" href="assets/css/adaptive_aparts.css">
     `]]
-    [[*id:is=`4`:then=`
+    [[*id:is=`[[babelId?&id=`4`]]`:then=`
     <link rel="stylesheet" href="assets/css/purchase-conditions-mobile.css">
+    `]]
+    [[*id:is=`[[babelId?&id=`11`]]`:then=`
+    <link rel="stylesheet" href="assets/css/gallery-mobile.css">
     `]]
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="assets/js/lib/queryLoader.js"></script>
-    [[*id:is=`31`:then=`
+    [[*id:is=`[[babelId?&id=`31`]]`:then=`
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="assets/js/slick.min.js"></script>
     <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.min.js"></script>
     <script type="text/javascript" src="assets/js/app.min.js"></script>
-    <script type="text/javascript" src="assets/js/adaptive.min.js"></script>
     `]]
 </head>
 
@@ -106,7 +108,7 @@
         <div class="content">
             [[Wayfinder?
             &startId=`0`
-            &excludeDocs=`27`
+            &excludeDocs=`[[babelId?&id=`27`]]`
             &level=`2`
             &innerClass=`sub`
             &outerClass=`menu-bg`

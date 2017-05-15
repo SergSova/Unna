@@ -9,7 +9,7 @@
     <div clas="content-wrap">
         <div class="aparts">
             <div class="filters filter_aparts">
-                [[*id:is=`31`:then=`[[!setFilter]]`]]
+                [[*id:is=`[[babelId?&id=`31`]]`:then=`[[!setFilter]]`]]
                 <h3 class="title">
                     [[%apart_filter? &namespace=`unna`]]
                 </h3>
@@ -19,7 +19,7 @@
                             <ul>
                                 <li>
                                     <label class="filter_row">
-                                        <input type="checkbox" name="rooms" value="1"/>
+                                        <input type="radio" name="rooms" value="1"/>
                                         <div>
                                             <span class="num">1</span>
                                             <span>[[%room? &namespace=`unna`]]</span>
@@ -28,7 +28,7 @@
                                 </li>
                                 <li>
                                     <label class="filter_row">
-                                        <input type="checkbox" name="rooms" value="2"/>
+                                        <input type="radio" name="rooms" value="2"/>
                                         <div>
                                             <span class="num">2</span>
                                             <span>[[%room? &namespace=`unna`]]</span>
@@ -37,7 +37,7 @@
                                 </li>
                                 <li>
                                     <label class="filter_row">
-                                        <input type="checkbox" name="rooms" value="3"/>
+                                        <input type="radio" name="rooms" value="3"/>
                                         <div>
                                             <span class="num">3</span>
                                             <span>[[%room? &namespace=`unna`]]</span>
@@ -46,7 +46,7 @@
                                 </li>
                                 <li>
                                     <label class="filter_row">
-                                        <input type="checkbox" name="levels" value="2"/>
+                                        <input type="radio" name="levels" value="2"/>
                                         <div>
                                             <span class="num">2х</span>
                                             <span>[[%levels? &namespace=`unna`]]</span>
@@ -101,14 +101,11 @@
                 </form>
             </div>
             <div class="aparts_list">
-                [[#get.rooms:!empty=`
-                [[*id:is=`31`:then=`[[!filtredApartment?&limit=`3`&offset=`3`&tpl=`apart-mobile-filtred-item-TPL`]]`]]
-                `]]
             </div>
         </div>
         <div class="storerooms">
-            <h3>[[#24.pagetitle]]</h3>
-            [[#24.content:ellipsis=`300`]]
+            <h3>[[#[[babelId?&id=`24`]].pagetitle]]</h3>
+            [[#[[babelId?&id=`24`]].content:ellipsis=`300`]]
             <a href="#" class="show_more">
                 [[%learn? &namespace=`unna`]] [[%more? &namespace=`unna`]]
             </a>
@@ -125,7 +122,7 @@
                                         <input type="radio" name="floor" data-floor="1"/>
                                         <div>
                                             <span class="num letter">Ц</span>
-                                            <span>[[*prem-cokol-title:ucfirst]]</span>
+                                            <span>[[#[[babelId?&id=`3`]].prem-cokol-title]]</span>
                                         </div>
                                     </label>
                                 </li>
@@ -134,7 +131,7 @@
                                         <input type="radio" name="floor" data-floor="2"/>
                                         <div>
                                             <span class="num">1</span>
-                                            <span>[[*prem-1-title:ucfirst]]</span>
+                                            <span>[[#[[babelId?&id=`3`]].prem-1-title]]</span>
                                         </div>
                                     </label>
                                 </li>
@@ -234,7 +231,7 @@
                     </svg>
                     <div class="links">
                         [[getResources?
-                        &parents=`3`
+                        &parents=`[[babelId?&id=`3`]]`
                         &sortby=`{menuindex:ASC}`
                         &limit=`0`
                         &includeTVs=`1`
@@ -298,7 +295,7 @@
                     </svg>
                     <div class="links">
                         [[getResources?
-                        &parents=`3`
+                        &parents=`[[babelId?&id=`3`]]`
                         &sortby=`{menuindex:ASC}`
                         &limit=`0`
                         &includeTVs=`1`

@@ -1,0 +1,188 @@
+.section1 {
+  background: url("../images/mobile-purchase1.jpg") no-repeat center center; }
+
+.section2 hr {
+  margin: 0;
+  margin-left: -42px;
+  margin-right: -42px;
+  background: #000000;
+  height: 1px;
+  border: none;
+  border-bottom: 1px solid #777777; }
+  .section2 hr.active {
+    background: #00976f;
+    border-bottom: 1px solid #00976f; }
+
+.info {
+  padding: 70px 62px; }
+  .info h2 {
+    cursor: pointer;
+    color: #00976f;
+    padding-bottom: 30px;
+    transition: .4s linear; }
+    .info h2 i {
+      display: inline-block;
+      margin-left: 15px;
+      font-size: 30px;
+      transform: rotate(90deg);
+      transition: .3s linear; }
+  .info.active h2 {
+    color: #000000; }
+    .info.active h2 i {
+      transform: rotate(-90deg); }
+  .info .hidden {
+    display: none;
+    padding-bottom: 30px;
+    width: 100% !important; }
+  .info p {
+    padding: 0; }
+
+.actions {
+  padding-top: 60px; }
+  .actions .article {
+    margin-bottom: 60px; }
+    .actions .article:last-child {
+      margin-bottom: 0; }
+    .actions .article.opened .text div.short {
+      opacity: 0; }
+    .actions .article.opened .text div.full {
+      opacity: 1;
+      z-index: 1; }
+    .actions .article.opened .buttons .read-more i {
+      transform: rotate(-90deg); }
+    .actions .article h4 {
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #00976f;
+      font-size: 30px;
+      padding: 10px 0; }
+    .actions .article .text {
+      position: relative;
+      overflow: hidden; }
+      .actions .article .text div {
+        transition: .4s linear; }
+        .actions .article .text div p {
+          text-align: left; }
+        .actions .article .text div img {
+          padding: 30px 0; }
+        .actions .article .text div.short {
+          opacity: 1; }
+        .actions .article .text div.full {
+          opacity: 0;
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: -1; }
+    .actions .article .buttons {
+      padding: 20px 0; }
+      .actions .article .buttons div {
+        font-size: 26.7px;
+        font-weight: 300;
+        display: inline-block; }
+        .actions .article .buttons div.read-more {
+          float: right;
+          cursor: pointer; }
+          .actions .article .buttons div.read-more i {
+            transform: rotate(90deg);
+            display: inline-block;
+            font-size: 22px;
+            transition: .3s linear; }
+
+.form {
+  max-width: 565px;
+  width: 100%;
+  margin: 120px auto 0;
+  text-align: center; }
+  .form input {
+    display: block;
+    width: 100%;
+    font-size: 28px;
+    line-height: 20px;
+    padding-bottom: 3px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #222222;
+    margin-bottom: 50px;
+    font-weight: 300; }
+    .form input::-webkit-input-placeholder {
+      transition: .3s linear;
+      color: #000; }
+    .form input::-moz-placeholder {
+      transition: .3s linear;
+      color: #000; }
+    .form input:-moz-placeholder {
+      transition: .3s linear;
+      color: #000; }
+    .form input:-ms-input-placeholder {
+      transition: .3s linear;
+      color: #000; }
+    .form input:focus::-webkit-input-placeholder {
+      color: transparent; }
+    .form input:focus::-moz-placeholder {
+      color: transparent; }
+    .form input:focus:-moz-placeholder {
+      color: transparent; }
+    .form input:focus:-ms-input-placeholder {
+      color: transparent; }
+    .form input[name="comment"] {
+      padding-top: 70px; }
+  .form button i {
+    font-size: 20px; }
+
+.news-more {
+  text-align: center;
+  margin-top: 25px; }
+  .news-more a {
+    margin: 15px 0; }
+    .news-more a i {
+      display: inline-block;
+      transform: rotate(90deg);
+      font-size: 18px; }
+
+@media all and (max-width: 767px) {
+  .section2 hr {
+    margin-left: -20px;
+    margin-right: -20px;
+    border: none !important; }
+  .info {
+    padding: 30px 0; }
+    .info h2 {
+      padding-bottom: 20px; }
+      .info h2 i {
+        font-size: 15px;
+        margin-left: 8px;
+        padding-top: 3px; }
+  .actions {
+    padding-top: 25px; }
+    .actions .article {
+      margin-bottom: 30px; }
+      .actions .article h4 {
+        font-size: 20px;
+        padding: 15px 0; }
+      .actions .article .text div img {
+        padding: 20px 0; }
+      .actions .article .buttons {
+        padding: 15px 0; }
+        .actions .article .buttons div {
+          font-size: 19px; }
+          .actions .article .buttons div.read-more i {
+            font-size: 16px; }
+  .news-more a {
+    font-size: 16px;
+    margin: 10px 0; }
+    .news-more a i {
+      font-size: 12px; }
+  .form {
+    max-width: 280px; }
+    .form input {
+      font-size: 19px;
+      line-height: 15px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #666666;
+      margin-bottom: 30px; }
+      .form input[name="comment"] {
+        padding-top: 0px; }
+    .form button {
+      margin-top: 50px; }
+      .form button i {
+        font-size: 15px; } }

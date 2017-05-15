@@ -1,4 +1,4 @@
-			<div class="article" id="#[[+id]]">
+			<div class="article" id="[[+id]]">
 				<h4>[[+pagetitle]]</h4>
 				<div class="text">
 					<div class="short">[[+content:ellipsis=`300`]]</div>

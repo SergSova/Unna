@@ -26,15 +26,39 @@ function filterApart(curr){
             var prices = [],
                 sizes = [];
             list.find('.apart').each(function(){
-               var price = parseInt($(this).find('.apart_info tr:nth-child(1) .num').html()),
-                    size = parseInt($(this).find('.apart_info tr:nth-child(3) .num').html());
+               var size = parseInt($(this).find('.apart_info tr:nth-child(1) .num').html()),
+                    price = parseInt($(this).find('.apart_info tr:nth-child(3) .num').html());
                 prices.push(price);
                 sizes.push(size);
             });
-            var minPrice = getMinOfArray(prices),
-                maxPrice = getMaxOfArray(prices),
-                minSize = getMinOfArray(sizes)/1000,
-                maxSize = getMaxOfArray(sizes)/1000;
+            if (window.matchMedia("(max-width: 1024px)").matches) {
+                $('.apart .media').each(function(){
+                    $(this).slick({
+                        infinite: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        fade: true,
+                        arrows: true,
+                        speed: 600
+                    });
+                });
+
+                $('.more_button').on('click', function(){
+                    var apart = $(this).closest('.apart'),
+                        moreInfo = apart.find('.more_info');
+                    $(this).toggleClass('opened');
+                    if($(this).hasClass('opened')) {
+                        $(this).html('<span>Свернуть</span><span class="arrow"></span>');
+                    } else {
+                        $(this).html('<span>Подробнее</span><span class="arrow"></span>');
+                    }
+                    moreInfo.slideToggle();
+                });
+            }
+            var minPrice = getMinOfArray(prices)/1000,
+                maxPrice = getMaxOfArray(prices)/1000,
+                minSize = getMinOfArray(sizes),
+                maxSize = getMaxOfArray(sizes);
             if(elem.is('input')) {
                 if(isFinite(minPrice) || isFinite(maxPrice) || isFinite(minSize) || isFinite(maxSize)) {
                     //handles
@@ -61,6 +85,9 @@ function filterApart(curr){
     });
 }
 $('.aparts_filter input[type=radio]').on('click', function(){
+    filterApart(this);
+});
+$('.filter_aparts input[type=radio]').on('click', function(){
     filterApart(this);
 });
 $('.range-slider .ui-slider-handle').on('click', function(e){
@@ -121,4 +148,40 @@ function initRangeFilter(){
 
     centerRangeProc = 100 - LHwidthProc - RHwidthProc;
     centerLine.width(centerRangeProc + '%').css('left', leftHandle.outerWidth());
+}
+
+/*==================================== filter premises ================================================*/
+$('.filter_premises input[type=radio]').on('click', function () {
+    var floor = $(this).attr('data-floor');
+    $('.floors .floor').hide();
+    $('.floors .floor').eq(floor-1).fadeIn();
+    $('.premises_list').hide();
+    var floorTop = $('.floors .floor').eq(floor-1).offset().top;
+    $('body').animate({scrollTop:floorTop});
+});
+
+$('.floor polygon, floor path, .floor rect').on('click', function(){
+    var  linkNum = $(this).data('link'),
+        link = $(this).closest('div').find('a[data-link='+linkNum+']'),
+        resource = link.data('resource');
+    if(link.length != 0) {
+        premiseAjax(resource);
+    }
+});
+function premiseAjax(resource) {
+    $.ajax({
+        url: 'ajax-premises.html',
+        type: 'GET',
+        data: {'id': resource},
+        success: function(res){
+            var leng = res.length,
+                list = $('.premises_list');
+            if(leng != 0) {
+                $('.premises_list').hide()
+                    .html(res).fadeIn();
+            }
+            var floorTop = $('.premises_list .premise').offset().top;
+            $('body').animate({scrollTop:floorTop});
+        }
+    });
 }

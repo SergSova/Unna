@@ -1,0 +1,241 @@
+.section1 {
+  background: url("../images/mobile-gallery1.jpg") no-repeat center center; }
+
+.section2 {
+  padding: 80px 0 0; }
+  .section2 p {
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: Roboto; }
+  .section2 ul {
+    padding: 60px 0; }
+  .section2 li {
+    text-align: center;
+    margin-bottom: 70px; }
+    .section2 li:last-child {
+      margin-bottom: 0; }
+  .section2 a {
+    color: #00976f; }
+    .section2 a i {
+      font-size: 50px; }
+      .section2 a i img {
+        width: 40px;
+        padding: 0; }
+    .section2 a span {
+      font-size: 22px;
+      display: block;
+      font-weight: 400;
+      padding-top: 15px; }
+
+.section4 {
+  padding-top: 40px; }
+  .section4 .links {
+    padding: 50px 0; }
+    .section4 .links:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .section4 .links a {
+      width: 50%;
+      float: left;
+      text-align: center; }
+      .section4 .links a i {
+        vertical-align: middle;
+        color: #00976f;
+        display: inline-block;
+        height: 44px;
+        font-size: 37px;
+        padding-right: 20px;
+        box-sizing: border-box; }
+      .section4 .links a img {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+        padding-right: 20px;
+        padding-top: 3px; }
+      .section4 .links a span {
+        vertical-align: middle;
+        display: inline-block;
+        max-width: 200px;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 300; }
+
+.gallery-history {
+  margin-left: -42px;
+  margin-right: -42px;
+  text-align: center;
+  padding-top: 60px; }
+  .gallery-history .year {
+    padding: 0px 42px;
+    border-bottom: 2px solid #333333; }
+    .gallery-history .year span {
+      position: relative;
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      padding: 25px 62px; }
+      .gallery-history .year span:after {
+        content: '\e80e';
+        font-family: "icons-mobile";
+        font-style: normal;
+        font-weight: normal;
+        speak: none;
+        display: inline-block;
+        text-decoration: inherit;
+        width: 1em;
+        margin-right: .2em;
+        text-align: center;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1em;
+        margin-left: .2em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transform: rotate(90deg);
+        margin-left: 30px;
+        font-size: 23px;
+        position: relative;
+        top: -10px;
+        transition: .3s linear; }
+    .gallery-history .year > span {
+      font-size: 50px;
+      color: #00976f;
+      padding: 50px 0; }
+    .gallery-history .year.active > span {
+      color: #000; }
+    .gallery-history .year:first-child {
+      border-top: 2px solid #333333; }
+  .gallery-history .active > span:after {
+    transform: rotate(-90deg); }
+  .gallery-history .season {
+    text-align: left; }
+    .gallery-history .season:last-child {
+      padding-bottom: 25px; }
+    .gallery-history .season span {
+      box-sizing: border-box; }
+      .gallery-history .season span:after {
+        position: absolute;
+        right: 60px;
+        top: 34px; }
+    .gallery-history .season > span {
+      font-size: 40px; }
+    .gallery-history .season.active > span {
+      color: #00976f; }
+  .gallery-history .month > span {
+    font-size: 30px;
+    font-weight: 300; }
+    .gallery-history .month > span:after {
+      top: 30px; }
+  .gallery-history .month.sliderShow .slider {
+    opacity: 1; }
+  .gallery-history .month img {
+    padding-top: 0; }
+  .gallery-history .month .slider {
+    opacity: 0;
+    transition: .3s linear; }
+  .gallery-history .hidden {
+    display: none;
+    width: 100% !important; }
+
+.slider {
+  max-width: 690px;
+  margin: 0 auto; }
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  left: 30px;
+  border: none;
+  border-radius: 100px;
+  background: rgba(0, 151, 111, 0.8);
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+  padding-right: 5px;
+  font-size: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 1; }
+  .slick-arrow.slick-next {
+    left: auto;
+    right: 30px;
+    margin-right: 0;
+    padding-left: 5px;
+    padding-right: 0; }
+
+@media all and (max-width: 767px) {
+  .section2 {
+    padding-top: 30px; }
+    .section2 ul {
+      padding: 50px 0; }
+    .section2 li {
+      margin-bottom: 50px; }
+    .section2 p {
+      font-size: 19px;
+      max-width: 265px;
+      line-height: 20px; }
+    .section2 a span {
+      font-size: 17px; }
+    .section2 a i {
+      font-size: 40px; }
+      .section2 a i img {
+        width: 30px; }
+  .slick-arrow {
+    width: 33px;
+    height: 33px;
+    margin-top: -15px;
+    line-height: 32px;
+    font-size: 14px;
+    padding-right: 3px;
+    left: 15px; }
+    .slick-arrow.slick-next {
+      padding-left: 2px;
+      right: 15px; }
+  .section4 .links a img {
+    width: 25px;
+    display: block;
+    margin: 0 auto;
+    padding: 0; }
+  .section4 .links a i {
+    height: 27px;
+    font-size: 28px;
+    padding: 0;
+    display: block; }
+  .section4 .links a span {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center; }
+  .section4 .links a:first-child span {
+    max-width: 80px; }
+  .section4 .links a:last-child span {
+    max-width: 150px; }
+  .gallery-history {
+    margin-left: -20px;
+    margin-right: -20px; }
+    .gallery-history .year {
+      padding: 0 20px;
+      border-bottom: 1px solid #333; }
+      .gallery-history .year:first-child {
+        border-top: 1px solid #333; }
+      .gallery-history .year span {
+        padding: 15px 0; }
+        .gallery-history .year span:after {
+          font-size: 13px;
+          top: -6px; }
+      .gallery-history .year > span {
+        font-size: 28px;
+        padding: 30px 0; }
+    .gallery-history .season > span {
+      font-size: 22.4px; }
+    .gallery-history .season span:after {
+      top: 19px;
+      right: 0; }
+    .gallery-history .month > span {
+      font-size: 19px; }
+    .gallery-history .month img {
+      padding-bottom: 15px; } }

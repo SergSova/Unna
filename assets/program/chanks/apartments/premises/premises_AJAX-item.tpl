@@ -2,14 +2,14 @@
     <div>
         <div class="compass"></div>
         <div class="media">
-            <img src="[[+premises-image]]"/>
+            <img src="[[+premises-mobile-image]]"/>
         </div>
         <div class="info">
             <p class="title">[[+pagetitle]] [[%metr? &namespace=`unna`]]<sup>2</sup></p>
             <table class="apart_info">
                 <tr class="active">
                     <td class="num">[[+level]]</td>
-                    <td>
+                    <td class="desc">
                         [[%floor? &namespace=`unna`]]
                     </td>
                 </tr>

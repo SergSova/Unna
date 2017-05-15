@@ -134,6 +134,7 @@ body {
     background-size: cover;
     background-position: center;
     color: #fff;
+    overflow: hidden;
 }
 
 h1,
@@ -1629,8 +1630,8 @@ h1 {
 }
 
 h2 {
-    padding-bottom: 40px;
-    font-size: 41px;
+    padding-bottom: 2.1vw;
+    font-size: 2.13vw;
 }
 
 .content-text {
@@ -1639,6 +1640,7 @@ h2 {
     font-size: 18px;
     font-weight: 300;
     line-height: 24px;
+    transform-origin: left top;
 }
 
 .content-text p:first-child {
@@ -1843,6 +1845,9 @@ h2 {
     margin-bottom: 30px;
     padding-left: 14px;
     cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
 }
 
 .location-filter .location-type:hover {
@@ -1885,5 +1890,14 @@ h2 {
     vertical-align: middle;
 }
 
+
+@media all and (max-height: 650px){
+.location-hide{
+    margin-bottom: 30px;
+}
+.location-filter .location-type{
+    margin-bottom: 20px;
+}
+}
 
 /*# sourceMappingURL=location.css.map */

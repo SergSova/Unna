@@ -1,0 +1,71 @@
+#preload {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 99; }
+  #preload.done .white.white-left {
+    transform: translateX(-600px); }
+  #preload.done .white.white-right {
+    transform: translateX(600px); }
+  #preload.done .white-center.white-center-left {
+    transform: translateX(-600px); }
+  #preload.done .white-center.white-center-right {
+    transform: translateX(600px); }
+  #preload.done .line {
+    opacity: 0; }
+  #preload.done .logo {
+    opacity: 0; }
+  #preload .white {
+    width: 50%;
+    position: absolute;
+    height: 100%;
+    z-index: 0;
+    transform: translateX(0%);
+    transition: .5s linear .2s;
+    background: #fff; }
+    #preload .white.white-left {
+      left: 0; }
+    #preload .white.white-right {
+      right: 0; }
+  #preload .white-center {
+    position: absolute;
+    height: 200px;
+    width: 100px;
+    top: 50%;
+    margin-top: -100px;
+    z-index: 2;
+    transform: translateX(0%);
+    transition: .5s linear .2s;
+    background: #fff; }
+    #preload .white-center.white-center-left {
+      right: 50%; }
+    #preload .white-center.white-center-right {
+      left: 50%; }
+  #preload .line {
+    transition: .3s linear;
+    background: #00976f;
+    width: 2px;
+    height: 40%;
+    bottom: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -1px;
+    transform: translateY(0%);
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden; }
+  #preload .line-bottom {
+    bottom: auto;
+    top: 100%; }
+  #preload .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -118px;
+    margin-top: -90px;
+    z-index: 3;
+    opacity: 1;
+    transition: .5s linear; }

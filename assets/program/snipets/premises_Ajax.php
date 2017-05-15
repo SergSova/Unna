@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @var $modx modX
  * @var $scriptProperties string
@@ -17,6 +16,5 @@ $result = $modx->runSnippet(
 		'showHidden'     => '1',
 	)
 );
-var_dump($result);
-die();
+
 return $result;

@@ -2,7 +2,7 @@
 <div id="locationInfo">
     <!-- X,Y,title,adress -->
     [[!getResources?
-    &parents=`8`
+    &parents=`[[babelId?&id=`8`]]`
     &showHidden=`1`
     &includeTVs=`1`
     &tvPrefix=``

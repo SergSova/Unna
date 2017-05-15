@@ -1,7 +1,7 @@
 [[$mobile-head]]
 <section class="section1">
     <div class="container">
-        <h1>[[#1.pagetitle]]</h1>
+        <h1>[[#[[babelId?&id=`1`]].pagetitle]]</h1>
 
         <img src="assets/images/logo.png" class="logo" alt="Unna logo">
         <div class="live-cam">
@@ -31,10 +31,10 @@
         </div>
     </div>
 </section>
-<section class="section2 about" id="[[#7.alias]]">
+<section class="section2 about" id="[[#[[babelId?&id=`7`]].alias]]">
     <div class="container">
-        <h2>[[#7.pagetitle:striptags]]</h2>
-        <p>[[#7.content]]</p>
+        <h2>[[#[[babelId?&id=`7`]].pagetitle:striptags]]</h2>
+        <p>[[#[[babelId?&id=`7`]].content]]</p>
         <!--        <img src="assets/images/mobile-main2.jpg" alt="Unna full house">-->
         <div class="links">
             <a href="#">
@@ -49,9 +49,9 @@
         <div class="mobile-scroll"><img src="assets/images/scroll-icon.png" alt="scroll icon"></div>
     </div>
 </section>
-<section class="section3 location" id="[[#8.alias]]">
+<section class="section3 location" id="[[#[[babelId?&id=`8`]].alias]]">
     <div class="container">
-        <h2>[[#8.pagetitle:striptags]]</h2>
+        <h2>[[#[[babelId?&id=`8`]].pagetitle:striptags]]</h2>
         <div class="content-text scale-js-1">
             <div class="location-hide active">
                 <i class="icon-eye-see"></i>
@@ -84,50 +84,50 @@
         </div>
     </div>
 </section>
-<section class="section4 genplan" id="[[#29.alias]]">
+<section class="section4 genplan" id="[[#[[babelId?&id=`29`]].alias]]">
     <div class="container">
-        <h2>[[#29.pagetitle:striptags]]</h2>
-        <img src="[[#29.genplan]]" alt="Unna генплан">
+        <h2>[[#[[babelId?&id=`29`]].pagetitle:striptags]]</h2>
+        <img src="[[#[[babelId?&id=`29`]].genplan]]" alt="Unna генплан">
     </div>
 </section>
-<section class="section5 advantages" id="[[#9.alias]]">
+<section class="section5 advantages" id="[[#[[babelId?&id=`9`]].alias]]">
     <div class="container">
-        <h2>[[#9.pagetitle:striptags]]</h2>
+        <h2>[[#[[babelId?&id=`9`]].pagetitle:striptags]]</h2>
         <div class="slider">
             [[!getImageList?
             &tvname=`migx-advantages`
-            &docid=`9`
+            &docid=`[[babelId?&id=`9`]]`
             &tpl=`advantage-mobile-slider-item`]]
         </div>
     </div>
 </section>
-<section class="section6 haracteristics" id="[[#10.alias]]">
+<section class="section6 haracteristics" id="[[#[[babelId?&id=`10`]].alias]]">
     <div class="container">
-        <h2>[[#10.pagetitle:striptags]]</h2>
+        <h2>[[#[[babelId?&id=`10`]].pagetitle:striptags]]</h2>
         <ul>
-            [[!getImageList? &docid=`10` &tvname=`migx-tex-haracteristics` &tpl=`@CODE:
+            [[!getImageList? &docid=`[[babelId?&id=`10`]]` &tvname=`migx-tex-haracteristics` &tpl=`@CODE:
             <li>[[+haracter]]</li>
             `]]
         </ul>
     </div>
 </section>
-<section class="section7 developer" id="[[#30.alias]]">
+<section class="section7 developer" id="[[#[[babelId?&id=`30`]].alias]]">
     <div class="container">
-        <h2>[[#30.pagetitle:striptags]]</h2>
+        <h2>[[#[[babelId?&id=`30`]].pagetitle:striptags]]</h2>
         <img src="assets/images/logo-small.png" alt="Unna logo">
-        <p>[[#30.content]]</p>
+        <p>[[#[[babelId?&id=`30`]].content]]</p>
     </div>
 </section>
 <section class="section8 perspective">
     <div class="container">
         <h2>Проекты в перспективе</h2>
         [[!getImageList?
-        &docid=`30`
+        &docid=`[[babelId?&id=`30`]]`
         &tvname=`migx-project-colection`
         &tpl=`@CODE: <a href="[[+link]]"><img src="[[+image]]" alt="[[+title]]"></a>
         <h3>[[+title]]</h3>`
         ]]
-        <p>[[#30.content:striptags:limit=`250`]]</p>
+        <p>[[#[[babelId?&id=`30`]].content:striptags:limit=`250`]]</p>
     </div>
 </section>
 <section class="section9 partners">
@@ -135,20 +135,20 @@
         <h2>Партнеры</h2>
         <div class="pertners">
             [[!getImageList?
-            &docid=`30`
+            &docid=`[[babelId?&id=`30`]]`
             &tvname=`migx-partners-colection`
             &tpl=`@CODE: <a href="[[+link]]"><img src="[[+icon]]" alt="[[+title]] logo" title="[[+title]]"></a>`
             ]]
         </div>
     </div>
 </section>
-<section class="section10 documentation" id="[[#5.alias]]">
+<section class="section10 documentation" id="[[#[[babelId?&id=`5`]].alias]]">
     <div class="container">
-        <h2>[[#5.pagetitle:striptags]]</h2>
+        <h2>[[#[[babelId?&id=`5`]].pagetitle:striptags]]</h2>
         <ul>
             [[!getImageList?
             &tvname=`migx_documents`
-            &docid=`5`
+            &docid=`[[babelId?&id=`5`]]`
             &tpl=`@CODE:
             <li>[[+title]] <a href="[[+file]]"><i
                             class="icon-pdf-file-outlined-interface-symbol"></i></a></li>

@@ -25,15 +25,15 @@
         <h2 class="sub_header">[[*pagetitle]]</h2>
         <div class="aparts">
             <div class="filters">
-                [[*id:is=`2`:then=`[[!setFilter]]`]]
+                [[*id:is=`[[babelId?&id=`2`]]`:then=`[[!setFilter]]`]]
                 <form>
-                    [[*id:is=`2`:then=`[[$apartments-filter]]`]]
-                    [[*id:is=`3`:then=`[[$premises-filter]]`]]
+                    [[*id:is=`[[babelId?&id=`2`]]`:then=`[[$apartments-filter]]`]]
+                    [[*id:is=`[[babelId?&id=`3`]]`:then=`[[$premises-filter]]`]]
                 </form>
             </div>
             <div class="aparts_list">
-                [[*id:is=`2`:then=`[[!filtredApartment?&limit=`3`&offset=`3`]]`]]
-                [[*id:is=`3`:then=`[[$premises-list]]`]]
+                [[*id:is=`[[babelId?&id=`2`]]`:then=`[[!filtredApartment?&limit=`3`&offset=`3`]]`]]
+                [[*id:is=`[[babelId?&id=`3`]]`:then=`[[$premises-list]]`]]
             </div>
         </div>
     </div>

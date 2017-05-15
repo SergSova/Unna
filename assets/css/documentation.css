@@ -26,6 +26,9 @@ body {
   padding: 1.3%;
   position: relative;
   color: #fff;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 h1,
 h2,
@@ -34,6 +37,28 @@ h4,
 h5,
 h6 {
   font-weight: 100;
+  -webkit-transition: 0.5s linear;
+  transition: 0.5s linear;
+}
+h1,
+h2 {
+  width: 100%;
+}
+h1 {
+  font-size: 4.35vw;
+}
+h2 {
+  padding-bottom: 2.1vw;
+  font-size: 2.13vw;
+}
+@media (min-width: 1920px) {
+  h1 {
+    font-size: 86px;
+  }
+  h2 {
+    padding-bottom: 40px;
+    font-size: 41px;
+  }
 }
 .left-side {
   position: absolute;
@@ -92,8 +117,8 @@ h6 {
 .arrow-to-main span {
   opacity: 0;
   position: absolute;
-  top: 0;
-  left: 3px;
+  top: 2px;
+  left: 10px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   font-size: 11px;
@@ -184,21 +209,21 @@ h6 {
 .header-logo {
   display: inline-block;
   vertical-align: middle;
+  -webkit-transition: 0.4s linear 0.2s;
+  transition: 0.4s linear 0.2s;
 }
 .header-logo img {
   width: 70px;
-  -webkit-transition: 0.4s linear 0.2s;
-  transition: 0.4s linear 0.2s;
   -webkit-transform-origin: center;
       -ms-transform-origin: center;
           transform-origin: center;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-.header-logo img:hover {
-  -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-          transform: scale(1.1);
+.header-logo:hover {
+  -webkit-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+          transform: scale(1.15);
 }
 .menu-apartment {
   display: inline-block;
@@ -332,8 +357,8 @@ h6 {
 @media (min-width: 1200px) {
   .arrow-to-main span {
     top: 3px;
-    left: 6px;
-    font-size: 14px;
+    left: 12px;
+    font-size: 13px;
   }
   .arrow-to-main i {
     font-size: 23px;
@@ -406,6 +431,11 @@ h6 {
   }
 }
 @media (min-width: 1600px) {
+  .arrow-to-main span {
+    top: 17px;
+    left: 16px;
+    font-size: 14px;
+  }
   .arrow-to-main i {
     font-size: 27px;
   }
@@ -451,7 +481,7 @@ h6 {
     margin: 4px 0;
   }
   .header-logo img {
-    width: auto;
+    width: 133px;
   }
   .menu-apartment {
     width: 80px;
@@ -625,6 +655,9 @@ h6 {
 .bm-bot p:first-child {
   height: 0;
   margin: 0 0 84px;
+}
+.bm-bot p:first-child img {
+  width: 133px;
 }
 .bm-bot p:nth-child(2) {
   height: 0;
@@ -851,7 +884,7 @@ a.callback {
   border-radius: 50%;
   background: rgba(0,151,111,0.37);
   font-size: 0;
-  z-index: 100;
+  z-index: 90;
 }
 a.callback::after {
   content: '';
@@ -962,6 +995,8 @@ a.callback .callback-wrap img {
   vertical-align: middle;
 }
 .unna-dev img {
+  width: 123px;
+  height: 29px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   -webkit-transform-origin: center;
@@ -1012,6 +1047,7 @@ a.callback .callback-wrap img {
 .on-site-count {
   opacity: 0.6;
   font-size: 40px;
+  font-weight: 300;
 }
 .on-site-text {
   width: 50px;
@@ -1273,18 +1309,6 @@ a.callback .callback-wrap img {
   margin: auto;
   padding: 0 2%;
 }
-h1,
-h2 {
-  width: 100%;
-  font-weight: 100;
-}
-h1 {
-  font-size: 4.35vw;
-}
-h2 {
-  padding-bottom: 40px;
-  font-size: 41px;
-}
 .content-text {
   width: 100%;
   height: 400px;
@@ -1333,11 +1357,6 @@ h2 {
   }
   .docum-load i {
     margin-right: 22px;
-  }
-}
-@media (min-width: 1920px) {
-  h1 {
-    font-size: 86px;
   }
 }
 @font-face {

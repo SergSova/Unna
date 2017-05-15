@@ -14,8 +14,8 @@ $(window).load(function () {
   }
 
   //alignment images in content
-  if (text.find('p image')) {
-    text.find('p image').parent().css({paddingRight: 0})
+  if (text.find('p images')) {
+    text.find('p images').parent().css({paddingRight: 0})
   }
 
 //resing elems

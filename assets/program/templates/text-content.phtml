@@ -10,25 +10,25 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
 
-    [[*id:in=`5,6,9,8,10,12,29,36`:then=``:else=`
+    [[*id:in=`[[babelId?&ids=`5,6,9,8,10,12,29,36`]]`:then=``:else=`
     <link rel="stylesheet" href="assets/css/complex.css">
     `]]
-    [[*id:is=`9`:then=`
+    [[*id:is=`[[babelId?&id=`9`]]`:then=`
     <link rel="stylesheet" href="assets/css/advantages.css">
     `]]
-    [[*id:is=`8`:then=`
+    [[*id:is=`[[babelId?&id=`8`]]`:then=`
     <link rel="stylesheet" href="assets/css/location.css">
     `]]
-    [[*id:is=`6`:then=`
+    [[*id:is=`[[babelId?&id=`6`]]`:then=`
     <link rel="stylesheet" href="assets/css/contacts.css">
     `]]
-    [[*id:in=`36,12`:then=`
+    [[*id:in=`[[babelId?&ids=`36,12`]]`:then=`
     <link rel="stylesheet" href="assets/css/actions.css">
     `]]
-    [[*id:in=`29,10`:then=`
+    [[*id:in=`[[babelId?&ids=`29,10`]]`:then=`
     <link rel="stylesheet" href="assets/css/masplan.css">
     `]]
-    [[*id:is=`5`:then=`
+    [[*id:is=`[[babelId?&id=`5`]]`:then=`
     <link rel="stylesheet" href="assets/css/documentation.css">
     `]]
 
@@ -37,7 +37,7 @@
 <body>
 <!---->
 <div class="wrapper" [[*katalog_image_bg:!empty=`style="background-image: url([[*katalog_image_bg]])"`]]>
-    [[*id:is=`12`:then=`<div class="to-blur" style="background-image: url('assets/images/news_bg.jpg')"></div>`]]
+    [[*id:is=`[[babelId?&id=`12`]]`:then=`<div class="to-blur" style="background-image: url('assets/images/news_bg.jpg')"></div>`]]
     <!--left side-->
     [[$left-side]]
 
@@ -47,37 +47,37 @@
     <!--arrows-->
     [[!prev-next-Page]]
 
-    [[*id:is=`6`:then=`[[$contact_chank]]`:else=`
+    [[*id:is=`[[babelId?&id=`6`]]`:then=`[[$contact_chank]]`:else=`
     <!--content-->
     <div class="content">
         <div class="content-wrap">
             <h1>[[#[[*parent]].pagetitle]]</h1>
             <h2>[[*pagetitle]]</h2>
             <div class="content-text">
-                [[*id:is=`9`:then=`[[$advantages]]`]]
-                [[*id:is=`5`:then=`[[$documents]]`]]
-                [[*id:is=`8`:then=`[[$location-content]]`]]
-                [[*id:in=`12,36`:then=`[[$stocks]]`]]
-                [[*id:is=`29`:then=`<img src="[[*genplan]]" alt="Unna genplan">`]]
-                [[*id:is=`30`:then=`[[$developer_chank]]`]]
+                [[*id:is=`[[babelId?&id=`9`]]`:then=`[[$advantages]]`]]
+                [[*id:is=`[[babelId?&id=`5`]]`:then=`[[$documents]]`]]
+                [[*id:is=`[[babelId?&id=`8`]]`:then=`[[$location-content]]`]]
+                [[*id:in=`[[babelId?&ids=`36,12`]]`:then=`[[$stocks]]`]]
+                [[*id:is=`[[babelId?&id=`29`]]`:then=`<img src="[[*genplan]]" alt="Unna genplan">`]]
+                [[*id:is=`[[babelId?&id=`30`]]`:then=`[[$developer_chank]]`]]
 
                 <p>[[*content]]</p>
             </div>
         </div>
     </div>
     `]]
-    [[*id:is=`9`:then=`[[$advantages-slider]]`]]
-    [[*id:is=`8`:then=`[[$location-map-info]]`]]
+    [[*id:is=`[[babelId?&id=`9`]]`:then=`[[$advantages-slider]]`]]
+    [[*id:is=`[[babelId?&id=`8`]]`:then=`[[$location-map-info]]`]]
 
     [[$foot]]
 </div>
 
 <!--scripts-->
 <!--libs-->
-[[*id:in=`8`:then=`
+[[*id:is=`[[babelId?&id=`8`]]`:then=`
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy85hurU5pPvup9lMcp2H6y5G3LrrsEXE" async defer></script>
 `]]
-[[*id:is=`6`:then=`
+[[*id:is=`[[babelId?&id=`6`]]`:then=`
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy85hurU5pPvup9lMcp2H6y5G3LrrsEXE" async defer></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-3.0.0.js"></script>
@@ -88,7 +88,7 @@
         crossorigin="anonymous">
 </script>
 `]]
-[[*id:is=`8`:then=`
+[[*id:is=`[[babelId?&id=`8`]]`:then=`
 <script src="assets/js/location.js"></script>
 `]]
 
@@ -96,20 +96,20 @@
 <!---->
 <script src="assets/js/nav.js"></script>
 <script src="assets/js/scale.js"></script>
-[[!*id:ne=`6`:and:ne=`12`:then=`
+[[!*id:ne=`[[babelId?&id=`6`]]`:and:ne=`[[babelId?&id=`12`]]`:then=`
 <script src="assets/js/foot-menu.js"></script>
 `]]
 <script src="assets/js/start-anim.js"></script>
-[[*id:in=`5,6,9,8,10,12,29,36`:then=``:else=`
+[[*id:in=`[[babelId?&ids=`5,6,9,8,10,12,29,36`]]`:then=``:else=`
 <script src="assets/js/complex.js"></script>
 `]]
-[[*id:is=`9`:then=`
+[[*id:is=`[[babelId?&id=`9`]]`:then=`
 <script src="assets/js/advantages.js"></script>
 `]]
-[[*id:in=`36,12`:then=`
+[[*id:in=`[[babelId?&ids=`36,12`]]`:then=`
 <script src="assets/js/actions.js"></script>
 `]]
-[[*id:is=`5`:then=`
+[[*id:is=`[[babelId?&id=`5`]]`:then=`
 <script src="../assets/js/documentation.js"></script>
 `]]
 

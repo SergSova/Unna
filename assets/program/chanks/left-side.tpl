@@ -13,10 +13,10 @@
         </a>
     </div>
     <div class="header-logo">
-        <a href="#"><img src="assets/images/logo.png" alt="logo"></a>
+        <a href="[[++site_url]]"><img src="assets/images/unna-logo.svg" alt="logo"></a>
     </div>
     <div class="panel-2">
-        <a href="[[~2]]" class="menu-apartment">
+        <a href="[[~[[babelId?&id=`2`]]]]" class="menu-apartment">
             <div class="menu-apart-white">
                 <div class="menu-apart-items">
                     <div class="menu-apart-item"><span></span></div>
@@ -27,10 +27,10 @@
         </a>
         <div class="panel-text">[[%select? &namespace=`unna`]]<br>[[%apartment? &namespace=`unna`]]</div>
     </div>
-    [[*id:in=`27`:then=`
+    [[*id:in=`[[babelId?&id=`27`]]`:then=`
     <div class="panel-3">
         <div class="cam-wrap">
-            <a href="[[~23]]" class="live-cam ">
+            <a href="[[~[[babelId?&id=`23`]]]]" class="live-cam ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="27px" viewBox="0 0 22.67 23.24">
                     <defs>
                         <style>.webcam-1 {
@@ -60,7 +60,7 @@
         </div>
         [[Wayfinder?
         &startId=`0`
-        &excludeDocs=`27`
+        &excludeDocs=`[[babelId?&id=`27`]]`
         &level=`2`
         &innerClass=`menu-subitems`
         &outerClass=`menu-bg`
@@ -70,7 +70,7 @@
         &rowTpl=`big-m.menu-itemTPL`
         ]]
         <div class="bm-bot">
-            <p><a href="[[++site_url]]"><img src="assets/images/logo.png" alt="logo"></a></p>
+            <p><a href="[[++site_url]]"><img src="assets/images/unna-logo.svg" alt="logo"></a></p>
             <p><a href="tel:+38[[++kontakt-phone]]" class="header-tel bm-tel ">+38[[++kontakt-phone]]</a></p>
             <p>
                 <a class="header-address " href="">[[++kontakt-address]]</a>
