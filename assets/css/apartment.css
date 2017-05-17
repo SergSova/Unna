@@ -1667,8 +1667,8 @@ a {
 }
 
 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
-    width: 10px;
-    border-radius: 10px;
+    width: 7px;
+    border-radius: 7px;
     background: #fff;
     -webkit-transform-origin: center top;
     -ms-transform-origin: center top;
@@ -1679,8 +1679,7 @@ a {
 
 .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
     background: #fff;
-    width: 12px;
-    height: 100px;
+    transform: scale(1.1);
 }
 
 .mCSB_scrollTools {
@@ -1696,7 +1695,7 @@ a {
 }
 
 .mCSB_scrollTools .mCSB_dragger {
-    height: 90px !important;
+    height: 60px !important;
 }
 
 .mCSB_inside > .mCSB_container {
@@ -2915,9 +2914,22 @@ a {
     max-height: 100%;
 }
 
+.parent_premise svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-height: 100%;
+}
+
+
 .premise_media path,
 .premise_media polygon,
-.premise_media rect {
+.premise_media rect,
+.parent_premise path,
+.parent_premise polygon,
+.parent_premise rect {
     fill: transparent;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
@@ -2925,7 +2937,10 @@ a {
 
 .premise_media path:hover,
 .premise_media polygon:hover,
-.premise_media rect:hover {
+.premise_media rect:hover,
+.parent_premise path:hover,
+.parent_premise polygon:hover,
+.parent_premise rect:hover {
     cursor: url("../images/premises/search.png") 12 12, auto;
     fill: #fff;
     opacity: 0.5;

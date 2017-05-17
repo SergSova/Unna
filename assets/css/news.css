@@ -1312,7 +1312,7 @@ a.callback .callback-wrap img {
           transform-origin: right center;
 }
 .wrapper {
-  background: url("../images/purchase-blur.jpg") center no-repeat;
+  background: url("../images/news-blur.jpg") center no-repeat;
   background-size: cover;
 }
 .to-blur {
@@ -1505,102 +1505,6 @@ a.callback .callback-wrap img {
 }
 .left-content.smaller .form-wrap::after {
   right: 16px;
-}
-form {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-  -webkit-transform-origin: center top;
-      -ms-transform-origin: center top;
-          transform-origin: center top;
-  text-align: left;
-}
-input {
-  width: 100%;
-  margin-bottom: 38px;
-  font-size: 24px;
-  color: #fff;
-  line-height: 48px;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  font-family: 'Open Sans';
-  font-weight: 300;
-}
-::-webkit-input-placeholder {
-  color: #fff;
-  font-size: 24px;
-  font-family: 'Open Sans';
-  font-weight: 300;
-  opacity: 1;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-::-moz-placeholder {
-  color: #fff;
-  font-size: 24px;
-  font-family: 'Open Sans';
-  font-weight: 300;
-  opacity: 1;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-:-moz-placeholder {
-  color: #fff;
-  font-size: 24px;
-  font-family: 'Open Sans';
-  font-weight: 300;
-  opacity: 1;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-:-ms-input-placeholder {
-  color: #fff;
-  font-size: 24px;
-  font-family: 'Open Sans';
-  font-weight: 300;
-  opacity: 1;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-input:focus::-webkit-input-placeholder {
-  opacity: 0;
-}
-input:focus::-moz-placeholder {
-  opacity: 0;
-}
-input:focus:-moz-placeholder {
-  opacity: 0;
-}
-input:focus:-ms-input-placeholder {
-  opacity: 0;
-}
-#form-submit {
-  margin-top: 41px;
-  position: relative;
-  color: #fff;
-  font-size: 24px;
-  line-height: 24px;
-  padding: 18px 67px 18px 42px;
-  background: rgba(0,151,111,0.4);
-  border: none;
-  border-radius: 60px;
-  font-family: 'Open Sans';
-  font-weight: 300;
-  outline: none;
-}
-#form-submit span {
-  position: absolute;
-  font-size: 32px;
-  right: 37px;
-  line-height: 0;
-  top: 30px;
-  font-weight: 300;
-}
-#form-submit:hover {
-  cursor: pointer;
 }
 @media (min-width: 1400px) {
   .action-wrap {

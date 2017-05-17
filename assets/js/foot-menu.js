@@ -1,4 +1,4 @@
-$(window).load(function () {
+$(window).on('load', function () {
   var wrap = $('.wrapper');
   var content = wrap.find('.content');
   var foot = wrap.find('.footer');
@@ -53,6 +53,14 @@ $(window).load(function () {
     footerMenu();
     segmentSize();
   });
+
+  //crutch for tehnicheskie harakteristiki
+  circles.each(function () {
+    if ($(this).find('span').html().toLowerCase() === 'технические характеристики') {
+      var arrSplit = $(this).find('span').html().split(' ');
+      $(this).find('span').html(arrSplit.join('<br>'));
+    }
+  })
 });
 
 

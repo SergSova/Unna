@@ -84,10 +84,19 @@ function filterApart(curr){
         }
     });
 }
+function checkedRadio(curr){
+    var elem = $(curr),
+        filter = elem.closest('.filter');
+    filter.find('input[type=radio]').prop('checked', false);
+    elem.prop('checked', true);
+}
+
 $('.aparts_filter input[type=radio]').on('click', function(){
+    checkedRadio(this);
     filterApart(this);
 });
 $('.filter_aparts input[type=radio]').on('click', function(){
+    checkedRadio(this);
     filterApart(this);
 });
 $('.range-slider .ui-slider-handle').on('click', function(e){
@@ -157,7 +166,7 @@ $('.filter_premises input[type=radio]').on('click', function () {
     $('.floors .floor').eq(floor-1).fadeIn();
     $('.premises_list').hide();
     var floorTop = $('.floors .floor').eq(floor-1).offset().top;
-    $('body').animate({scrollTop:floorTop});
+    $('body').animate({scrollTop:floorTop}, 500, 'swing');
 });
 
 $('.floor polygon, floor path, .floor rect').on('click', function(){
@@ -166,6 +175,10 @@ $('.floor polygon, floor path, .floor rect').on('click', function(){
         resource = link.data('resource');
     if(link.length != 0) {
         premiseAjax(resource);
+    } else {
+        var floorTop = $('.floors .floor').offset().top;
+        $('body').animate({scrollTop:floorTop}, 500, 'swing');
+        $('.premises_list .premise').fadeOut(500);
     }
 });
 function premiseAjax(resource) {
@@ -176,12 +189,13 @@ function premiseAjax(resource) {
         success: function(res){
             var leng = res.length,
                 list = $('.premises_list');
+            console.log(res);
             if(leng != 0) {
                 $('.premises_list').hide()
                     .html(res).fadeIn();
+                var floorTop = $('.premises_list .premise').offset().top;
+                $('body').animate({scrollTop:floorTop}, 500, 'swing');
             }
-            var floorTop = $('.premises_list .premise').offset().top;
-            $('body').animate({scrollTop:floorTop});
         }
     });
 }

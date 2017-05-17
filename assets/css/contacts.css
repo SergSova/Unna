@@ -1,105 +1,62 @@
 @charset "UTF-8";
 @font-face {
-    font-family: 'icons-location';
-    src: url("fonts/icons-location.eot?38470645");
-    src: url("fonts/icons-location.eot?38470645#iefix") format("embedded-opentype"), url("fonts/icons-location.woff2?38470645") format("woff2"), url("fonts/icons-location.woff?38470645") format("woff"), url("fonts/icons-location.ttf?38470645") format("truetype"), url("fonts/icons-location.svg?38470645#icons-location") format("svg");
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'icons-location';
+  src: url('fonts/icons-location.eot?26334817');
+  src: url('fonts/icons-location.eot?26334817#iefix') format('embedded-opentype'),
+       url('fonts/icons-location.woff2?26334817') format('woff2'),
+       url('fonts/icons-location.woff?26334817') format('woff'),
+       url('fonts/icons-location.ttf?26334817') format('truetype'),
+       url('fonts/icons-location.svg?26334817#icons-location') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
-
-[class^="iconloc-"]:before,
-[class*=" iconloc-"]:before {
-    font-family: "icons-location";
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
-    display: inline-block;
-    text-decoration: inherit;
-    width: 1em;
-    margin-right: .2em;
-    text-align: center;
-    /* opacity: .8; */
-    /* For safety - reset parent styles, that can break glyph codes*/
-    font-variant: normal;
-    text-transform: none;
-    /* fix buttons height, for twitter bootstrap */
-    line-height: 1em;
-    /* Animation center compensation - margins should be symmetric */
-    /* remove if not needed */
-    margin-left: .2em;
-    /* you can be more comfortable with increased icons size */
-    /* font-size: 120%; */
-    /* Font smoothing. That was taken from TWBS */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /* Uncomment for 3D effect */
-    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+ 
+ [class^="iconloc-"]:before, [class*=" iconloc-"]:before {
+  font-family: "icons-location";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
-
-.iconloc-first-aid-kit:before {
-    top: -2px;
-    position: relative;
-    content: '\e800';
-}
-
-
-/* 'юаА' */
-
-.iconloc-mortarboard:before {
-    content: '\e801';
-}
-
-
-/* 'юаБ' */
-
-.iconloc-shopping-cart:before {
-    content: '\e802';
-}
-
-
-/* 'юаВ' */
-
-.iconloc-tree:before {
-    content: '\e803';
-}
-
-
-/* 'юаГ' */
-
-.iconloc-dumbbell:before {
-    content: '\e804';
-}
-
-
-/* 'юаД' */
-
-.iconloc-eye:before {
-    content: '\e805';
-}
-
-
-/* 'юаЕ' */
-
-.iconloc-teddy-bear:before {
-    content: '\e806';
-}
-
-
-/* 'юаЖ' */
-
-.iconloc-eye-see:before {
-    content: '\e807';
-}
-
-
-/* 'юаЗ' */
-
-.iconloc-instagram:before {
-    content: '\f32d';
-}
-
-
-/* 'яМн' */
+ 
+.iconloc-first-aid-kit:before { content: '\e800'; } /* '' */
+.iconloc-mortarboard:before { content: '\e801'; } /* '' */
+.iconloc-shopping-cart:before { content: '\e802'; } /* '' */
+.iconloc-tree:before { content: '\e803'; } /* '' */
+.iconloc-dumbbell:before { content: '\e804'; } /* '' */
+.iconloc-eye:before { content: '\e805'; } /* '' */
+.iconloc-teddy-bear:before { content: '\e806'; } /* '' */
+.iconloc-eye-see:before { content: '\e807'; } /* '' */
+.iconloc-phone:before { content: '\e808'; } /* '' */
+.iconloc-mail:before { content: '\e809'; } /* '' */
+.iconloc-instagram:before { content: '\f32d'; } /* '' */
 
 .clearfix::after {
     visibility: hidden;
@@ -174,6 +131,31 @@ h6 {
     -ms-transform-origin: left top;
     transform-origin: left top;
     width: 90%;
+}
+
+.left-side{
+    pointer-events: none;
+}
+.left-side > *{
+    pointer-events: auto;
+}
+.left-side > .panel-2{
+    pointer-events: none;
+}
+.left-side > .panel-2 > *{
+    pointer-events: auto;
+}
+.panel-2 {
+    pointer-events: none;
+}
+.panel-2 > *{
+    pointer-events: auto;
+}
+.footer{
+    pointer-events: none;
+}
+.footer > *{
+    pointer-events: auto;
 }
 
 .panel-text {
@@ -971,6 +953,11 @@ h6 {
     opacity: 0;
     -webkit-transition: 0.8s linear 0.2s;
     transition: 0.8s linear 0.2s;
+    pointer-events: none;
+}
+
+.right-side > *{
+    pointer-events: auto;
 }
 
 .right-side a {

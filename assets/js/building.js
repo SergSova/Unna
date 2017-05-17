@@ -1,4 +1,4 @@
-$(window).load(function () {
+$(window).on('load', function () {
   var wrap = $('.wrapper');
   var content = wrap.find('.content-wrap');
   var foot = wrap.find('.footer');
@@ -85,21 +85,29 @@ $(window).load(function () {
   //open slider
   var slider = wrap.find('.slider');
   var sliderLen;
-  var index;
-  var indexIn;
+  var index = 1;
   wrap.find('.img-wrap').click(function () {
-    index = $(this).find('img').data('img');
-    indexIn = slider.find('.slider-container').children('[data-img="'+ index +'"]').find('img:eq(0)').data('img-in');
-    sliderLen = slider.find('.slider-container').children('[data-img="'+ index +'"]').find('img').length;
-
     slider.css('display', 'block');
-    slider.find('.slider-container')
-      .children('[data-img="'+ index +'"]').addClass('active')
-      .find('img:eq(0)').addClass('active-in');
-    slider.find('.slider-top').children('[data-img="'+ index +'"]').addClass('active')
-      .children('[data-img-in="'+ indexIn +'"]').addClass('active-in');
+    //insert images with text
+    var data = $(this).find('.img-data').html();
+    slider.find('.slider-container').prepend(data);
+
+    slider.find('.slide:eq(0)').addClass('active');
+    sliderLen = $(this).find('.slide').length;
+
+    //align elems
+    setTimeout(function () {
+      slider.find('.slide-text').offset({
+        left: slider.find('img').offset().left + 30
+      });
+      slider.find('.slider-close').offset({
+        left: slider.find('img').offset().left + slider.find('img').width() - 60
+      })
+    });
+
+
     //counter
-    slider.find('.count-current').html(indexIn);
+    slider.find('.count-current').html(index);
     slider.find('.count-max').html(sliderLen);
     resizeImg();
 
@@ -107,33 +115,29 @@ $(window).load(function () {
   //close slider
   wrap.find('.slider-close').click(function () {
     slider.css('display', 'none');
-    slider.find('.active').removeClass('active');
-    slider.find('.active-in').removeClass('active-in');
+    slider.find('.gallery-list').remove();
+    index = 1;
   });
   //paging
   wrap.find('.slider-right').click(function () {
-    indexIn++;
+    index++;
     sliding();
   });
   wrap.find('.slider-left').click(function () {
-    indexIn--;
+    index--;
     sliding();
   });
   function sliding() {
     // check index
-    if (indexIn > sliderLen) {
-      indexIn = 1
-    } else if (indexIn < 1) {
-      indexIn = sliderLen
+    if (index > sliderLen) {
+      index = 1
+    } else if (index < 1) {
+      index = sliderLen
     }
-    console.log(indexIn);
     // change image
-    slider.find('.count-current').html(indexIn);
-    slider.find('.active-in').removeClass('active-in');
-    slider.find('.slider-container').children('[data-img="'+ index +'"]').addClass('active')
-      .find('[data-img-in="'+ indexIn +'"]').addClass('active-in');
-    slider.find('.slider-top').children('[data-img="'+ index +'"]').addClass('active')
-      .children('[data-img-in="'+ indexIn +'"]').addClass('active-in');
+    slider.find('.count-current').html(index);
+    slider.find('.active').removeClass('active');
+    slider.find('.slide').eq(index - 1).addClass('active');
     resizeImg();
   }
 

@@ -6,13 +6,13 @@
   bottom: 0;
   z-index: 99; }
   #preload.done .white.white-left {
-    transform: translateX(-600px); }
+    transform: translateX(-50vw); }
   #preload.done .white.white-right {
-    transform: translateX(600px); }
+    transform: translateX(50vw); }
   #preload.done .white-center.white-center-left {
-    transform: translateX(-600px); }
+    transform: translateX(-50vw); }
   #preload.done .white-center.white-center-right {
-    transform: translateX(600px); }
+    transform: translateX(50vw); }
   #preload.done .line {
     opacity: 0; }
   #preload.done .logo {

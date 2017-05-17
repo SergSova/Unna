@@ -1,20 +1,14 @@
-$(window).load(function () {
-  var menu = $('.header-menu');
-  var items = menu.find('.menu-item');
+$(window).on('load', function () {
+  var header = $('.header');
+  var items = header.find('.menu-item');
   var startIndex;
   var startActive = true;
 
-  // wrap.find('.header').addClass('header-anim');
-  
-  var dur = 1800;
-  items.each(function (i) {
-    setTimeout(function () {
-      items.eq(i).addClass('visible');
-    }, dur);
-    dur +=200
-  });
+  var h = $(window).height();
 
 
+
+  //check to find active
   items.each(function () {
     if ($(this).hasClass('active')) {
       startIndex = $(this).index();
@@ -23,7 +17,6 @@ $(window).load(function () {
   });
 
   items.hover(function () {
-    $('.content h1').css({opacity: 0});
     if ($(this).index() == startIndex && $(this).hasClass('active')) {
 
     } else {
@@ -40,8 +33,7 @@ $(window).load(function () {
     }
   });
 
-  menu.find('.menu-item').mouseleave(function () {
-    $('.content h1').css({opacity: 1});
+  header.find('.menu-item').mouseleave(function () {
     $(this).removeClass('active');
     setTimeout(function () {
       $(this).find('.menu-subitems').removeClass('active')

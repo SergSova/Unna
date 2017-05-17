@@ -146,7 +146,7 @@ var QueryLoader = {
                 $('#preload').addClass('done');
                 setTimeout(function() {
                     $('#preload').css('display', 'none');
-                }, 600);
+                }, 900);
             }, 600);
         }, 800);
 

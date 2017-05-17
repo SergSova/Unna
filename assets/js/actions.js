@@ -1,4 +1,4 @@
-$(window).load(function () {
+$(window).on('load', function () {
   var wrap = $('.wrapper');
   var content = wrap.find('.content-wrap');
   var foot = wrap.find('.footer');

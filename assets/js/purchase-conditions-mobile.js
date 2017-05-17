@@ -82,6 +82,10 @@ $('.read-more').bind('click', readMore);
 
 var maxArticlesCount = $('.actions').data('all');
 
+if (maxArticlesCount < 4){
+    $('#loadMoreNews').fadeOut('400');
+}
+
 $('#loadMoreNews').click(function(event) {
     event.preventDefault(event);
     var offset = $('.actions .article').length;
@@ -100,5 +104,11 @@ $('#loadMoreNews').click(function(event) {
     });
     
 });
+
+var urlHash = window.location.hash;
+if (urlHash.length > 0){
+    $(''+urlHash+' > h2').click();
+}
+
 
 });

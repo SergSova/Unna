@@ -1,4 +1,4 @@
-$(window).load(function () {
+$(window).on('load', function () {
   var wrap = $('.wrapper');
   var content = wrap.find('.content-wrap');
   var foot = wrap.find('.footer');
@@ -23,17 +23,43 @@ $(window).load(function () {
     heightTextContent();
   });
 
+
+  //change images in documents
   wrap.find('.docum-load').click(function () {
     $(this).find('i')
       .removeClass('icon-pdf-file-outlined-interface-symbol')
       .addClass('icon-download')
-  })
+  });
+
+  //redirect with scrollbar
+  var links= wrap.find('.foot-line .circ');
+  var curHref, prevHref, nextHref;
+
+  links.each(function (i) {
+    if ($(this).hasClass('active')) {
+      curHref = i;
+      prevHref = links.eq(curHref - 1).attr('href');
+      nextHref = links.eq(curHref + 1).attr('href');
+    }
+  });
+
+  $(".content-text").mCustomScrollbar({
+    callbacks: {
+      onTotalScrollBack: function(){
+        window.location.href = prevHref
+      },
+      onTotalScroll: function(){
+        if (nextHref) window.location.href = nextHref
+      }
+    }
+  });
+
 });
 
 
 //scrollbar
 (function ($) {
   $(window).on("load", function () {
-    $(".content-text").mCustomScrollbar();
+
   });
 })(jQuery);

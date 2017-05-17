@@ -8,65 +8,88 @@
     margin: 0 auto;
     font-family: Roboto; }
   .section2 ul {
-    padding: 60px 0; }
+    padding: 20px 0 0;
+    margin-left: -42px;
+    margin-right: -42px; }
   .section2 li {
     text-align: center;
-    margin-bottom: 70px; }
+    padding: 35px 0;
+    transition: .3s linear; }
+    .section2 li .hidden {
+      display: none;
+      width: 100% !important; }
+      .section2 li .hidden > .slider {
+        opacity: 0;
+        transition: .3s linear; }
     .section2 li:last-child {
       margin-bottom: 0; }
+    .section2 li.sliderShow .slider {
+      opacity: 1; }
+    .section2 li.active {
+      padding-bottom: 0; }
+      .section2 li.active a {
+        color: #000; }
+        .section2 li.active a i {
+          opacity: 0; }
+        .section2 li.active a span {
+          font-size: 40px;
+          margin-top: -70px;
+          padding-bottom: 35px; }
   .section2 a {
-    color: #00976f; }
+    color: #00976f;
+    transition: .3s linear; }
     .section2 a i {
-      font-size: 50px; }
+      font-size: 50px;
+      transition: .3s linear;
+      opacity: 1; }
       .section2 a i img {
         width: 40px;
         padding: 0; }
     .section2 a span {
       font-size: 22px;
+      margin-top: 0px;
+      padding-bottom: 0;
       display: block;
       font-weight: 400;
-      padding-top: 15px; }
+      padding-top: 15px;
+      transition: .3s linear; }
 
-.section4 {
-  padding-top: 40px; }
-  .section4 .links {
-    padding: 50px 0; }
-    .section4 .links:after {
-      content: "";
-      display: table;
-      clear: both; }
-    .section4 .links a {
-      width: 50%;
-      float: left;
-      text-align: center; }
-      .section4 .links a i {
-        vertical-align: middle;
-        color: #00976f;
-        display: inline-block;
-        height: 44px;
-        font-size: 37px;
-        padding-right: 20px;
-        box-sizing: border-box; }
-      .section4 .links a img {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-        vertical-align: middle;
-        padding-right: 20px;
-        padding-top: 3px; }
-      .section4 .links a span {
-        vertical-align: middle;
-        display: inline-block;
-        max-width: 200px;
-        text-align: left;
-        font-size: 20px;
-        font-weight: 300; }
+.section3 .links {
+  padding: 50px 0; }
+  .section3 .links:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .section3 .links a {
+    width: 50%;
+    float: left;
+    text-align: center; }
+    .section3 .links a i {
+      vertical-align: middle;
+      color: #00976f;
+      display: inline-block;
+      height: 44px;
+      font-size: 37px;
+      padding-right: 20px;
+      box-sizing: border-box; }
+    .section3 .links a img {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      vertical-align: middle;
+      padding-right: 20px;
+      padding-top: 3px; }
+    .section3 .links a span {
+      vertical-align: middle;
+      display: inline-block;
+      max-width: 200px;
+      text-align: left;
+      font-size: 20px;
+      font-weight: 300; }
 
 .gallery-history {
-  margin-left: -42px;
-  margin-right: -42px;
   text-align: center;
-  padding-top: 60px; }
+  padding-top: 20px; }
   .gallery-history .year {
     padding: 0px 42px;
     border-bottom: 2px solid #333333; }
@@ -172,9 +195,15 @@
   .section2 {
     padding-top: 30px; }
     .section2 ul {
-      padding: 50px 0; }
+      padding: 20px 0 0;
+      margin-left: -20px;
+      margin-right: -20px; }
     .section2 li {
-      margin-bottom: 50px; }
+      padding: 25px 0; }
+      .section2 li.active a span {
+        font-size: 23px;
+        margin-top: -45px;
+        padding-bottom: 25px; }
     .section2 p {
       font-size: 19px;
       max-width: 265px;
@@ -196,46 +225,43 @@
     .slick-arrow.slick-next {
       padding-left: 2px;
       right: 15px; }
-  .section4 .links a img {
+  .section3 .links a img {
     width: 25px;
     display: block;
     margin: 0 auto;
     padding: 0; }
-  .section4 .links a i {
+  .section3 .links a i {
     height: 27px;
     font-size: 28px;
     padding: 0;
     display: block; }
-  .section4 .links a span {
+  .section3 .links a span {
     margin-top: 20px;
     font-size: 14px;
     text-align: center; }
-  .section4 .links a:first-child span {
+  .section3 .links a:first-child span {
     max-width: 80px; }
-  .section4 .links a:last-child span {
+  .section3 .links a:last-child span {
     max-width: 150px; }
-  .gallery-history {
-    margin-left: -20px;
-    margin-right: -20px; }
-    .gallery-history .year {
-      padding: 0 20px;
-      border-bottom: 1px solid #333; }
-      .gallery-history .year:first-child {
-        border-top: 1px solid #333; }
-      .gallery-history .year span {
-        padding: 15px 0; }
-        .gallery-history .year span:after {
-          font-size: 13px;
-          top: -6px; }
-      .gallery-history .year > span {
-        font-size: 28px;
-        padding: 30px 0; }
-    .gallery-history .season > span {
-      font-size: 22.4px; }
-    .gallery-history .season span:after {
-      top: 19px;
-      right: 0; }
-    .gallery-history .month > span {
-      font-size: 19px; }
-    .gallery-history .month img {
-      padding-bottom: 15px; } }
+  .gallery-history .year {
+    padding: 0 20px;
+    border-bottom: 1px solid #333; }
+    .gallery-history .year:first-child {
+      border-top: 1px solid #333; }
+    .gallery-history .year span {
+      padding: 15px 0; }
+      .gallery-history .year span:after {
+        font-size: 13px;
+        top: -6px; }
+    .gallery-history .year > span {
+      font-size: 28px;
+      padding: 30px 0; }
+  .gallery-history .season > span {
+    font-size: 22.4px; }
+  .gallery-history .season span:after {
+    top: 19px;
+    right: 0; }
+  .gallery-history .month > span {
+    font-size: 19px; }
+  .gallery-history .month img {
+    padding-bottom: 15px; } }

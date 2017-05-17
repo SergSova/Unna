@@ -178,7 +178,7 @@ p {
         width: 200px;
         background: rgba(255, 255, 255, 0.8);
         padding: 10px 10px 35px;
-        bottom: -62px;
+        bottom: -71px;
         left: -9px; }
         .section3 .location-popup-inner.white-color .location-popup h5 {
           font-family: Roboto;
@@ -191,7 +191,7 @@ p {
     background: rgba(30, 142, 114, 0.8);
     width: 230px;
     left: -4px;
-    bottom: -53px;
+    bottom: -70px;
     padding: 10px 15px 25px;
     position: absolute;
     box-sizing: border-box;
@@ -430,6 +430,10 @@ p {
       font-size: 35px; }
 
 @media all and (max-width: 767px) {
+  p{
+    padding-left: 0;
+    padding-right: 0;
+  }
   .section1 {
     padding: 25px 0; }
     .section1 h1 {

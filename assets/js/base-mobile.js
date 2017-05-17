@@ -33,6 +33,11 @@ $('.link-delay').each(function() {
 
 var heightSetted = false;
 $('.menu-sandwich').click(function() {
+    if (!$(this).hasClass('rotate')){
+        $('html').css('overflow', 'hidden');
+    } else {
+        $('html').css('overflow', 'visible');
+    }
     $('#mobile-menu').fadeToggle(400, function () {
         // set max-height of items menu
         if (!heightSetted){

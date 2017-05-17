@@ -1,4 +1,4 @@
-$(window).load(function () {
+$(window).on('load', function () {
   var wrap = $('.wrapper');
   var content = wrap.find('.content-wrap');
   var foot = wrap.find('.footer');
@@ -15,9 +15,21 @@ $(window).load(function () {
   isWheel = true;
 
   //hidding SEO text
-  if(h < 800) {
+  if (h < 800) {
     wrap.find('.advan-text').css('display', 'none');
   }
+
+  //redirect
+  var links= wrap.find('.foot-line .circ');
+  var curHref, prevHref, nextHref;
+
+  links.each(function (i) {
+    if ($(this).hasClass('active')) {
+      curHref = i;
+      prevHref = links.eq(curHref - 1).attr('href');
+      nextHref = links.eq(curHref + 1).attr('href');
+    }
+  });
 
   //height content
   sizeTextContent();
@@ -59,12 +71,12 @@ $(window).load(function () {
       }
 
       //check current
-      if (currentSection > 9) {
+      if (currentSection > 8) {
         //next page
-        location.reload()
+        if (nextHref) window.location.href = nextHref
       } else if (currentSection < 0) {
         //preview page
-        location.reload()
+        window.location.href = prevHref
       }
       activeSection(currentSection);
       setTimeout(function () {
@@ -84,6 +96,7 @@ $(window).load(function () {
       }, 500)
     }
   }
+
   //adding active
   wrap.find('.advan-content-wrap:eq(0)').addClass('active');
 
@@ -98,8 +111,8 @@ $(window).load(function () {
   wrap.find('.advan-img').click(function () {
     index = $(this).data('img');
     slider.css('display', 'block');
-    slider.find('.slider-container').children('[data-img="'+ index +'"]').addClass('active');
-    slider.find('.slider-content').children('[data-img="'+ index +'"]').addClass('active');
+    slider.find('.slider-container').children('[data-img="' + index + '"]').addClass('active');
+    slider.find('.slider-content').children('[data-img="' + index + '"]').addClass('active');
     //counter
     slider.find('.count-current').html(index);
     slider.find('.count-max').html(sliderLen);
@@ -130,8 +143,8 @@ $(window).load(function () {
     // change image
     slider.find('.count-current').html(index);
     slider.find('.active').removeClass('active');
-    slider.find('.slider-container').children('[data-img="'+ index +'"]').addClass('active');
-    slider.find('.slider-content').children('[data-img="'+ index +'"]').addClass('active');
+    slider.find('.slider-container').children('[data-img="' + index + '"]').addClass('active');
+    slider.find('.slider-content').children('[data-img="' + index + '"]').addClass('active');
     resizeImg();
   }
 
@@ -143,27 +156,27 @@ $(window).load(function () {
     var windowRatio = w / h;
 
     if (w < 1400 || h < 940) {
-      if(imgRatio > windowRatio) {
-        slider.find('.slider-container').css({display: 'block'}).children('[data-img="'+ index +'"]').removeClass('by-height');
+      if (imgRatio > windowRatio) {
+        slider.find('.slider-container').css({display: 'block'}).children('[data-img="' + index + '"]').removeClass('by-height');
       } else {
-        slider.find('.slider-container').css({display: 'inline-block'}).children('[data-img="'+ index +'"]').addClass('by-height');
+        slider.find('.slider-container').css({display: 'inline-block'}).children('[data-img="' + index + '"]').addClass('by-height');
       }
     } else {
-      slider.find('.slider-container').css({display: 'block'}).children('[data-img="'+ index +'"]').removeClass('by-height');
+      slider.find('.slider-container').css({display: 'block'}).children('[data-img="' + index + '"]').removeClass('by-height');
     }
   }
 
   //adding images in slider head
   wrap.find('.list-img').each(function (i) {
-    wrap.find('.slider-logo:eq('+ i +')').html($(this).html())
+    wrap.find('.slider-logo:eq(' + i + ')').html($(this).html())
       .css('color', '#00976f');
   });
   wrap.find('.annotation-head').each(function (i) {
-    wrap.find('.slider-head:eq('+ i +')').html($(this).html())
+    wrap.find('.slider-head:eq(' + i + ')').html($(this).html())
   });
-    wrap.find('.annotation-text').each(function (i) {
-      wrap.find('.slider-text:eq('+ i +')').html($(this).html())
-    });
+  wrap.find('.annotation-text').each(function (i) {
+    wrap.find('.slider-text:eq(' + i + ')').html($(this).html())
+  });
 
 });
 
