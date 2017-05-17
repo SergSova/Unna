@@ -16,7 +16,7 @@
     </a>`]]
     <div>
         <div class="media">
-            <img src="[[+tv.base-image]]"/>
+            <a href="[[~[[+id]]]]"><img src="[[+tv.base-image]]"/></a>
         </div>
         <div class="info">
             <p class="title">[[+pagetitle]] [[%metr? &namespace=`unna`]]<sup>2</sup></p>

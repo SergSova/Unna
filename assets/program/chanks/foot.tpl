@@ -4,6 +4,7 @@
     </div>
 
     [[+parent:is=`0`:then=`
+    [[*id:ne=`[[babelId?&id=`6`]]`:and:ne=`[[babelId?&id=`12`]]`:then=`
     <!--more btn center-->
     <div class="btn-more">
         <div class="btn-more-wrap">
@@ -12,6 +13,7 @@
             <div class="btn-arrows-right"><span></span> <span></span></div>
         </div>
     </div>
+    `]]
     `:else=`
     [[*id:ne=`[[babelId?&id=`6`]]`:and:ne=`[[babelId?&id=`12`]]`:then=`
     <div class="foot-menu">

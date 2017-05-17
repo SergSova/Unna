@@ -1,8 +1,10 @@
 <aside class="left-side">
+    [[*id:ne=`[[++site_start]]`:then=`
     <a href="[[++site_url]]" class="arrow-to-main">
         <span>На главную</span>
         <i class="icon-left-arrow-g"></i>
     </a>
+    `]]
     <div class="sandwich-wrap">
         <a class="menu-sandwich" href="">
             <div class="sandwich-items">

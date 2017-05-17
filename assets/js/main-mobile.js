@@ -27,7 +27,7 @@ $(window).on('load',function() {
 });
 
 var markersInfo = [];
-var emptyIcon = "assets/image/marker-empty.png";
+var emptyIcon = "assets/images/marker-empty.png";
 
 function collectMarkersInfo(objects) {
     markersInfo = [];

@@ -15,9 +15,15 @@
     <link rel="stylesheet" href="assets/css/building.css">
     `]]
     [[$seo.tpl]]
+    <link rel="stylesheet" href="assets/css/queryLoader.css">
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <script src="assets/js/lib/queryLoader.js"></script>
 </head>
 <body>
-
+[[$queryLoader]]
 <div class="wrapper">
 
     <!--left side-->
@@ -49,16 +55,17 @@
         </div>
     </div>
 
+    [[$slider-galery]]
+
     [[$foot]]
 </div>
 
 
 <!--scripts-->
 <!--libs-->
-<script
-        src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-        crossorigin="anonymous"></script>
+<script type='text/javascript'>
+    QueryLoader.init();
+</script>
 <!--<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>-->
 <script src="assets/js/lightbox.min.js"></script>
 <!---->

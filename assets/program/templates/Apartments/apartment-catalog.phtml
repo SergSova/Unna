@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
     <link rel="stylesheet" href="assets/css/apartment.css"/>
     [[$seo.tpl]]
+    <link rel="stylesheet" href="assets/css/queryLoader.css">
+    <script
+        src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+    <script src="assets/js/lib/queryLoader.js"></script>
 </head>
 <body>
+[[$queryLoader]]
 <div class="wrapper">
     <!--left side-->
     [[$left-side]]
@@ -40,10 +47,9 @@
     [[$foot]]
 </div>
 <!--scripts-->
-<script
-        src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-        crossorigin="anonymous"></script>
+<script type='text/javascript'>
+	QueryLoader.init();
+</script>
 <script src="assets/js/slick.min.js" type="text/javascript"></script>
 <script src="assets/js/lightbox.min.js" type="text/javascript"></script>
 <script src="assets/js/jquery.mCustomScrollbar.min.js" type="text/javascript"></script>
