@@ -1,0 +1,1 @@
+<div data-img="[[+idx]]" class="slider-text">[[+text]]</div>

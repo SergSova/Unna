@@ -45,52 +45,49 @@ $(window).on('load', function () {
     $(this).parent().toggleClass('active');
   });
 
-  content.find('.no-follow').click(function (e) {
-    e.preventDefault();
-  });
-
-  // $(document).on('wheel', function (event) {
-  //   event.preventDefault(event);
-  //   e = window.event || event.originalEvent;
-  //   if (isWheel) {
-  //     isWheel = false;
-  //     if (e.deltaY > 0) {
-  //       currentSection++;
-  //     } else {
-  //       currentSection--;
-  //     }
-  //
-  //     //check current
-  //     if (currentSection > 9) {
-  //       //next page
-  //       location.reload()
-  //     } else if (currentSection < 0) {
-  //       //preview page
-  //       location.reload()
-  //     }
-  //     activeSection(currentSection);
-  //   }
-  //   setTimeout(function () {
-  //     isWheel = true;
-  //   }, 1000);
-  // });
-  // window.addEventListener('scrollUp', scrollToTop);
-  // window.addEventListener('scrollDown', scrollToDown);
-
   //resing elems
   $(window).resize(function () {
     sizeTextContent();
   });
+
+  //redirect with scrollbar
+  var links= wrap.find('.foot-line .circ');
+  var curHref, prevHref, nextHref;
+
+  links.each(function (i) {
+    if ($(this).hasClass('active')) {
+      curHref = i;
+      prevHref = links.eq(curHref - 1).attr('href');
+      nextHref = links.eq(curHref + 1).attr('href');
+    }
+  });
+
+  $(document).on('wheel', function (event) {
+    event.preventDefault(event);
+    e = window.event || event.originalEvent;
+    if (e.deltaY > 0) {
+      if (nextHref) window.location.href = nextHref
+    } else {
+      window.location.href = prevHref
+    }
+  });
+
+  $(".right-content").mCustomScrollbar({
+    alwaysShowScrollbar: 1,
+    callbacks: {
+      onTotalScrollBack: function(){
+        window.location.href = prevHref
+      },
+      onTotalScroll: function(){
+        if (nextHref) window.location.href = nextHref
+      },
+      onInit:function(){
+        $(document).off('wheel');
+      }
+    }
+  });
 });
 
-//scrollbar
-(function ($) {
-  $(window).on("load", function () {
-    $(".right-content").mCustomScrollbar({
-      alwaysShowScrollbar: 1
-    });
-  });
-})(jQuery);
 
 
 

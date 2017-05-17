@@ -21,9 +21,9 @@
         <a href="[[~[[babelId?&id=`2`]]]]" class="menu-apartment">
             <div class="menu-apart-white">
                 <div class="menu-apart-items">
-                    <div class="menu-apart-item"><span></span></div>
-                    <div class="menu-apart-item"><span></span></div>
-                    <div class="menu-apart-item"><span></span></div>
+                    <div class="menu-apart-item"><span data-left="-11" data-right="5" data-speed="1"></span></div>
+                    <div class="menu-apart-item"><span data-left="-6" data-right="9" data-speed="0.6"></span></div>
+                    <div class="menu-apart-item"><span data-left="-11" data-right="5" data-speed="0.8"></span></div>
                 </div>
             </div>
         </a>

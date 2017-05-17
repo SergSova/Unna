@@ -123,6 +123,9 @@
     </div>
 </div>
 <header>
+  <div class="bottom-lines">
+    <span class="left"></span><span class="right"></span>
+  </div>
     <div class="container">
         <div class="menu-sandwich">
             <div class="sandwich-items">

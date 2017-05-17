@@ -14,6 +14,18 @@ $(window).on('load', function () {
   var curX, curY, diffX, diffY, sumX = 0, sumY = 0, prevX, prevY;
 
 
+  //redirect
+  var links= wrap.find('.foot-line .circ');
+  var curInd, prevHref, nextHref;
+
+  links.each(function (i) {
+    if ($(this).hasClass('active')) {
+      curInd = i;
+      prevHref = links.eq(curInd - 1).attr('href');
+      nextHref = links.eq(curInd + 1).attr('href');
+    }
+  });
+
   //height content
   sizeTextContent();
   function sizeTextContent() {
@@ -42,6 +54,13 @@ $(window).on('load', function () {
       } else {
         galleryH += imgS.height();
         sector--;
+      }
+
+      //redirection
+      if (sector < 0) {
+        window.location.href = prevHref
+      } else if (sector > (imgS.length - 1)) {
+        if (nextHref) window.location.href = nextHref
       }
 
       if (galleryH > 0) {

@@ -4,9 +4,6 @@ $(window).on('load', function () {
   var foot = wrap.find('.footer');
   var text = wrap.find('.content-text');
 
-  var slider = wrap.find('.slider');
-  var sliderLen = wrap.find('.img-wrap').length;
-
   var isWheel = true;
   var hC;
   var gallery = wrap.find('.gallery-wrap');
@@ -16,6 +13,17 @@ $(window).on('load', function () {
   var sector = 0;
   var curX, curY, diffX, diffY, sumX = 0, sumY = 0, prevX, prevY;
 
+  //redirect
+  var links= wrap.find('.foot-line .circ');
+  var curInd, prevHref, nextHref;
+
+  links.each(function (i) {
+    if ($(this).hasClass('active')) {
+      curInd = i;
+      prevHref = links.eq(curInd - 1).attr('href');
+      nextHref = links.eq(curInd + 1).attr('href');
+    }
+  });
 
   //height content
   sizeTextContent();
@@ -27,10 +35,6 @@ $(window).on('load', function () {
     hC = $(window).height() - hTop - hBot;
     content.find('.content-text, .img-sector').css({height: hC});
   }
-
-  content.find('.no-follow').click(function (e) {
-    e.preventDefault();
-  });
 
   $(window).on('wheel', function (event) {
     event.preventDefault(event);
@@ -46,6 +50,12 @@ $(window).on('load', function () {
       } else {
         galleryH += imgS.height();
         sector--;
+      }
+      //redirection
+      if (sector < 0) {
+        window.location.href = prevHref
+      } else if (sector > (imgS.length - 1)) {
+        if (nextHref) window.location.href = nextHref
       }
 
       if (galleryH > 0) {
@@ -118,12 +128,36 @@ $(window).on('load', function () {
 
 
   ///slider
+
+  var slider = wrap.find('.slider');
+  var sliderLen = wrap.find('.img-wrap').length;
+
+  //slider filling
+  var galleryList = '';
+  wrap.find('.img-wrap .img-data').each(function () {
+    galleryList += $(this).html();
+  });
+  wrap.find('.slider-container').prepend('<div class="gallery-list">' + galleryList + '</div>');
+
   //open slider
+
+  var index;
   wrap.find('.img-wrap').click(function () {
-    index = $(this).find('img').data('img');
+    index = $(this).data('img');
+    slider.find('.slide:eq('+ (index - 1) +')').addClass('active');
     slider.css('display', 'block');
-    slider.find('.slider-container').children('[data-img="'+ index +'"]').addClass('active');
-    slider.find('.slider-top').children('[data-img="'+ index +'"]').addClass('active');
+
+    //align elems
+    setTimeout(function () {
+      slider.find('.slide-text').offset({
+        left: slider.find('img').offset().left + 30
+      });
+      slider.find('.slider-close').offset({
+        left: slider.find('img').offset().left + slider.find('img').width() - 60
+      })
+    });
+
+
     //counter
     slider.find('.count-current').html(index);
     slider.find('.count-max').html(sliderLen);
@@ -132,8 +166,7 @@ $(window).on('load', function () {
   });
   //close slider
   wrap.find('.slider-close').click(function () {
-    slider.css('display', 'none');
-    slider.find('.active').removeClass('active');
+    slider.css('display', 'none').find('.slide.active').removeClass('active');
   });
   //paging
   wrap.find('.slider-right').click(function () {
@@ -154,8 +187,7 @@ $(window).on('load', function () {
     // change image
     slider.find('.count-current').html(index);
     slider.find('.active').removeClass('active');
-    slider.find('.slider-container').children('[data-img="'+ index +'"]').addClass('active');
-    slider.find('.slider-top').children('[data-img="'+ index +'"]').addClass('active');
+    slider.find('.slide').eq(index - 1).addClass('active');
     resizeImg();
   }
 
@@ -168,12 +200,12 @@ $(window).on('load', function () {
 
     if (w < 1400 || h < 940) {
       if(imgRatio > windowRatio) {
-        slider.find('.slider-container').css({display: 'block'}).children('[data-img="'+ index +'"]').removeClass('by-height');
+        slider.find('.slider-container').css({display: 'block'}).find('img').removeClass('by-height');
       } else {
-        slider.find('.slider-container').css({display: 'inline-block'}).children('[data-img="'+ index +'"]').addClass('by-height');
+        slider.find('.slider-container').css({display: 'inline-block'}).find('img').addClass('by-height');
       }
     } else {
-      slider.find('.slider-container').css({display: 'block'}).children('[data-img="'+ index +'"]').removeClass('by-height');
+      slider.find('.slider-container').css({display: 'block'}).find('img').removeClass('by-height');
     }
   }
 

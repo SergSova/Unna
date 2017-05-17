@@ -43,6 +43,16 @@ $(window).on('load', function () {
     }
   });
 
+  $(document).on('wheel', function (event) {
+    event.preventDefault(event);
+    e = window.event || event.originalEvent;
+      if (e.deltaY > 0) {
+        if (nextHref) window.location.href = nextHref
+      } else {
+        window.location.href = prevHref
+      }
+  });
+
   $(".content-text").mCustomScrollbar({
     callbacks: {
       onTotalScrollBack: function(){
@@ -50,6 +60,9 @@ $(window).on('load', function () {
       },
       onTotalScroll: function(){
         if (nextHref) window.location.href = nextHref
+      },
+      onInit:function(){
+        $(document).off('wheel');
       }
     }
   });

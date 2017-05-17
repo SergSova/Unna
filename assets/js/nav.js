@@ -171,3 +171,78 @@ $(window).on('load', function () {
     animOn ? text.html('отключить анимацию') : text.html('включить анимацию');
   });
 });
+
+
+function menuApartItemsAnim() {
+    var animFram;
+    var direction; //0 - left, 1 - right, 3 - back to start;
+    var circle = $(".menu-apart-items .menu-apart-item:first-child span");
+
+    $('.menu-apart-white').hover(function() {
+        direction = 0;
+        circleArr;
+        for (var i = 0; i < circleArr.length; i++) {
+            circleArr[i].move();
+        }
+    }, function() {
+        direction = 3;
+    });
+
+    var circleArr = [];
+    $('.menu-apart-white .menu-apart-item').each(function(index) {
+        var that = $(this).find('span');
+        var left = that.data('left');
+        var right = that.data('right');
+        var speed = that.data('speed');
+        circleArr[index] = new circleGo(left, right, that, speed);
+    });
+
+    window.requestAnimFrame = function() {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(a) { window.setTimeout(a, 1E3 / 60) } }();
+
+    function circleGo(left, right, elem, speed) {
+        this.elem = elem,
+        this.left = left,
+        this.right = right,
+        this.direction = 1,
+        this.x = 0,
+        this.speed = speed,
+        this.requestAnim;
+    }
+    circleGo.prototype.move = function() {
+        var that = this;
+        console.log('krya');
+        if (direction != 3){
+
+            if (this.direction == 0) {
+                this.x -= this.speed;
+            } else if (this.direction == 1) {
+                this.x += this.speed;
+            }
+
+            if (this.x <= this.left) {
+                this.direction = 1;
+            } else if (this.x >= this.right) {
+                this.direction = 0;
+            }
+
+        } else {
+
+            if (this.x < -1) {
+                this.x += this.speed;
+            } else if (this.x > 1) {
+                this.x -= this.speed;
+            } else {
+                window.cancelAnimationFrame(this.requestAnim);
+                console.log('cancel');
+                return;
+            }
+
+        }
+        this.elem.css('transform', 'translateX(' + this.x + 'px)');
+        setTimeout(function() {
+            this.requestAnim = window.requestAnimationFrame(function() { that.move();});
+        }, 50);
+    }
+}
+menuApartItemsAnim();

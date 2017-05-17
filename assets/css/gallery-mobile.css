@@ -1,3 +1,6 @@
+header:before{
+  background: url("../images/mobile-gallery1.jpg") no-repeat center center;
+}
 .section1 {
   background: url("../images/mobile-gallery1.jpg") no-repeat center center; }
 

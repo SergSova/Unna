@@ -37,8 +37,6 @@ h4,
 h5,
 h6 {
   font-weight: 100;
-  -webkit-transition: 0.5s linear;
-  transition: 0.5s linear;
 }
 h1,
 h2 {
@@ -258,18 +256,6 @@ h2 {
 }
 .menu-apart-white:hover {
   cursor: pointer;
-}
-.menu-apart-white:hover .menu-apart-item:nth-child(1) span {
-  -webkit-animation: point-1 1.4s linear 0s infinite;
-          animation: point-1 1.4s linear 0s infinite;
-}
-.menu-apart-white:hover .menu-apart-item:nth-child(2) span {
-  -webkit-animation: point-2 2s linear 0s infinite;
-          animation: point-2 2s linear 0s infinite;
-}
-.menu-apart-white:hover .menu-apart-item:nth-child(3) span {
-  -webkit-animation: point-1 1.8s linear 0s infinite;
-          animation: point-1 1.8s linear 0s infinite;
 }
 .menu-apart-items {
   display: inline-block;
@@ -1202,6 +1188,9 @@ a.callback .callback-wrap img {
 }
 .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
   background: #fff;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .mCSB_scrollTools {
   opacity: 1;

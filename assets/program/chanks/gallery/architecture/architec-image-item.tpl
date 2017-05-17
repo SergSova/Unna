@@ -1,0 +1,1 @@
+<img data-img="[[+idx]]" src="[[+image]]" alt="slider">

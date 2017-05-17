@@ -302,7 +302,7 @@ ul li {
 
 header {
   position: fixed;
-  background: rgba(0,0,0,0.4);
+  overflow: hidden;
   padding-bottom: 25px;
   left: 0;
   top: 0;
@@ -310,7 +310,53 @@ header {
   padding-top: 25px;
   width: 100%;
   text-align: center; }
-
+header .bottom-lines{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+header .bottom-lines .left{
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  width: 0%;
+  transition: .3s linear;
+  background: #fff;
+  height: 1px;
+}
+header .bottom-lines .right{
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  transition: .3s linear;
+  background: #fff;
+  height: 1px;
+}
+header:before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 1024px;
+  width: 100%;
+  filter: blur(3px);
+  z-index: -2;
+}
+header:after{
+    content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 256px;
+  z-index: -1;
+  background: transparent;
+  background: -moz-linear-gradient(bottom, transparent 0%, rgba(0, 0, 0, 0.8) 160%);
+  background: -webkit-linear-gradient(bottom, transparent 0%, rgba(0, 0, 0, 0.8) 160%);
+  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.8) 160%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='transparent', endColorstr='#000000',GradientType=0 );
+}
 .menu-sandwich {
   display: inline-block;
   margin: auto;
