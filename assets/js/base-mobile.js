@@ -88,3 +88,33 @@ $('#callback .close').click(function(event) {
     event.preventDefault(event);
     $('#callback').fadeOut('400');
 });
+
+// ************************************************************** header border
+
+var headerHeight;
+var sectionHeight;
+var scrollPos;
+var header = $('header');
+var section1 = $('.section1');
+var lineMove;
+headerBottomLine();
+$(window).on('resize', function() {
+    headerBottomLine();
+});
+
+
+$(window).on('scroll', function() {
+    headerBottomLine();
+});
+
+function headerBottomLine() {
+    headerHeight =  header.outerHeight();
+    scrollPos = $(window).scrollTop();
+    sectionHeight = section1.outerHeight() - header.outerHeight();
+    if (scrollPos < sectionHeight){
+        lineMove = scrollPos*100/sectionHeight;
+        header.find('.bottom-lines span').css('width', lineMove/2+'%');
+    }  else {
+        header.find('.bottom-lines span').css('width', '50%');
+    }
+}

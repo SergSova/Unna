@@ -1,15 +1,25 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'icons-location';
-  src: url('fonts/icons-location.eot?26334817');
-  src: url('fonts/icons-location.eot?26334817#iefix') format('embedded-opentype'),
-       url('fonts/icons-location.woff2?26334817') format('woff2'),
-       url('fonts/icons-location.woff?26334817') format('woff'),
-       url('fonts/icons-location.ttf?26334817') format('truetype'),
-       url('fonts/icons-location.svg?26334817#icons-location') format('svg');
+  src: url('fonts/icons-location.eot?42273337');
+  src: url('fonts/icons-location.eot?42273337#iefix') format('embedded-opentype'),
+       url('fonts/icons-location.woff2?42273337') format('woff2'),
+       url('fonts/icons-location.woff?42273337') format('woff'),
+       url('fonts/icons-location.ttf?42273337') format('truetype'),
+       url('fonts/icons-location.svg?42273337#icons-location') format('svg');
   font-weight: normal;
   font-style: normal;
 }
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'icons-location';
+    src: url('fonts/icons-location.svg?42273337#icons-location') format('svg');
+  }
+}
+*/
  
  [class^="iconloc-"]:before, [class*=" iconloc-"]:before {
   font-family: "icons-location";
@@ -56,7 +66,9 @@
 .iconloc-eye-see:before { content: '\e807'; } /* '' */
 .iconloc-phone:before { content: '\e808'; } /* '' */
 .iconloc-mail:before { content: '\e809'; } /* '' */
-.iconloc-instagram:before { content: '\f32d'; } /* '' */
+.iconloc-right-arrow:before { content: '\e80a'; } /* '' */
+.iconloc-left-arrow:before { content: '\e80b'; } /* '' */
+.iconloc-left-arrow-b:before { content: '\e80c'; } /* '' */
 
 .clearfix::after {
     visibility: hidden;
@@ -1638,7 +1650,7 @@ h2 {
 }
 
 .office-container.small {
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 .office-container .office {
@@ -1710,18 +1722,54 @@ h2 {
     margin: 0 -20px;
     white-space: nowrap;
 }
+.office-container .office-inner .buttons .driving-direction{
+    width: 170px;
+    text-align: center;
+}
+.office-container .office-inner .buttons .get-direction{
+    width: 212px;
+    text-align: center;
+}
+.office-container .office-inner .buttons .get-direction span{
+    left: 28px;
+}
 
 .office-container .office-inner .buttons a {
     background: #fff;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 300;
     font-size: 15px;
     line-height: 39px;
     color: #00976f;
-    padding: 0 20px;
     margin-right: 20px;
     display: inline-block;
+    transition: .3s linear;
+    position: relative;
+    padding-right: 10px;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+}
+
+.office-container .office-inner .buttons a span{
+    color: #00976f;
+    position: absolute;
+    opacity: 0;
+    transition: .3s linear;
+    font-weight: 500;
+    left: 27px;
+    top: 0;
+}
+
+.office-container .office-inner .buttons a:hover{
+    color: transparent;
+}
+.office-container .office-inner .buttons a:hover span{
+    opacity: 1;
+}
+.office-container .office-inner .buttons a:hover i{
+    opacity: 0.7
 }
 
 .office-container .office-inner .buttons a:last-child {
@@ -1729,10 +1777,15 @@ h2 {
 }
 
 .office-container .office-inner .buttons a i {
+    color: #00976f;
     display: inline-block;
-    margin-left: 5px;
-    font-size: 18px;
+    font-size: 13px;
     vertical-align: middle;
+    top: 0px;
+    right: 16px;
+    position: absolute;
+    transform: rotate(180deg);
+    opacity: 0.5;
 }
 
 #map-popup {
@@ -1822,88 +1875,152 @@ h2 {
 }
 
 .form-container.small {
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 .form-container form {
     width: 420px;
+    outline: 0;
 }
 
-.form-container input {
-    background: none;
-    outline: none;
-    border: none;
-    color: #fff;
-    margin-bottom: 20px;
-    font-size: 22px;
-    display: block;
-    font-weight: 100;
-    width: 100%;
-    line-height: 40px;
-    border-bottom: 1px solid #fff;
-    /* Firefox 19+ */
-    /* Firefox 18- */
-    /* Firefox 19+ */
-    /* Firefox 18- */
+.form-container *{
+    outline: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
-.form-container input::-webkit-input-placeholder {
-    transition: .3s linear;
-    color: #fff;
+form {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  -webkit-transform-origin: center top;
+      -ms-transform-origin: center top;
+          transform-origin: center top;
+  text-align: left;
 }
-
-.form-container input::-moz-placeholder {
-    transition: .3s linear;
-    color: #fff;
+.input-container {
+  position: relative;
+  margin-bottom: 36px;
 }
-
-.form-container input:-moz-placeholder {
-    transition: .3s linear;
-    color: #fff;
+input {
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background: none;
+  width: 100%;
+  height: 48px;
+  font-size: 24px;
+  color: #fff;
+  line-height: 48px;
+  border: none;
+  font-family: 'Open Sans';
+  font-weight: 300;
 }
-
-.form-container input:-ms-input-placeholder {
-    transition: .3s linear;
-    color: #fff;
+.input-container input:hover~label,
+.input-container input:focus~label,
+.input-container.active label {
+  -ms-transform: translate(-12%, -80%) scale(0.75);
+  -webkit-transform: translate(-12%, -80%) scale(0.75);
+          transform: translate(-12%, -80%) scale(0.75);
 }
-
-.form-container input:focus::-webkit-input-placeholder {
+.input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 44px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.input-container .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+}
+.input-container .bar:before,
+.input-container .bar:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+.input-container .bar:before {
+  left: 50%;
+}
+.input-container .bar:after {
+  right: 50%;
+}
+.input-container input:focus~.bar:before,
+.input-container input:focus~.bar:after {
+  width: 50%;
+}
+.input-container .bar:before,
+.input-container .bar:after {
+  background: #fff;
+}
+.input-container label {
+  color: #fff;
+}
+.input-container .bar {
+  background: #fff;
+}
+.input-container input:hover~label,
+.input-container.active label,
+.input-container input:focus~label {
+  color: #fff;
+}
+#form-submit {
+  margin-top: 55px;
+  position: relative;
+  color: #fff;
+  font-size: 24px;
+  line-height: 24px;
+  padding: 16px 67px 20px 42px;
+  background: rgba(0,151,111,0.4);
+  border: none;
+  border-radius: 60px;
+  font-family: 'Open Sans';
+  font-weight: 300;
+  outline: none;
+}
+#form-submit span {
+  position: absolute;
+    font-size: 14px;
+    right: 37px;
+    top: 19px;
     color: transparent;
 }
-
-.form-container input:focus::-moz-placeholder {
-    color: transparent;
-}
-
-.form-container input:focus:-moz-placeholder {
-    color: transparent;
-}
-
-.form-container input:focus:-ms-input-placeholder {
-    color: transparent;
-}
-
-.form-container input:last-child {
-    margin-bottom: 0;
-}
-
-.form-container button {
-    background: rgba(0, 151, 111, 0.8);
-    color: #fff;
-    line-height: 40px;
-    margin-top: 20px;
-    padding: 0 30px 3px;
-    font-size: 18px;
-    font-weight: 100;
-    text-align: center;
-    border: none;
-    border-radius: 50px;
-}
-
-.form-container button i {
-    display: inline-block;
-    margin-left: 5px;
+#form-submit span:after {
+        content: '\e80c';
+        font-family: "icons-location";
     font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    /* font-size: 120%; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+    color: #fff;
+    transform: rotate(180deg);
+}
+#form-submit:hover {
+  cursor: pointer;
 }
 
 .btn-more {

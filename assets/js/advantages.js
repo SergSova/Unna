@@ -41,7 +41,7 @@ $(window).on('load', function () {
     content.find('.content-text').css({height: hC});
     sectionsDistrib(hC);
     //width
-    wrap.find('.advan-content').css({width: text.width() - 185 - 30});
+    wrap.find('.advan-content').css({width: text.width() - 185 - 50});
   }
 
   //height distribution for sections
@@ -117,6 +117,12 @@ $(window).on('load', function () {
     slider.find('.count-current').html(index);
     slider.find('.count-max').html(sliderLen);
     resizeImg();
+
+    setTimeout(function () {
+      slider.find('.slider-close').offset({
+        left: slider.find('img').offset().left + slider.find('img').width() - 57
+      })
+    });
 
   });
   //close slider

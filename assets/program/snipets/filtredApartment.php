@@ -12,7 +12,7 @@ $lim = $_GET['limit'] ? $_GET['limit'] : 3;
 $off = $_GET['offset'] ? $_GET['offset'] : 0;
 
 $chank = $modx->getOption( 'tpl', $scriptProperties, 'apart-filtred-item-TPL' );
-if ( $detect->isMobile() || $detect->isTablet() ) {
+if ( $detect->isMobile() ) {
 	$chank = $modx->getOption( 'tpl', $scriptProperties, 'apart-mobile-filtred-item-TPL' );
 }
 $context_key = $modx->resource->context_key;

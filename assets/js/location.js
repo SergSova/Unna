@@ -1,3 +1,4 @@
+var windowWidthValue= (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var map;
 
 $(window).on('load', function() {
@@ -37,12 +38,16 @@ function collectMarkersInfo(objects) {
         } else {
             color = 'green-color';
         }
+        var iconImage = markerInfoArr[4];
+        if (windowWidthValue < 1370){
+            iconImage = iconImage.replace('images/location/','images/mobile-icons/');
+        }
         var markerObj = {
             lat: markerInfoArr[0],
             lng: markerInfoArr[1],
             title: markerInfoArr[2],
             adress: markerInfoArr[3],
-            icon: markerInfoArr[4],
+            icon: iconImage,
             group: markerInfoArr[5],
             color: color,
             visible: $(this).hasClass('visible')

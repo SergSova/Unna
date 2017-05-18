@@ -326,6 +326,7 @@ header .bottom-lines .left{
   height: 1px;
 }
 header .bottom-lines .right{
+  position: absolute;
   left: 50%;
   bottom: 0;
   width: 0%;
@@ -925,6 +926,12 @@ footer {
     margin-left: -0.5px; }
   header {
     padding-top: 15px; padding-bottom: 15px; }
+  header:before{
+    height: 570px;
+  }
+  header:after{
+    height: 142.5px;
+  }
   .menu-lang {
     font-size: 14px;
     margin-right: 15px;

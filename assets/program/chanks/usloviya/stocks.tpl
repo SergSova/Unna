@@ -9,17 +9,7 @@
         </div>
     </div>
     `:else=`
-    <form action="/send_mail.php" method="post">
-        <input type="hidden" name="action" value="send_mail">
-        <input type="hidden" name="to" value="sergeysova@ukr.net">
-        <input type="hidden" name="subject" value="Смотреть больше">
-        <input type="text" name="name" id="form-name" placeholder="[[%name? &namespace=`unna`]]">
-        <input type="tel" name="phone" id="form-tel" placeholder="[[%phone? &namespace=`unna`]]">
-        <input type="email" name="mail" id="form-email" placeholder="e-mail">
-        <input type="text" name="message" id="form-text" placeholder="[[%message? &namespace=`unna`]]">
-        <button type="submit" id="form-submit">[[%learn? &namespace=`unna`]] [[%more? &namespace=`unna`]]
-            <span>&#8250;</span></button>
-    </form>
+    [[$form_chank]]
     `]]
 </div>
 </div>

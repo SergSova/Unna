@@ -11,7 +11,7 @@ $(window).on('load', function () {
   var galleryH = 0;
   var galleryW = 0;
   var sector = 0;
-  var curX, curY, diffX, diffY, sumX = 0, sumY = 0, prevX, prevY;
+
 
 
   //redirect

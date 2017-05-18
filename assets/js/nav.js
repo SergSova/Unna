@@ -198,7 +198,8 @@ function menuApartItemsAnim() {
     });
 
     window.requestAnimFrame = function() {
-        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(a) { window.setTimeout(a, 1E3 / 60) } }();
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(a) { window.setTimeout(a, 1E3 / 60) }
+    }();
 
     function circleGo(left, right, elem, speed) {
         this.elem = elem,
@@ -211,7 +212,6 @@ function menuApartItemsAnim() {
     }
     circleGo.prototype.move = function() {
         var that = this;
-        console.log('krya');
         if (direction != 3){
 
             if (this.direction == 0) {
@@ -234,7 +234,6 @@ function menuApartItemsAnim() {
                 this.x -= this.speed;
             } else {
                 window.cancelAnimationFrame(this.requestAnim);
-                console.log('cancel');
                 return;
             }
 
@@ -242,7 +241,7 @@ function menuApartItemsAnim() {
         this.elem.css('transform', 'translateX(' + this.x + 'px)');
         setTimeout(function() {
             this.requestAnim = window.requestAnimationFrame(function() { that.move();});
-        }, 50);
+        }.bind(this), 50);
     }
 }
 menuApartItemsAnim();

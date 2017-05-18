@@ -23,8 +23,8 @@
             <p><i class="iconloc-mail"></i> <a href="mail:[[+email]]">[[+email]]</a></p>
         </div>
         <div class="buttons">
-            <a href="#" class="driving-direction">[[%shema_transfer?&namespace=`unna`]] <i class="icon-angle-right"></i></a>
-            <a href="#" class="get-direction">[[%make_marshrut?&namespace=`unna`]] <i class="icon-angle-right"></i></a>
+            <a href="#" class="driving-direction">[[%shema_transfer?&namespace=`unna`]]<span>[[%shema_transfer?&namespace=`unna`]]</span><i class="iconloc-left-arrow-b"></i></a>
+            <a href="#" class="get-direction">[[%make_marshrut?&namespace=`unna`]]<span>[[%make_marshrut?&namespace=`unna`]]</span><i class="iconloc-left-arrow-b"></i></a>
         </div>
     </div>
 </div>

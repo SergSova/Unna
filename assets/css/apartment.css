@@ -7,6 +7,10 @@
     outline: 0;
 }
 
+.wrapper.lightboxOpened * {
+    opacity: 0;
+}
+
 html,
 body,
 .wrapper {
@@ -1581,10 +1585,10 @@ a {
 .lb-nav {
     position: absolute;
     display: block !important;
-    width: 250px;
+    width: 15vw;
     left: 0;
     right: 0;
-    bottom: 4vw;
+    bottom: 2vw;
     margin: auto;
     z-index: 55;
 }
@@ -1624,7 +1628,7 @@ a {
 
 .lb-number {
     position: absolute;
-    bottom: 5.6vw;
+    bottom: 3.6vw;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -1847,15 +1851,19 @@ a {
     display: inline-block;
     font-size: 1.26vw;
     margin: 2% 0 3%;
-    font-weight: 300;
+    font-weight: 100;
+    opacity: .7;
+    transform: translateX(5px);
     -webkit-transition: all 0.35s;
     transition: all 0.35s;
 }
 
 .prev_page:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
+    font-weight: 300;
+    opacity: 1;
+    -webkit-transform: translateX(18px) scale(1.1);
+    -ms-transform: translateX(18px) scale(1.1);
+    transform: translateX(18px) scale(1.1);
 }
 
 .prev_page svg {
@@ -2131,10 +2139,12 @@ a {
 
 .left_block .apart_info .num {
     font-size: 1.9vw;
+    font-weight: 300;
 }
 
 .left_block .apart_info .num span {
     font-size: 1.26vw;
+    font-weight: 100;
 }
 
 .left_block .apart_info .desc {
@@ -2160,9 +2170,9 @@ a {
 }
 
 .pdf_file:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
+    -webkit-transform: perspective(1px) scale(1.098);
+    -ms-transform: perspective(1px) scale(1.098);
+    transform: perspective(1px) scale(1.098);
 }
 
 .show_more {
@@ -2267,12 +2277,13 @@ a {
     }
 }
 
+
 @media screen and (max-height: 800px) {
     .header {
         font-size: 4.1vw;
     }
     .prev_page {
-        margin: 0 0 1%;
+        margin: 1% 0 4%;
     }
     .apart_slider {
         margin-top: 1.7%;
@@ -2299,7 +2310,14 @@ a {
         bottom: 3.5vw;
     }
 }
-
+@media screen and (min-width: 1920px) and (max-height: 950px) {
+    .filters .filter .title {
+        margin: 30px 0 20px !important;
+    }
+    .aparts_list {
+        height: 540px !important;
+    }
+}
 .sub_header {
     font-weight: 100;
     font-size: 2.1vw;
@@ -2354,6 +2372,11 @@ a {
     margin: 1.4vw 0;
 }
 
+.filters .premises_filter .filter_row input[type=checkbox] + div,
+.filters .premises_filter .filter_row input[type=radio] + div {
+    margin: 1.4vw 0;
+}
+
 .filters .filter_row input[type=checkbox] + div span,
 .filters .filter_row input[type=radio] + div span {
     cursor: pointer;
@@ -2373,7 +2396,24 @@ a {
     height: 2.61vw;
     line-height: 2.5vw;
     margin-right: 6%;
+    opacity: 0.7;
+    font-weight: 100;
 }
+
+.filters .filter_row input[type=checkbox] + div:hover span.num ,
+.filters .filter_row input[type=radio] + div:hover span.num {
+    opacity: 1;
+    font-weight: 300;
+    margin-right: 6%;
+    transition: all .2s;
+}
+
+.filters .filter_row input[type=checkbox] + div:hover span:nth-child(2) ,
+.filters .filter_row input[type=radio] + div:hover span:nth-child(2) {
+    font-size: 0.95vw;
+    font-weight: 500;
+}
+
 
 .filters .filter_row input[type=checkbox] + div span.num.letter,
 .filters .filter_row input[type=radio] + div span.num.letter {
@@ -2394,14 +2434,15 @@ a {
 .filters .filter_row input[type=radio]:checked + div span.num {
     background-color: #fff;
     color: #019770;
-    margin-right: 7%;
+    margin-right: 6%;
+    font-weight: 300;
+    opacity: 1;
 }
 
 .filters .filter_row input[type=checkbox]:checked + div span:nth-child(2),
 .filters .filter_row input[type=radio]:checked + div span:nth-child(2) {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
+    font-size: 0.95vw;
+    font-weight: 500;
 }
 
 .filters .range-slider {
@@ -2526,6 +2567,10 @@ a {
     margin-top: -6%;
     margin-bottom: 1.9vw;
     font-weight: 100;
+}
+
+.range-slider.prices + .filter-title {
+    margin-top: -4.5%;
 }
 
 .aparts_list {
@@ -2701,6 +2746,7 @@ a {
 
 .aparts_list .apart .apart_info .num {
     font-size: 2.36vw;
+    font-weight: 300;
 }
 
 .aparts_list .apart .apart_info .desc {
@@ -3244,6 +3290,6 @@ a {
         margin: 0.6vw 0;
     }
     .aparts_list {
-        height: 55.3vh;
+        height: 54.3vh;
     }
 }

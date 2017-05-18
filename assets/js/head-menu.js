@@ -3,9 +3,7 @@ $(window).on('load', function () {
   var items = header.find('.menu-item');
   var startIndex;
   var startActive = true;
-
-  var h = $(window).height();
-
+  var timeId
 
 
   //check to find active
@@ -23,10 +21,11 @@ $(window).on('load', function () {
       if (startActive) {
         startActive = false;
         items.eq(startIndex).removeClass('active');
-        setTimeout(function () {
+        timeId = setTimeout(function () {
           items.eq(startIndex).find('.menu-subitems').removeClass('active')
         }, 500);
       }
+      clearTimeout(timeId);
       $(this)
         .addClass('active')
         .find('.menu-subitems').addClass('active');
@@ -35,7 +34,7 @@ $(window).on('load', function () {
 
   header.find('.menu-item').mouseleave(function () {
     $(this).removeClass('active');
-    setTimeout(function () {
+    timeId = setTimeout(function () {
       $(this).find('.menu-subitems').removeClass('active')
     }.bind($(this)), 500)
   });

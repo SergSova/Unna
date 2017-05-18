@@ -12,17 +12,7 @@
             </div>
             <!-- /office-container -->
             <div class="form-container hidden-block scale-contacts-1 small">
-                <form action="/send_mail.php" method="post">
-                    <input type="hidden" name="action" value="send_mail">
-                    <input type="hidden" name="to" value="sergeysova@ukr.net">
-                    <input type="hidden" name="subject" value="Узнать больше">
-                    <input type="text" name="name" placeholder="[[%name]]">
-                    <input type="text" name="phone" placeholder="[[%phone]]">
-                    <input type="email" name="mail" placeholder="e-mail">
-                    <!-- <input type="date" name="name" placeholder="дата"> -->
-                    <!-- <input type="time" name="name" placeholder="время"> -->
-                    <button>[[%learn]] [[%more]]<i class="icon-angle-right"></i></button>
-                </form>
+                [[$form_chank]]
             </div>
         </div>
     </div>
