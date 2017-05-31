@@ -1,5 +1,5 @@
 <div class="apart [[+idx:is=`1`:then=`current`]]">
-    [[+tv.action:is=``:else=`<a href="[[~[[+tv.action]]]]" class="share">
+    [[+tv.action:is=``:else=`<a href="[[~[[babelId?&id=`36`]]]]?id=[[+tv.action]]" class="share">
         <span>[[*context_key:is=`web`:then=`Акция`:else=`Акцiя`]]</span>
         <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 72.05 43.92">
             <defs>

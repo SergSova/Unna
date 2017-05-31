@@ -160,8 +160,6 @@ $(window).on('load', function () {
     }
   }
 
-
-
   //enable anim-cube
   var animOn = true;
   cube.click(function () {
@@ -170,9 +168,13 @@ $(window).on('load', function () {
     $(this).toggleClass('active');
     animOn ? text.html('отключить анимацию') : text.html('включить анимацию');
   });
+
+  //align in footer
+
+
 });
 
-
+//animation in menu-apartment
 function menuApartItemsAnim() {
     var animFram;
     var direction; //0 - left, 1 - right, 3 - back to start;

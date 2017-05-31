@@ -42,7 +42,7 @@ $('.menu-sandwich').click(function() {
         // set max-height of items menu
         if (!heightSetted){
             var maxHeight = $('#mobile-menu').height() - $('#mobile-menu .top').outerHeight();
-            $('#mobile-menu .content').css('max-height', maxHeight);
+            $('#mobile-menu .content').css('height', maxHeight);
             heightSetted = true;
         }
     });
@@ -59,7 +59,7 @@ $('.menu-sandwich').click(function() {
 
 $(window).on('resize', function() {
     var maxHeight = $('#mobile-menu').height() - $('#mobile-menu .top').outerHeight();
-    $('#mobile-menu .content').css('max-height', maxHeight);
+    $('#mobile-menu .content').css('height', maxHeight);
 });
 
 // ************************************************************** mobile menu item click

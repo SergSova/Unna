@@ -1,10 +1,37 @@
-<div class="sub-preview scale-js-2">
-    <div class="booklet" data-link="[[#[[babelId?&id=`27`]].buklet_PDF]]"><img src="assets/images/booklet.png"
-                                                                               alt="booklet">
-        <p>[[%download:ucfirst? &namespace=`unna`]]<br>[[%buklet? &namespace=`unna`]]</p></div>
-    <div class="view-presentation">
-        <div class="movie" data-link="[[#[[babelId?&id=`27`]].presentation]]"></div>
-        <p>[[%look:ucfirst? &namespace=`unna`]] [[%video? &namespace=`unna`]]-<br>[[%presentation? &namespace=`unna`]]
-        </p>
-    </div>
+<div class="sub-preview">
+    <a href="[[#[[babelId?&id=`27`]].buklet_PDF]]" class="booklet">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 258 237.84">
+            <g transform="translate(0 10)">
+                <path fill="#fff"
+                      d="M248,18.9V226.2c-11.2-2.9-36.2-8.3-69.4-8.3-21.6,0-42.8,7.1-49.4,9.5a115.64,115.64,0,0,0-44.8-9.5,330.52,330.52,0,0,0-74.3,8.5V18.6A327.74,327.74,0,0,1,84.4,9.8,106.4,106.4,0,0,1,124.1,18s5,1.6,7.3.5a5.12,5.12,0,0,0,2.4-3.7,4.94,4.94,0,0,0-2.7-4.4A115.87,115.87,0,0,0,84.3,0C39.5,0,5.1,9.7,3.6,10.1A5,5,0,0,0,0,14.9V232.8a4.93,4.93,0,0,0,2,4,4.72,4.72,0,0,0,3,1,6.75,6.75,0,0,0,1.4-.2c.3-.1,34.6-9.7,77.9-9.7a106.4,106.4,0,0,1,39.7,8.2s3.7,1.7,5,1.7,5-1.5,5-1.5c7.2-2.5,26.1-8.4,44.6-8.4,43.2,0,72.5,9.6,72.8,9.7a5.15,5.15,0,0,0,4.5-.7,4.88,4.88,0,0,0,2.1-4V14.8Z"/>
+                <path fill="#fff"
+                      d="M133.8,14.8a4.94,4.94,0,0,0-2.7-4.4A115.87,115.87,0,0,0,84.3,0C39.5,0,5.1,9.7,3.6,10.1A5,5,0,0,0,0,14.9V232.8a4.93,4.93,0,0,0,2,4,4.72,4.72,0,0,0,3,1,6.75,6.75,0,0,0,1.4-.2c.3-.1,34.6-9.7,77.9-9.7a106.4,106.4,0,0,1,39.7,8.2s3.7,1.7,5,1.7,5-1.5,5-1.5M131.1,18.5a4.56,4.56,0,0,0,2.6-3.7M125,225.7a116.07,116.07,0,0,0-40.8-7.8,330.52,330.52,0,0,0-74.3,8.5V18.6A327.74,327.74,0,0,1,84.2,9.8,106.4,106.4,0,0,1,123.9,18s-.3.3.8.7Z"/>
+                <path fill="none" stroke="#fff" stroke-width="10" d="M132 17 C 165 0, 210 0, 258 17"/>
+            </g>
+        </svg>
+        <span>Скачать<br>буклет</span>
+    </a>
+    <a href="[[#[[babelId?&id=`27`]].presentation]]" class="movie">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 22">
+            <g>
+                <rect class="video-1" x="0.5" y="0.5" width="27" height="21"/>
+                <line class="video-1" x1="5.5" x2="5.5" y2="22"/>
+                <line class="video-1" x1="22.5" x2="22.5" y2="22"/>
+                <g class="video-lines">
+                    <line class="video-1" x1="23" y1="0.5" x2="27" y2="0.5"/>
+                    <line class="video-1" x1="23" y1="5.5" x2="27" y2="5.5"/>
+                    <line class="video-1" x1="23" y1="11.5" x2="27" y2="11.5"/>
+                    <line class="video-1" x1="23" y1="16.5" x2="27" y2="16.5"/>
+                </g>
+                <g class="video-lines">
+                    <line class="video-1" x1="1" y1="0.5" x2="5" y2="0.5"/>
+                    <line class="video-1" x1="1" y1="5.5" x2="5" y2="5.5"/>
+                    <line class="video-1" x1="1" y1="11.5" x2="5" y2="11.5"/>
+                    <line class="video-1" x1="1" y1="16.5" x2="5" y2="16.5"/>
+                </g>
+                <polygon class="video-2 triangle" points="11.5 7 11.5 15 17 11 11.5 7"/>
+            </g>
+        </svg>
+        <span>Смотреть&nbsp;видео-<br>презентацию</span>
+    </a>
 </div>

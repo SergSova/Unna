@@ -3,7 +3,7 @@ $(window).on('load', function () {
   var content = wrap.find('.content-wrap');
   var foot = wrap.find('.footer');
   var text = wrap.find('.content-text');
-
+  var w = $(window).width();
   var isWheel = true;
   var hC;
   var gallery = wrap.find('.gallery-wrap');
@@ -28,10 +28,18 @@ $(window).on('load', function () {
   //height content
   sizeTextContent();
   function sizeTextContent() {
+    var indent;
+    if (w >= 1800) {
+      indent = 70
+    } else if (w >= 1400) {
+      indent = 50
+    } else {
+      indent = 30
+    }
     var form = wrap.find('form');
     var h2 = wrap.find('h2');
     var hTop = h2.height() + h2.offset().top + 40;
-    var hBot = foot.height() + 80;
+    var hBot = foot.height() + indent;
     hC = $(window).height() - hTop - hBot;
     content.find('.content-text, .img-sector').css({height: hC});
   }
@@ -46,7 +54,7 @@ $(window).on('load', function () {
         galleryH -= imgS.height();
         sector++;
         //hiding mouse img
-        wrap.find('.btn-more').css('opacity', '0');
+        wrap.find('.scr-more').css('opacity', '0');
       } else {
         galleryH += imgS.height();
         sector--;
@@ -164,6 +172,14 @@ $(window).on('load', function () {
     resizeImg();
 
   });
+
+  //close slider if miss click
+  wrap.find('.slider-wrap').click(function (e) {
+    if (e.target.classList.value == 'slider-wrap') {
+      slider.css('display', 'none').find('.slide.active').removeClass('active');
+    }
+  });
+
   //close slider
   wrap.find('.slider-close').click(function () {
     slider.css('display', 'none').find('.slide.active').removeClass('active');

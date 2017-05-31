@@ -11,6 +11,7 @@ if ( $modx->event->name == 'OnLoadWebDocument' && $modx->context->get( 'key' ) !
 	$obj = $modx->getObject( 'modResource', $url );
 	$url = $obj->get( 'alias' );
 
+
 	if ( $detect->isMobile() ) {
 		if ( $modx->resource->id == $modx->config['site_start'] ) {
 			$modx->sendRedirect( $url );

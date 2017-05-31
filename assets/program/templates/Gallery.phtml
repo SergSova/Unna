@@ -1,13 +1,18 @@
 <!doctype html>
 <html lang="[[++context_key]]">
 <head>
+    [[!isVisited]]
+
     <base href="[[++site_url]]">
     <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>[[*pagetitle]]</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+    [[+visit:is=`1`:then=`[[$preloder-style]]`:else=`[[$query-loder-style]]`]]
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/assets.css">
+
     [[*id:in=`[[babelId?&id=`21`]],[[babelId?&id=`22`]]`:then=`
     <link rel="stylesheet" href="assets/css/architecture.css">
     `]]
@@ -15,15 +20,17 @@
     <link rel="stylesheet" href="assets/css/building.css">
     `]]
     [[$seo.tpl]]
+
     <link rel="stylesheet" href="assets/css/queryLoader.css">
     <script
             src="https://code.jquery.com/jquery-1.12.4.min.js"
             integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
             crossorigin="anonymous"></script>
-    <script src="assets/js/lib/queryLoader.js"></script>
 </head>
 <body>
-[[$queryLoader]]
+
+[[+visit:is=`1`:then=`[[$preloder-box-sript]]`:else=`[[$queryLoader]]`]]
+
 <div class="wrapper">
 
     <!--left side-->
@@ -50,13 +57,11 @@
             <h2>[[*pagetitle]]</h2>
             <div class="content-text">
                 <!--more btn-->
-                <div class="btn-more">
-                    <div class="btn-more-wrap">
-                        <img src="assets/images/mouse.png" alt="mouse">
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
+                  <div class="scr-more">
+                      <img src="assets/images/mouse.png" alt="mouse">
+                      <span></span>
+                      <span></span>
+                  </div>
                 [[*id:in=`[[babelId?&ids=`21,22`]]`:then=`[[$architecture]]`]]
                 [[*id:is=`[[babelId?&id=`33`]]`:then=`[[$building]]`]]
             </div>
@@ -71,9 +76,11 @@
 
 <!--scripts-->
 <!--libs-->
+[[+visit:ne=`1`:then=`
 <script type='text/javascript'>
     QueryLoader.init();
 </script>
+`]]
 <!--<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>-->
 <script src="assets/js/lightbox.min.js"></script>
 <!---->
@@ -82,10 +89,10 @@
 <script src="assets/js/foot-menu.js"></script>
 <script src="assets/js/start-anim.js"></script>
 [[*id:in=`[[babelId?&ids=`21,22`]]`:then=`
-<script src="assets/js/architecture.js"></script>
+<script src="assets/js/architecture.min.js"></script>
 `]]
 [[*id:is=`[[babelId?&id=`33`]]`:then=`
-<script src="assets/js/building.js"></script>
+<script src="assets/js/building.min.js"></script>
 `]]
 
 </body>

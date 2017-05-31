@@ -106,6 +106,8 @@
             </div>
         </div>
         <div class="content">
+          <div class="align-middle">
+            <div>
             [[Wayfinder?
             &startId=`0`
             &excludeDocs=`[[babelId?&id=`27`]]`
@@ -119,6 +121,8 @@
             ]]
             <a href="#" class="more-button green-button callback-open">[[%learn? &namespace=`unna`]] [[%more?
                 &namespace=`unna`]] <i class="icon-right-arrow"></i></a>
+            </div>
+          </div>
         </div>
     </div>
 </div>

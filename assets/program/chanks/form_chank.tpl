@@ -20,10 +20,10 @@
         <div class="bar"></div>
     </div>
     <div class="input-container">
-        <input type="text" name="message" id="js-message" autocomplete="off"/>
-        <label class="label-mail" for="js-message">[[%message?namecpace=`unna`]]</label>
+        <textarea class="textarea" type="text" name="message" id="js-message" autocomplete="off"/></textarea>
+        <label class="label-message" for="js-message">[[%message?namecpace=`unna`]]</label>
         <div class="bar"></div>
     </div>
-    <button type="submit" id="form-submit">[[%learn?namecpace=`unna`]] [[%more?namecpace=`unna`]] <span>&#8250;</span>
+    <button type="submit" id="form-submit" data-toggle="[[*template]]">[[*template:in=`14,20`:then=`[[%send? &namecpace=`unna`]]`:else=`[[%learn? &namecpace=`unna`]] [[%more? &namecpace=`unna`]] <span>&#8250;</span>`]]
     </button>
 </form>

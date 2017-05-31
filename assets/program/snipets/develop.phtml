@@ -1,27 +1,567 @@
-<?php
-//action
-$result = array();
-$q      = $modx->newQuery( 'modResource',
-	array(
-		'parent'      => 36,
-		'published'   => 1,
-		'deleted'     => 0,
-		'context_key' => $modx->resource->context_key
-	) );
-$q->sortby( 'menuindex', 'ASC' );
-/** @var modResource $actions */
-$actions = $modx->getCollection( 'modResource', $q );
-foreach ( $actions as $action ) {
-	array_push( $result, "$action->pagetitle==$action->id" );
-}
-return implode('||',$result);
+<!doctype html>
+<html lang="ru">
+<head>
 
-//base-image
-$output = $modx->runSnippet( 'getImageList',
-	array(
-		'tvname'          => 'migx-apartment-galery',
-		'docid'           => $modx->resource->id,
-		'tpl'             => '@CODE: <img src="[[+image]]" alt="">==[[+image]]',
-		'outputSeparator' => '||'
-	) );
-return $output;
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Новости</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            backface-visibility: hidden;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            font-size: 0;
+        }
+
+        .preload-box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .preload-item {
+            display: inline-block;
+            width: 25%;
+            height: 50%;
+            overflow: hidden;
+            transition: 1s linear;
+        }
+
+        .preload-item.anim {
+            opacity: .7;
+        }
+
+        .preload-inner {
+            width: 100vw;
+            height: 100vh;
+            opacity: 1;
+            background: url('assets/images/gallery-blur.jpg') no-repeat center;
+            background-size: cover;
+        }
+
+        .preload-item:nth-child(2) .preload-inner {
+            margin-left: -25vw;
+        }
+
+        .preload-item:nth-child(3) .preload-inner {
+            margin-left: -50vw;
+        }
+
+        .preload-item:nth-child(4) .preload-inner {
+            margin-left: -75vw;
+        }
+
+        .preload-item:nth-child(5) .preload-inner {
+            margin-top: -50vh;
+        }
+
+        .preload-item:nth-child(6) .preload-inner {
+            margin-top: -50vh;
+            margin-left: -25vw;
+        }
+
+        .preload-item:nth-child(7) .preload-inner {
+            margin-top: -50vh;
+            margin-left: -50vw;
+        }
+
+        .preload-item:nth-child(8) .preload-inner {
+            margin-top: -50vh;
+            margin-left: -75vw;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300&amp;subset=cyrillic-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
+    <link rel="stylesheet" href="assets/css/assets.css">
+
+
+    <link rel="stylesheet" href="assets/css/news.css">
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous">
+    </script>
+
+    <script src="assets/js/lib/queryLoader.js"></script>
+</head>
+<body>
+
+<div class="preload-box">
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+</div>
+<script>
+    var item = document.getElementsByClassName('preload-item');
+    var arrTime = [];
+    var arrInterval = [];
+    for (var i = 0; i < item.length; i++) {
+        var time = Math.random() * 1000;
+        setTimeout(function (i) {
+            item[i].classList.add('anim');
+        }.bind(null, i), time);
+        arrTime.push(time);
+    }
+
+    animPreload();
+
+    function animPreload() {
+        for (var i = 0; i < item.length; i++) {
+            arrInterval.push(
+                setInterval(function (i) {
+                    item[i].classList.toggle('anim');
+                }.bind(null, i), 1000 + arrTime[i])
+            )
+        }
+    }
+
+    window.onload = function () {
+        for (var i = 0; i < item.length; i++) {
+            clearInterval(arrInterval[i]);
+            setTimeout(function (i) {
+                item[i].classList.remove('anim');
+            }.bind(null, i), 1000 + arrTime[i])
+        }
+    }
+</script>
+
+
+<!---->
+<div class="wrapper" style="background-image: url(/assets/images/./news-blur.jpg)">
+
+    <div class="to-blur" style="background-image: url('assets/images/news_bg.jpg')"></div>
+
+    <!--left side-->
+    <aside class="left-side">
+
+        <div class="sandwich-wrap">
+            <a class="menu-sandwich" href="">
+                <div class="sandwich-items">
+                    <div class="sandwich-item"></div>
+                    <div class="sandwich-item"></div>
+                    <div class="sandwich-item"></div>
+                </div>
+            </a>
+        </div>
+        <div class="header-logo">
+            <a href="/"><img src="assets/images/unna-logo.svg" alt="logo"></a>
+        </div>
+        <div class="panel-2">
+            <a href="planirovki/kvartiryi/" class="menu-apartment">
+                <div class="menu-apart-white">
+                    <div class="menu-apart-items">
+                        <div class="menu-apart-item"><span data-left="-11" data-right="5" data-speed="1"></span></div>
+                        <div class="menu-apart-item"><span data-left="-6" data-right="9" data-speed="0.6"></span></div>
+                        <div class="menu-apart-item"><span data-left="-11" data-right="5" data-speed="0.8"></span></div>
+                    </div>
+                </div>
+            </a>
+            <div class="panel-text">подобрать<br>квартиру</div>
+        </div>
+
+        <div class="big-menu">
+            <div class="bm-langs">
+                <a href="/novosti/" class="lang ru active">
+                    RU
+                </a>
+                <a href="/ua/novosti/" class="lang ua">
+                    UA
+                </a>
+            </div>
+            <div class="bm-wrap">
+                <div class="bm-column">
+                    <a href="aktivnyij-dom/" class="bm-js bm-link " title='"Unna-Park"'>"Unna-Park"</a>
+                    <ul>
+                        <li><a href="aktivnyij-dom/o-komplekse.html" class="bm-js bm-sub-link ">О комплексе</a></li>
+                        <li><a href="aktivnyij-dom/raspolozhenie/" class="bm-js bm-sub-link ">Расположение</a></li>
+                        <li><a href="aktivnyij-dom/genplan.html" class="bm-js bm-sub-link ">Генплан</a></li>
+                        <li><a href="aktivnyij-dom/preimushhestva.html" class="bm-js bm-sub-link ">Преимущества</a></li>
+                        <li><a href="aktivnyij-dom/texnicheskie-xarakteristiki.html" class="bm-js bm-sub-link ">Технические
+                                характеристики</a></li>
+                        <li><a href="aktivnyij-dom/o-developere.html" class="bm-js bm-sub-link ">О девелопере</a></li>
+                        <li><a href="aktivnyij-dom/dokumentyi.html" class="bm-js bm-sub-link ">Документация</a></li>
+                    </ul>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+                <div class="bm-column">
+                    <a href="planirovki/" class="bm-js bm-link " title='Планировки'>Планировки</a>
+                    <ul>
+                        <li><a href="planirovki/kvartiryi/" class="bm-js bm-sub-link ">Квартиры</a></li>
+                        <li><a href="planirovki/kladovki.html" class="bm-js bm-sub-link ">Кладовки</a></li>
+                        <li><a href="planirovki/pomeshheniya-dlya-biznesa/" class="bm-js bm-sub-link ">Помещения для
+                                бизнеса</a></li>
+                    </ul>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+                <div class="bm-column">
+                    <a href="usloviya-pokupki/" class="bm-js bm-link " title='Условия покупки'>Условия&#160;покупки</a>
+                    <ul>
+                        <li><a href="usloviya-pokupki/variantyi-oplatyi/" class="bm-js bm-sub-link ">Варианты оплаты</a>
+                        </li>
+                        <li><a href="usloviya-pokupki/akczii/" class="bm-js bm-sub-link ">Акции</a></li>
+                    </ul>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+                <div class="bm-column">
+                    <a href="galereya/" class="bm-js bm-link " title='Галерея'>Галерея</a>
+                    <ul>
+                        <li><a href="galereya/arxitektura.html" class="bm-js bm-sub-link ">Архитектура</a></li>
+                        <li><a href="galereya/intereryi.html" class="bm-js bm-sub-link ">Интерьеры</a></li>
+                        <li><a href="galereya/xod-stroitelstva1.html" class="bm-js bm-sub-link ">Ход строительства</a>
+                        </li>
+                        <li><a href="galereya/pryamoj-efir.html" class="bm-js bm-sub-link ">Прямой эфир</a></li>
+                    </ul>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+                <div class="bm-column">
+                    <a href="novosti/" class="bm-js bm-link " title='Новости'>Новости</a>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+                <div class="bm-column">
+                    <a href="kontaktyi.html" class="bm-js bm-link " title='Контакты'>Контакты</a>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+
+            </div>
+
+            <div class="bm-bot">
+                <p><a href="/"><img src="assets/images/unna-logo.svg" alt="logo"></a></p>
+                <p><a href="tel:+380671231324" class="header-tel bm-tel ">+380671231324</a></p>
+                <p>
+                    <a class="header-address " href="">Киев, пр. Алишера Навои 55</a>
+                    <a class="header-mail " href="mailto:info@unna-park.com"
+                       title="info@unna-park.com">info@unna-park.com</a>
+                </p>
+            </div>
+        </div>
+    </aside>
+
+
+    <!--right side-->
+    <aside class="right-side">
+        <div class="right-top">
+            <a class="header-tel scale-js-1 " href="tel:+380671231324">+ 380671231324</a>
+            <a class="header-address scale-js-17" href="kontaktyi.html">Киев, пр. Алишера Навои 55</a>
+            <a class="header-mail scale-js-3" href="mailto:info@unna-park.com" title="@unna-park">info@unna-park.com</a>
+
+        </div>
+
+
+    </aside>
+
+    <!--arrows-->
+    <a href="galereya/" class="arrow-left scale-js-1">
+        <span>Галерея</span>
+        <span class="icon-left-arrow-g"></span>
+    </a>
+
+    <a href="kontaktyi.html" class="arrow-right scale-js-1">
+        <span>Контакты</span>
+        <span class="icon-right-arrow-g"></span>
+    </a>
+
+    <!--callback-->
+    <a href="" class="callback scale-js-2">
+        <div class="callback-wrap">
+            <img src="assets/images/callback.png" alt="callback">
+        </div>
+    </a>
+
+
+    <!--content-->
+    <div class="content">
+        <div class="content-wrap">
+            <h1></h1>
+            <h2>Новости</h2>
+            <div class="content-text">
+
+
+                <div class="ext left-content smaller">
+                    <div class="form-wrap">
+                        <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline"
+                             data-width="500"
+                             data-height="700" data-small-header="false" data-adapt-container-width="true"
+                             data-hide-cover="false"
+                             data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a
+                                        href="https://www.facebook.com/facebook">Facebook</a></blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="ext right-content">
+                    <div class="action-wrap clearfix" data-id="13">
+                        <h3 class="action-head">Получено разрешение на строительство на жилой дом «Твин Хаус»</h3>
+                        <p class="action-img">
+
+                        </p>
+                        <div class="action-text"><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing
+                                and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                                a type specimen book. It has survived not only five centuries, but also the leap into
+                                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </p>
+                            <p></p></div>
+                        <p class="action-date">15.01.2017</p>
+                        <a href="" class="action-more">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22px" viewBox="0 0 72.05 43.92">
+                                <defs>
+                                    <style>.svg-all-actions {
+                                            fill: none;
+                                            stroke: #fff;
+                                            stroke-miterlimit: 10;
+                                            stroke-width: 7px
+                                        }</style>
+                                </defs>
+                                <title>arrow</title>
+                                <path class="svg-all-actions" d="M69.68 20.68H0M46 .78l24.52 19.95L46 43.19"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="action-wrap clearfix" data-id="65">
+                        <h3 class="action-head">Получено 2-е разрешение на строительство на жилой дом «Твин Хаус»</h3>
+                        <p class="action-img">
+
+                            <img src="/assets/images/action-content.jpg"
+                                 alt="Получено 2-е разрешение на строительство на  жилой дом «Твин Хаус»">
+
+                        </p>
+                        <div class="action-text"><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing
+                                and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                                a type specimen book. It has survived not only five centuries, but also the leap into
+                                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </p>
+                            <p></p></div>
+                        <p class="action-date">15.01.2017</p>
+                        <a href="" class="action-more">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22px" viewBox="0 0 72.05 43.92">
+                                <defs>
+                                    <style>.svg-all-actions {
+                                            fill: none;
+                                            stroke: #fff;
+                                            stroke-miterlimit: 10;
+                                            stroke-width: 7px
+                                        }</style>
+                                </defs>
+                                <title>arrow</title>
+                                <path class="svg-all-actions" d="M69.68 20.68H0M46 .78l24.52 19.95L46 43.19"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="action-wrap clearfix" data-id="67">
+                        <h3 class="action-head">Получено 3-е разрешение на строительство на жилой дом «Твин Хаус»</h3>
+                        <p class="action-img">
+
+                            <img src="/assets/images/action-content.jpg"
+                                 alt="Получено 3-е разрешение на строительство на  жилой дом «Твин Хаус»">
+
+                        </p>
+                        <div class="action-text"><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing
+                                and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                                a type specimen book. It has survived not only five centuries, but also the leap into
+                                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </p>
+                            <p></p></div>
+                        <p class="action-date">15.01.2017</p>
+                        <a href="" class="action-more">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22px" viewBox="0 0 72.05 43.92">
+                                <defs>
+                                    <style>.svg-all-actions {
+                                            fill: none;
+                                            stroke: #fff;
+                                            stroke-miterlimit: 10;
+                                            stroke-width: 7px
+                                        }</style>
+                                </defs>
+                                <title>arrow</title>
+                                <path class="svg-all-actions" d="M69.68 20.68H0M46 .78l24.52 19.95L46 43.19"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="action-wrap clearfix" data-id="68">
+                        <h3 class="action-head">Получено 4-е разрешение на строительство на жилой дом «Твин Хаус»</h3>
+                        <p class="action-img">
+
+                            <img src="/assets/images/action-content.jpg"
+                                 alt="Получено 4-е разрешение на строительство на  жилой дом «Твин Хаус»">
+
+                        </p>
+                        <div class="action-text"><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing
+                                and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                                a type specimen book. It has survived not only five centuries, but also the leap into
+                                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </p>
+                            <p></p></div>
+                        <p class="action-date">15.01.2017</p>
+                        <a href="" class="action-more">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22px" viewBox="0 0 72.05 43.92">
+                                <defs>
+                                    <style>.svg-all-actions {
+                                            fill: none;
+                                            stroke: #fff;
+                                            stroke-miterlimit: 10;
+                                            stroke-width: 7px
+                                        }</style>
+                                </defs>
+                                <title>arrow</title>
+                                <path class="svg-all-actions" d="M69.68 20.68H0M46 .78l24.52 19.95L46 43.19"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="action-wrap clearfix" data-id="69">
+                        <h3 class="action-head">Получено 5-е разрешение на строительство на жилой дом «Твин Хаус»</h3>
+                        <p class="action-img">
+
+                            <img src="/assets/images/action-content.jpg"
+                                 alt="Получено 5-е разрешение на строительство на  жилой дом «Твин Хаус»">
+
+                        </p>
+                        <div class="action-text"><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing
+                                and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                                a type specimen book. It has survived not only five centuries, but also the leap into
+                                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </p>
+                            <p></p></div>
+                        <p class="action-date">15.01.2017</p>
+                        <a href="" class="action-more">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22px" viewBox="0 0 72.05 43.92">
+                                <defs>
+                                    <style>.svg-all-actions {
+                                            fill: none;
+                                            stroke: #fff;
+                                            stroke-miterlimit: 10;
+                                            stroke-width: 7px
+                                        }</style>
+                                </defs>
+                                <title>arrow</title>
+                                <path class="svg-all-actions" d="M69.68 20.68H0M46 .78l24.52 19.95L46 43.19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer  ">
+        <div class="foot-left scale-js-1">
+            <a class="unna-dev" href="/"><img src="assets/images/unna-development.svg" alt=""></a>
+        </div>
+
+
+        <div class="foot-right foot-scale">
+            <!--sit on site-->
+            <div class="on-site">
+                <div class="on-site-count">2</div>
+                <div class="on-site-text">человек сейчас на сайте</div>
+            </div>
+            <!--fresh-->
+            <div class="fresh">
+                <div class="created">сайт разработан</div>
+                <a href="http://freshweb.agency/" target="_blank">
+                    <div class="fresh-logo">
+                        <span>F</span><span>R</span><span>E</span><span>S</span><span>H</span></div>
+                </a>
+                <div class="creative">CREATIVE WEB AGENCY</div>
+            </div>
+        </div>
+
+    </footer>
+</div>
+
+<!--scripts-->
+
+
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<script src="assets/js/section.min.js"></script>
+
+<!---->
+
+
+<script src="assets/js/news.js"></script>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.9";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+</body>
+</html>

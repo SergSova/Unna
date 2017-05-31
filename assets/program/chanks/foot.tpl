@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer [[*template:is=`24`:then=`sub-foot`]] ">
     <div class="foot-left scale-js-1">
         <a class="unna-dev" href="[[++site_url]]"><img src="assets/images/unna-development.svg" alt=""></a>
     </div>
@@ -6,11 +6,17 @@
     [[+parent:is=`0`:then=`
     [[*id:ne=`[[babelId?&id=`6`]]`:and:ne=`[[babelId?&id=`12`]]`:then=`
     <!--more btn center-->
-    <div class="btn-more">
-        <div class="btn-more-wrap">
-            <div class="btn-arrows-left"><span></span> <span></span></div>
-            <img src="assets/images/mouse.png" alt="mouse">
-            <div class="btn-arrows-right"><span></span> <span></span></div>
+    <div class="btn-more-wrap">
+        <div class="btn-arrows">
+            <a href="" class="btn-arrows-left">
+                <span></span>
+                <span></span>
+            </a>
+            <img src="assets/images/mouse.svg" alt="mouse">
+            <a href="" class="btn-arrows-right">
+                <span></span>
+                <span></span>
+            </a>
         </div>
     </div>
     `]]

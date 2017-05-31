@@ -7,11 +7,10 @@
             <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a
                         href="https://www.facebook.com/facebook">Facebook</a></blockquote>
         </div>
+        `:else=`
+        [[$form_chank]]
+        `]]
     </div>
-    `:else=`
-    [[$form_chank]]
-    `]]
-</div>
 </div>
 <div class="ext right-content">
     [[!getResources?

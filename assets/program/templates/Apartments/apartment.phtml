@@ -1,13 +1,19 @@
 <!DOCTYPE HTML>
 <html lang="[[*context_key]]">
 <head>
+    [[!isVisited]]
+
     <base href="[[++site_url]]">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>[[*pagetitle]]</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i&amp;subset=cyrillic" rel="stylesheet">
+    [[$seo.tpl]]
+    [[+visit:is=`1`:then=`[[$preloder-style]]`:else=`[[$query-loder-style]]`]]
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
+    <link rel="stylesheet" href="assets/css/assets.css">
+
     <link rel="stylesheet" href="assets/css/apartment.css"/>
-    <link rel="stylesheet" href="assets/css/queryLoader.css">
     <script
         src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
@@ -15,7 +21,7 @@
     <script src="assets/js/lib/queryLoader.js"></script>
 </head>
 <body>
-[[$queryLoader]]
+[[+visit:is=`1`:then=`[[$preloder-box-sript]]`:else=`[[$queryLoader]]`]]
 <div class="wrapper">
     <!--left side-->
     [[$left-side]]
@@ -34,7 +40,7 @@
     </a>
 
     <div class="container content">
-        <h1 class="header">
+        <h1>
             [[*pagetitle]] [[%metr? &namespace=`unna`]]<sup>2</sup>
         </h1>
         <a class="prev_page" href="javascript:history.back();">
@@ -67,19 +73,23 @@
     </div>
 
     [[$foot?&parent=`[[#[[*parent]].parent]]`]]
+    <div class="form-wrap">
+        [[$form_chank]]
+    </div>
 </div>
 
 <!--scripts-->
+[[+visit:ne=`1`:then=`
 <script type='text/javascript'>
-	QueryLoader.init();
+    QueryLoader.init();
 </script>
+`]]
 <script type="text/javascript" src="assets/js/slick.min.js"></script>
 <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.min.js"></script>
-<script src="assets/js/nav.js"></script>
-<script src="assets/js/scale.js"></script>
-<script src="assets/js/foot-menu.js"></script>
-<script src="assets/js/start-anim.js"></script>
+
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/sub-section.min.js"></script>
+
 <script type="text/javascript" src="assets/js/app.min.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@ $(window).on('load', function () {
   var items = header.find('.menu-item');
   var startIndex;
   var startActive = true;
-  var timeId
+  var timeId;
 
 
   //check to find active
@@ -18,13 +18,13 @@ $(window).on('load', function () {
     if ($(this).index() == startIndex && $(this).hasClass('active')) {
 
     } else {
-      if (startActive) {
-        startActive = false;
-        items.eq(startIndex).removeClass('active');
-        timeId = setTimeout(function () {
-          items.eq(startIndex).find('.menu-subitems').removeClass('active')
-        }, 500);
-      }
+    //   if (startActive) {
+    //     startActive = false;
+    //     items.eq(startIndex).removeClass('active');
+    //     timeId = setTimeout(function () {
+    //       items.eq(startIndex).find('.menu-subitems').removeClass('active')
+    //     }, 500);
+    //   }
       clearTimeout(timeId);
       $(this)
         .addClass('active')

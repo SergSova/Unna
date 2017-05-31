@@ -757,6 +757,9 @@ header:after{
         cursor: text; }
   #mobile-menu .content {
     overflow: auto; }
+    #mobile-menu .header-menu{
+      padding-bottom: 20px;
+    }
   #mobile-menu .header-menu li {
     list-style: none;
     font-weight: 300; }

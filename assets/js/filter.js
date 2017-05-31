@@ -193,7 +193,7 @@ function premiseAjax(resource) {
             if(leng != 0) {
                 $('.premises_list').hide()
                     .html(res).fadeIn();
-                var floorTop = $('.premises_list .premise').offset().top;
+                var floorTop = $('.premises_list .premise').offset().top - 80;
                 $('body').animate({scrollTop:floorTop}, 500, 'swing');
             }
         }
