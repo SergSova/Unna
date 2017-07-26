@@ -1,4 +1,4 @@
-[[*action:is=``:else=`<a href="[[~[[*action]]]]" class="share"><span>[[%unna.action? &namspace=`unna`]]</span>
+[[*action:is=``:else=`<a href="[[~[[babelId?&id=`36`]]]]?id=[[*action]]" class="share"><span>[[%unna.action? &namspace=`unna`]]</span>
 	<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 72.05 43.92">
 		<defs>
 			<style>.svg-all-actions {

@@ -7,21 +7,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>[[*pagetitle]]</title>
     [[$seo.tpl]]
-    [[+visit:is=`1`:then=`[[$preloder-style]]`:else=`[[$query-loder-style]]`]]
+    [[$preloder-style]]
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
     <link rel="stylesheet" href="assets/css/assets.css">
-
     <link rel="stylesheet" href="assets/css/apartment.css"/>
-    <script
-        src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-        crossorigin="anonymous"></script>
-    <script src="assets/js/lib/queryLoader.js"></script>
 </head>
 <body>
-[[+visit:is=`1`:then=`[[$preloder-box-sript]]`:else=`[[$queryLoader]]`]]
+[[$preloder-box-sript]]
 <div class="wrapper">
     <!--left side-->
     [[$left-side]]
@@ -43,7 +37,7 @@
         <h1>
             [[*pagetitle]] [[%metr? &namespace=`unna`]]<sup>2</sup>
         </h1>
-        <a class="prev_page" href="javascript:history.back();">
+        <a class="prev_page" href="#">
             <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 72.05 43.92">
                 <defs>
                     <style>.svg-all-actions {
@@ -79,17 +73,20 @@
 </div>
 
 <!--scripts-->
-[[+visit:ne=`1`:then=`
-<script type='text/javascript'>
-    QueryLoader.init();
+<script
+        src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+<script>
+    window.onload = function () {
+        document.getElementsByClassName('preload-svg')[0].style.zIndex = '-1'
+    }
 </script>
-`]]
 <script type="text/javascript" src="assets/js/slick.min.js"></script>
 <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
-
 <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="assets/js/sub-section.min.js"></script>
-
 <script type="text/javascript" src="assets/js/app.min.js"></script>
+<script type="text/javascript" src="assets/js/form.min.js"></script>
 </body>
 </html>

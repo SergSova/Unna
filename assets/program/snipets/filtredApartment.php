@@ -27,7 +27,7 @@ $parent = $modx->runSnippet(
 $resource_tvfilter = array();
 if ( isset( $_GET['rooms'] ) ) {
 	array_push( $where_arr, array( 'tvr.rooms' => $_GET['rooms'] ) );
-	array_push( $resource_tvfilter, 'rooms==' . $_GET['rooms'] );
+	array_push( $resource_tvfilter, 'rooms==' . $_GET['rooms'].',levels!=2' );
 }
 if ( isset( $_GET['levels'] ) ) {
 	array_push( $where_arr, array( 'TemplateVarResources.levels' => $_GET['levels'] ) );
@@ -66,14 +66,13 @@ $resource_tvfilter = implode( ',', $resource_tvfilter ); //(|| - OR)(, - AND)
 
 
 $setting = array(
-	'parents'    => "$parent",
-	'where'      => "{published:1, deleted:0, context_key:$context_key}",
-	'tpl'        => $chank,
-	'includeTVs' => '1',
-	'sortby'     => '{pagetitle:ASC}',
-	'tvFilters'  => $resource_tvfilter,
-	'limit'      => "$lim",
-	'offset'     => "$off",
+    'parents'    => "$parent",
+    'tpl'        => $chank,
+    'includeTVs' => '1',
+    'context'    => $modx->resource->context_key,
+    'sortby'     => '{"menuindex":"ASC"}',
+    'tvFilters'  => $resource_tvfilter,
+    'limit'=>'999'
 );
 
 return $modx->runSnippet( 'getResources', $setting );

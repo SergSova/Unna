@@ -3,11 +3,11 @@
         <div class="compass"></div>
         <div class="media">
             [[!getImageList?
-            &tvname=`migx-apartment-mobile-galery`
+            &tvname=`migx-apartment-galery`
             &docid=`[[+id]]`
             &tpl=`@CODE:
             <div>
-                <img src="[[+image]]"/>
+                <img class="[[+classes]]" src="[[+image]]"/>
             </div>
             `
             ]]

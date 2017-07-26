@@ -6,8 +6,10 @@
     [[+parent:is=`0`:then=`
     [[*id:ne=`[[babelId?&id=`6`]]`:and:ne=`[[babelId?&id=`12`]]`:then=`
     <!--more btn center-->
+
+    [[*template:ne=`21`:then=`
     <div class="btn-more-wrap">
-        <div class="btn-arrows">
+        <div class="btn-arrows scale-js-1">
             <a href="" class="btn-arrows-left">
                 <span></span>
                 <span></span>
@@ -19,6 +21,7 @@
             </a>
         </div>
     </div>
+    `]]
     `]]
     `:else=`
     [[*id:ne=`[[babelId?&id=`6`]]`:and:ne=`[[babelId?&id=`12`]]`:then=`
@@ -37,7 +40,7 @@
         <!--fresh-->
         <div class="fresh">
             <div class="created">[[%site.developed? &namespace=`unna`]]</div>
-            <a href="http://freshweb.agency/" target="_blank">
+            <a href="http://freshweb.agency/?utm_source=our-sites&utm_medium=unna" target="_blank">
                 <div class="fresh-logo">
                     <span>F</span><span>R</span><span>E</span><span>S</span><span>H</span></div>
             </a>

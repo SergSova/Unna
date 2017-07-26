@@ -7,14 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>[[*pagetitle:striptags]]</title>
-    [[+visit:is=`1`:then=`[[*id:ne=`[[babelId?&id=`6`]]`:then=`[[$preloder-style]]`]]`:else=`[[$query-loder-style]]`]]
+    [[+visit:is=`11`:then=`[[*id:ne=`[[babelId?&id=`6`]]`:then=``]]`:else=`[[$query-loder-style]]`]]
+    [[$preloder-style]]
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300&amp;subset=cyrillic-ext" rel="stylesheet">
 
+    [[*template:ne=`36`:then=`
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css"/>
+    `]]
     <link rel="stylesheet" href="assets/css/assets.css">
-
-
     [[*id:is=`[[babelId?&id=`9`]]`:then=`
     <link rel="stylesheet" href="assets/css/advantages.css">
     `]]
@@ -31,7 +32,7 @@
     <link rel="stylesheet" href="assets/css/news.css">
     `]]
 
-    [[*id:in=`[[babelId?&ids=`7,24`]]`:then=`
+    [[*id:in=`[[babelId?&ids=`7,23,24`]]`:then=`
     <link rel="stylesheet" href="assets/css/complex.css">
     `]]
     [[*id:is=`[[babelId?&id=`30`]]`:then=`
@@ -46,28 +47,11 @@
 
     [[$seo.tpl]]
 
-    [[*id:in=`[[babelId?&ids=`6,8`]]`:then=`
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy85hurU5pPvup9lMcp2H6y5G3LrrsEXE" async
-            defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    `:else=`
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-            crossorigin="anonymous">
-    </script>
-    `]]
-    <script src="assets/js/lib/queryLoader.js"></script>
 </head>
 <body>
-
-[[+visit:is=`1`:then=`[[*id:ne=`[[babelId?&id=`6`]]`:then=`[[$preloder-box-sript]]`]]`:else=`[[$queryLoader]]`]]
-
-
+[[$preloder-box-sript]]
 <!---->
-<div class="wrapper" [[*katalog_image_bg:!empty=`style="background-image: url([[*katalog_image_bg]])"`]]>
-[[*id:is=`[[babelId?&id=`12`]]`:then=`
-<div class="to-blur" style="background-image: url('assets/images/news_bg.jpg')"></div>
-`]]
+<div class="wrapper" style="background-image:url([[*katalog_image_bg:ne=``:then=`[[*katalog_image_bg]]`:else=`[[#[[*parent]].katalog_image_bg_blur]]`]])">
 <!--left side-->
 [[$left-side]]
 
@@ -89,17 +73,22 @@
 <!--content-->
 <div class="content">
     <div class="content-wrap">
-        <h1>[[#[[*parent]].pagetitle]]</h1>
-        [[*template:ne=`29`:then=`<h2>[[*pagetitle]]</h2>`:else=`<h1>[[*pagetitle]]</h1>`]]
+        [[*template:in=`29,36`:then=``:else=`<h1>[[#[[*parent]].pagetitle]]</h1>
+        `]]
+        [[*template:in=`29,36`:then=`<h1>[[*pagetitle]]</h1>`:else=`<h2>
+            [[*pagetitle]]</h2>`]]
         <div class="content-text[[*id:is=`[[babelId?&id=`8`]]`:then=` scale-js-1`]]">
             [[*id:is=`[[babelId?&id=`9`]]`:then=`[[$advantages]]`]]
             [[*id:is=`[[babelId?&id=`5`]]`:then=`[[$documents]]`]]
             [[*id:is=`[[babelId?&id=`8`]]`:then=`[[$location-content]]`]]
-            [[*id:in=`[[babelId?&ids=`36,12`]]`:then=`[[$stocks]]`]]
+            [[*id:in=`[[babelId?&ids=`12,36`]]`:then=`[[$stocks]]`]]
             [[*id:is=`[[babelId?&id=`29`]]`:then=`<p><img src="[[*genplan]]" alt="Unna genplan"></p>`]]
-            [[*id:is=`[[babelId?&id=`30`]]`:then=`[[$developer_chank]]`]]
-
+            [[*template:is=`36`:then=`
+            <div id="playerYT"></div>
+            `]]
             <p>[[*content]]</p>
+            [[*id:is=`[[babelId?&id=`30`]]`:then=`[[$developer_chank_project]]`]]
+            [[*id:is=`[[babelId?&id=`10`]]`:then=`[[$teh-spec]]`]]
         </div>
     </div>
 </div>
@@ -110,13 +99,24 @@
 [[$foot]]
 </div>
 
+<script>
+    window.onload = function () {
+        document.getElementsByClassName('preload-svg')[0].style.zIndex = '-1'
+    }
+</script>
+
 <!--scripts-->
-[[+visit:ne=`1`:then=`
-<script type='text/javascript'>
-    QueryLoader.init();
+[[*id:in=`[[babelId?&ids=`6,8`]]`:then=`
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy85hurU5pPvup9lMcp2H6y5G3LrrsEXE" async
+        defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+`:else=`
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous">
 </script>
 `]]
-[[*id:in=`[[babelId?&id=`6,8`]]`:then=`
+[[*id:in=`[[babelId?&ids=`6,8`]]`:then=`
 <script src="http://code.jquery.com/jquery-migrate-3.0.0.js"></script>
 `]]
 
@@ -127,19 +127,58 @@
 <script src="assets/js/contacts.js"></script>
 `]]
 
+[[*template:ne=`36`:then=`
 <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-[[*id:ne=`12`:and:ne=`6`:then=`
+`:else=`
+<script>
+    var wrap = document.getElementsByClassName('wrapper')[0];
+
+    var h1H = wrap.querySelector('h1').getBoundingClientRect().bottom;
+    var footerH = wrap.querySelector('footer').getBoundingClientRect().top;
+
+    var playerH = Math.round((footerH - h1H) * .8);
+    var playerW = wrap.querySelector('.content').clientWidth * .7;
+
+    wrap.querySelector('.content-wrap').style.textAlign = 'center';
+    wrap.querySelector('.content-text').style.cssText = 'height: ' + (footerH - h1H) + 'px;padding-top: 5%;';
+    wrap.querySelector('h1').style.cssText = 'width: ' + (playerW) + 'px;display: inline-block; text-align: left';
+
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('playerYT', {
+            height: playerH,
+            width: playerW,
+            videoId: 'M7lc1UVf-VE',
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+</script>
+`]]
+[[*id:ne=`[[babelId?&id=`12`]]`:and:ne=`[[babelId?&id=`6`]]`:then=`
 <script src="assets/js/sub-section.min.js"></script>
 `:else=`
 <script src="assets/js/section.min.js"></script>
 `]]
 <!---->
-
-
-[[*id:in=`[[babelId?&ids=`7,29,10,30,24,14`]]`:then=`
+[[*id:in=`[[babelId?&ids=`7,29,10,30,24,14,5`]]`:then=`
 <script src="assets/js/complex.min.js"></script>
 `]]
-
 [[*id:is=`[[babelId?&id=`9`]]`:then=`
 <script src="assets/js/advantages.min.js"></script>
 `]]
@@ -148,8 +187,12 @@
 `]]
 [[*id:is=`[[babelId?&id=`12`]]`:then=`
 <script src="assets/js/news.min.js"></script>
-
 `]]
-
+[[*id:is=`[[babelId?&ids=`36`]]`:then=`
+<script src="assets/js/form.min.js"></script>
+`]]
+[[*template:in=`24,29`:then=`
+<script src="assets/js/form.min.js"></script>
+`]]
 </body>
 </html>

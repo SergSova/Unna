@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="">
+<head>
+
+
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Архитектура</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            backface-visibility: hidden;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            font-size: 0;
+        }
+
+        .preload-box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .preload-item {
+            display: inline-block;
+            width: 25%;
+            height: 50%;
+            overflow: hidden;
+            transition: 1s linear;
+        / / transform: scale(1.000001);
+        }
+
+        .preload-item:nth-child(3) {
+            margin-left: -.3px;
+        }
+
+        .preload-item:nth-child(7) {
+            margin-left: -.3px;
+        }
+
+        .preload-item.anim {
+            opacity: .7;
+        }
+
+        .preload-inner {
+            width: 100vw;
+            height: 100vh;
+            opacity: 1;
+            background: url('/assets/images/gallery-blur.jpg') no-repeat center;
+            background-size: cover;
+        }
+
+        .preload-item:nth-child(2) .preload-inner {
+            margin-left: -25vw;
+        }
+
+        .preload-item:nth-child(3) .preload-inner {
+            margin-left: -50vw;
+        }
+
+        .preload-item:nth-child(4) .preload-inner {
+            margin-left: -75vw;
+        }
+
+        .preload-item:nth-child(5) .preload-inner {
+            margin-top: -50vh;
+        }
+
+        .preload-item:nth-child(6) .preload-inner {
+            margin-top: -50vh;
+            margin-left: -25vw;
+        }
+
+        .preload-item:nth-child(7) .preload-inner {
+            margin-top: -50vh;
+            margin-left: -50vw;
+        }
+
+        .preload-item:nth-child(8) .preload-inner {
+            margin-top: -50vh;
+            margin-left: -75vw;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/assets.css">
+
+
+    <link rel="stylesheet" href="assets/css/architecture.css">
+
+
+    <link rel="stylesheet" href="assets/css/queryLoader.css">
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="preload-box">
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+    <div class="preload-item">
+        <div class="preload-inner"></div>
+    </div>
+</div>
+<script>
+    var item = document.getElementsByClassName('preload-item');
+    var arrTime = [];
+    var arrInterval = [];
+    for (var i = 0; i < item.length; i++) {
+        var time = Math.random() * 1000;
+        setTimeout(function (i) {
+            item[i].classList.add('anim');
+        }.bind(null, i), time);
+        arrTime.push(time);
+    }
+
+    animPreload();
+
+    function animPreload() {
+        for (var i = 0; i < item.length; i++) {
+            arrInterval.push(
+                setInterval(function (i) {
+                    item[i].classList.toggle('anim');
+                }.bind(null, i), 1000 + arrTime[i])
+            )
+        }
+    }
+
+    window.onload = function () {
+        for (var i = 0; i < item.length; i++) {
+            clearInterval(arrInterval[i]);
+            setTimeout(function (i) {
+                item[i].classList.remove('anim');
+            }.bind(null, i), 1000 + arrTime[i])
+        }
+    }
+</script>
+
+<div class="wrapper">
+
+    <!--left side-->
+    <aside class="left-side">
+
+        <div class="sandwich-wrap">
+            <a class="menu-sandwich" href="">
+                <div class="sandwich-items">
+                    <div class="sandwich-item"></div>
+                    <div class="sandwich-item"></div>
+                    <div class="sandwich-item"></div>
+                </div>
+            </a>
+        </div>
+        <div class="header-logo">
+            <a href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     viewBox="0 0 131.78 90.02" display="block">
+                    <defs>
+                        <style>.ulc-1, .ulc-22 {
+                            fill: none
+                        }
+
+                        .ulc-2 {
+                            clip-path: url(#ulcp)
+                        }
+
+                        .ulc-3 {
+                            fill: url(#ulnng)
+                        }
+
+                        .ulc-4 {
+                            clip-path: url(#ulcp-2)
+                        }
+
+                        .ulc-5 {
+                            fill: url(#ulnng_8)
+                        }
+
+                        .ulc-6 {
+                            clip-path: url(#ulcp-3)
+                        }
+
+                        .ulc-7 {
+                            fill: url(#ulnng_3)
+                        }
+
+                        .ulc-8 {
+                            clip-path: url(#ulcp-4)
+                        }
+
+                        .ulc-9 {
+                            fill: url(#ulnng_8-2)
+                        }
+
+                        .ulc-10 {
+                            clip-path: url(#ulcp-5)
+                        }
+
+                        .ulc-11 {
+                            fill: url(#ulnng_8-3)
+                        }
+
+                        .ulc-12 {
+                            clip-path: url(#ulcp-6)
+                        }
+
+                        .ulc-13 {
+                            fill: url(#ulnng_8-4)
+                        }
+
+                        .ulc-14 {
+                            clip-path: url(#ulcp-7)
+                        }
+
+                        .ulc-15 {
+                            fill: url(#ulnng_7)
+                        }
+
+                        .ulc-16 {
+                            clip-path: url(#ulcp-8)
+                        }
+
+                        .ulc-17 {
+                            fill: url(#ulnng_8-5)
+                        }
+
+                        .ulc-18 {
+                            fill: #61a67d
+                        }
+
+                        .ulc-19 {
+                            isolation: isolate;
+                            font-size: 9px;
+                            fill: #fff;
+                            font-family: Roboto-Regular, Roboto
+                        }
+
+                        .ulc-20 {
+                            letter-spacing: -.02em
+                        }
+
+                        .ulc-21 {
+                            letter-spacing: 0
+                        }
+
+                        .ulc-22 {
+                            stroke: #fff;
+                            stroke-miterlimit: 10;
+                            stroke-width: 2px
+                        }</style>
+                        <clipPath id="ulcp">
+                            <path class="ulc-1"
+                                  d="M73.9 5.6h-.2a17 17 0 0 0-2.2.4 41 41 0 0 0-9.3 3.2c6 2.7 11.3 6.6 13.1 10.4a25.82 25.82 0 0 0 3.2-10.5c.1-2.2-.5-3.6-3.3-3.6-.4 0-.8.1-1.3.1"/>
+                        </clipPath>
+                        <linearGradient id="ulnng" x1="-369.67" y1="543.27" x2="-369.02" y2="543.27"
+                                        gradientTransform="matrix(16.7 -2.11 -2.11 -16.7 7385.09 8307.64)"
+                                        gradientUnits="userSpaceOnUse">
+                            <stop offset=".02" stop-color="#25604e"/>
+                            <stop offset=".46" stop-color="#4c7960"/>
+                            <stop offset=".65" stop-color="#538a6a"/>
+                            <stop offset=".77" stop-color="#55916e"/>
+                            <stop offset="1" stop-color="#55916e"/>
+                        </linearGradient>
+                        <clipPath id="ulcp-2">
+                            <path class="ulc-1"
+                                  d="M58.1 8.1a2 2 0 0 1-.1.8 7.49 7.49 0 0 1-.5 1.6c-.2.5-.4.9-.6 1.3a6.36 6.36 0 0 1-.6 1c.7.9 1.3 1.8 2 2.8.3.5.6 1.1.9 1.6s.5 1.1.8 1.6a8.18 8.18 0 0 0 .8-.9 18.17 18.17 0 0 0 2-2.9 7.66 7.66 0 0 0 .7-1.7 3.09 3.09 0 0 0 .2-.8c.1-.3.1-.5.2-.8s.1-.5.1-.7v-.6c-.7-.4-1.3-.7-2-1.1-1.3-.6-2.6-1.2-3.9-1.7v.5"/>
+                        </clipPath>
+                        <linearGradient id="ulnng_8" x1="-366.36" y1="566.94" x2="-365.72" y2="566.94"
+                                        gradientTransform="matrix(25.11 31.18 31.18 -25.11 -8427.9 25660.12)"
+                                        gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#2c4339"/>
+                            <stop offset=".23" stop-color="#3e5e4e"/>
+                            <stop offset=".46" stop-color="#4c7960"/>
+                            <stop offset=".65" stop-color="#538a6a"/>
+                            <stop offset=".77" stop-color="#55916e"/>
+                            <stop offset="1" stop-color="#55916e"/>
+                        </linearGradient>
+                        <clipPath id="ulcp-3">
+                            <path class="ulc-1"
+                                  d="M45.6 9.2a23.3 23.3 0 0 0 .8 4.6c.2.1.5.2.7.3a9.83 9.83 0 0 0 1.6.5c.6.1 1.1.3 1.7.4s1.1.2 1.6.3c1.1.1 2.1.2 2.9.2h2.2a18.19 18.19 0 0 0-1.5-2.3 18.84 18.84 0 0 0-2.2-2.6c-.8-.8-1.6-1.5-2.3-2.1s-1.6-1.2-2.3-1.7c-.6-.3-1.1-.7-1.6-1-1.3.4-1.6 1.6-1.6 3.4"/>
+                        </clipPath>
+                        <linearGradient id="ulnng_3" x1="-366.35" y1="567.14" x2="-365.71" y2="567.14"
+                                        gradientTransform="matrix(25.11 31.18 31.18 -25.11 -8438.39 25667.86)"
+                                        gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#3e704e"/>
+                            <stop offset=".28" stop-color="#4c7960"/>
+                            <stop offset=".65" stop-color="#538a6a"/>
+                            <stop offset=".77" stop-color="#55916e"/>
+                            <stop offset="1" stop-color="#55916e"/>
+                        </linearGradient>
+                        <clipPath id="ulcp-4">
+                            <path class="ulc-1"
+                                  d="M64.2 10.5v.5a2 2 0 0 1-.1.7c0 .2-.1.5-.1.8a2.92 2.92 0 0 1-.2.9 13.36 13.36 0 0 1-.7 1.8 15 15 0 0 1-1.9 3.1 3.7 3.7 0 0 1-1 1.1l.1.2a6.89 6.89 0 0 0 .3.8c.2.6.4 1.1.6 1.6a9.36 9.36 0 0 1 .4 1.6c.1.5.2 1.1.3 1.6 0 .2.1.5.1.7.3-.2.7-.6 1.2-1s1.1-1.1 1.8-1.7a10.63 10.63 0 0 0 .9-1.1l.9-1.2c.3-.4.5-.8.8-1.2l.3-.6.3-.6.3-.6c.1-.2.1-.4.2-.6.1-.4.3-.8.4-1.1a4.4 4.4 0 0 0 .2-1c0-.3.1-.5.1-.8v-.3a26.39 26.39 0 0 0-5.2-3.6"/>
+                        </clipPath>
+                        <linearGradient id="ulnng_8-2" x1="-366.36" y1="566.88" x2="-365.72" y2="566.88"
+                                        gradientTransform="scale(40.03 -40.03) rotate(-51.16 -774.758 -100.6)"
+                                        xlink:href="#ulnng_8"/>
+                        <clipPath id="ulcp-5">
+                            <path class="ulc-1"
+                                  d="M69.6 14.5c0 .2-.1.5-.1.8s-.1.6-.2 1-.2.7-.3 1.1c-.1.2-.1.4-.2.6l-.3.6-.3.6-.3.6c-.2.4-.5.9-.7 1.3s-.6.8-.8 1.2a10.63 10.63 0 0 1-.9 1.1c-.6.7-1.2 1.3-1.7 1.8s-1.1 1-1.4 1.2a10 10 0 0 1 .2 1.6 22.86 22.86 0 0 1 .2 2.5c0 .7.1 1.4.1 1.9v.1a36.09 36.09 0 0 0 11.5-11.2c-.1-2.3-2-4.8-4.7-7.2a.76.76 0 0 0-.1.4"/>
+                        </clipPath>
+                        <linearGradient id="ulnng_8-3" x1="-366.36" y1="566.84" x2="-365.72" y2="566.84"
+                                        gradientTransform="matrix(25.11 31.18 31.18 -25.11 -8424.79 25657.61)"
+                                        xlink:href="#ulnng_8"/>
+                        <clipPath id="ulcp-6">
+                            <path class="ulc-1"
+                                  d="M49 20c.3.5.5.9.8 1.4a37.13 37.13 0 0 0 11.5 11.2v-1.9a23.2 23.2 0 0 0-.2-2.4c-.1-.9-.2-1.8-.4-2.8l-.3-1.5c0-.2-.1-.4-.1-.6-.5 0-1.2-.1-2.2-.2-.8-.1-1.8-.3-2.8-.5-.5-.1-1-.3-1.5-.4s-1-.3-1.5-.5l-1.5-.6c-.5-.2-1-.5-1.4-.7a1.08 1.08 0 0 0-.4-.5z"/>
+                        </clipPath>
+                        <linearGradient id="ulnng_8-4" x1="-366.37" y1="567.05" x2="-365.73" y2="567.05"
+                                        gradientTransform="matrix(25.11 31.18 31.18 -25.11 -8440.74 25671.2)"
+                                        xlink:href="#ulnng_8"/>
+                        <clipPath id="ulcp-7">
+                            <path class="ulc-1"
+                                  d="M47.6 5.7c.5.3.9.5 1.5.8.8.5 1.5 1 2.4 1.6.4.3.8.7 1.2 1s.9.7 1.3 1.1a21.84 21.84 0 0 1 2.1 2.2 2.76 2.76 0 0 0 .6-.8 12.75 12.75 0 0 0 .7-1.2 8.8 8.8 0 0 0 .5-1.5 2.2 2.2 0 0 0 .1-.8v-.6a35.82 35.82 0 0 0-7.3-1.9h-.2a6.6 6.6 0 0 0-1.4-.1 5.42 5.42 0 0 0-1.5.2"/>
+                        </clipPath>
+                        <linearGradient id="ulnng_7" x1="-366.36" y1="566.98" x2="-365.72" y2="566.98"
+                                        gradientTransform="matrix(25.11 31.18 31.18 -25.11 -8431.56 25663.06)"
+                                        gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#2c4339"/>
+                            <stop offset=".06" stop-color="#3e694e"/>
+                            <stop offset=".46" stop-color="#4c7960"/>
+                            <stop offset=".65" stop-color="#538a6a"/>
+                            <stop offset=".77" stop-color="#55916e"/>
+                            <stop offset="1" stop-color="#55916e"/>
+                        </linearGradient>
+                        <clipPath id="ulcp-8">
+                            <path class="ulc-1"
+                                  d="M46.5 13.9a30.41 30.41 0 0 0 2.4 5.9 2.09 2.09 0 0 1 .6.4 6.11 6.11 0 0 0 1.4.7l1.5.6c.5.2 1 .3 1.5.5s1 .3 1.5.4c1 .2 1.9.3 2.7.4a15.56 15.56 0 0 0 2 .1c0-.2-.1-.3-.1-.5a9.83 9.83 0 0 0-.5-1.6 2.35 2.35 0 0 1-.2-.8l-.3-.8a11.11 11.11 0 0 0-.7-1.6c-.3-.5-.5-1-.8-1.6l-.1-.1c-.5 0-1.4 0-2.6-.1l-2.9-.3-1.6-.3a10.46 10.46 0 0 1-1.7-.4 7.49 7.49 0 0 1-1.6-.5 1 1 0 0 0-.5-.4z"/>
+                        </clipPath>
+                        <linearGradient id="ulnng_8-5" x1="-366.36" y1="567.05" x2="-365.72" y2="567.05"
+                                        gradientTransform="matrix(25.11 31.18 31.18 -25.11 -8438.21 25668.42)"
+                                        xlink:href="#ulnng_8"/>
+                    </defs>
+                    <title>unna-logo</title>
+                    <g id="Слой_2" data-name="Слой 2">
+                        <g id="Слой_1-2" data-name="Слой 1">
+                            <g class="ulc-2">
+                                <path class="ulc-3" d="M60.51 5.7l17.8-2.2 2 15.9-17.8 2.3-2-16z"/>
+                            </g>
+                            <g class="ulc-4">
+                                <path class="ulc-5" d="M61.1 3.8l8.51 10.6-10.2 8.2-8.5-10.6L61.1 3.8z"/>
+                            </g>
+                            <g class="ulc-6">
+                                <path class="ulc-7" d="M52.7 0l9.31 11.6-11.81 9.5-9.29-11.6L52.7 0z"/>
+                            </g>
+                            <g class="ulc-8">
+                                <path class="ulc-9" d="M65.91 5.9l11.2 13.9-13.2 10.6L52.7 16.5 65.91 5.9z"/>
+                            </g>
+                            <g class="ulc-10">
+                                <path class="ulc-11" d="M69.5 8.3l13.81 17.1L67 38.5 53.2 21.4 69.5 8.3z"/>
+                            </g>
+                            <g class="ulc-12">
+                                <path class="ulc-13" d="M56.51 14l10.9 13.6-13.61 11-10.89-13.7L56.51 14z"/>
+                            </g>
+                            <g class="ulc-14">
+                                <path class="ulc-15" d="M53.91.5l7.39 9.2-9.6 7.8-7.5-9.3L53.91.5z"/>
+                            </g>
+                            <g class="ulc-16">
+                                <path class="ulc-17" d="M54.8 7.2l9.81 12.1-12.7 10.3-9.81-12.2L54.8 7.2z"/>
+                            </g>
+                            <path class="ulc-18"
+                                  d="M33.5 67.8c0 1.9 1 3.2 2.5 3.2s2.4-1.3 2.4-3.2-.8-3.2-2.3-3.2c-1.7.1-2.6 1.4-2.6 3.2m0 5.2c0 .4-.3.6-.7.6s-.7-.2-.7-.6v-8.8c0-.4.3-.6.7-.6s.7.2.7.6v.3a2.2 2.2 0 0 1-.1.8 2.79 2.79 0 0 1 2.8-1.8c2.2 0 3.5 1.6 3.5 4.3s-1.3 4.4-3.6 4.4a2.8 2.8 0 0 1-2.7-1.7 2.77 2.77 0 0 1 .1.9zM56 67.8a7.16 7.16 0 0 0-3.2.5 1.55 1.55 0 0 0-.9 1.5 1.32 1.32 0 0 0 1.5 1.3 3 3 0 0 0 2.2-1.1 1.59 1.59 0 0 0 .4-1.2zm0-1.8c0-1-.5-1.4-1.7-1.4a1.77 1.77 0 0 0-1.9 1.1.55.55 0 0 1-.6.4.37.37 0 0 1-.3-.1.63.63 0 0 1-.5-.6v-.2a2.15 2.15 0 0 1 .9-1.2 3.61 3.61 0 0 1 2.4-.7c2 0 3 .8 3 2.6v4.2a4.44 4.44 0 0 0 .2 1.3v.1c0 .2-.2.4-.6.5h-.1c-.3 0-.6-.1-.6-.4s-.1-.4-.1-.7a3.68 3.68 0 0 1-2.8 1.2 2.34 2.34 0 0 1-2.6-2.5 2.67 2.67 0 0 1 2.3-2.7 12.22 12.22 0 0 1 3.2-.3V66zm14-1.8c0-.4.3-.6.7-.6s.7.2.7.6v.3c0 .2-.1.5-.1.7a2.57 2.57 0 0 1 2.3-1.7h.3a1.27 1.27 0 0 1 .6.1.54.54 0 0 1 .5.5v.3c-.1.3-.3.6-.6.6h-.1c-.2 0-.4-.1-.7-.1a1.9 1.9 0 0 0-1.5.8 2.52 2.52 0 0 0-.6 1.7v4.1c0 .4-.3.6-.7.6s-.7-.2-.7-.6l-.1-7.3zm17.4 7.3c0 .4-.3.6-.7.6s-.7-.2-.7-.6v-9c0-.4.3-.6.7-.6s.7.2.7.6v5l3.6-3.6a.64.64 0 1 1 .9.9l-2.5 2.4 3 4a.37.37 0 0 1 .1.3.86.86 0 0 1-.3.6.6.6 0 0 1-.4.1.76.76 0 0 1-.5-.2l-2.8-3.9-1.1 1.1z"/>
+                            <text class="ulc-19" transform="matrix(1.12 0 0 1 .05 87.59)">А К
+                                <tspan class="ulc-20" x="13.88" y="0"> Т</tspan>
+                                <tspan class="ulc-21" x="21.12" y="0"> И В Н Ы Й Д О М №1</tspan>
+                            </text>
+                            <g id="logo-chars">
+                                <path class="ulc-22"
+                                      d="M14.2 56.1s13.5 0 13.2-12.7M14.2 56.1S.7 56.1 1 43.4m45.6 0s13.5 0 13.2 12.7"/>
+                                <path class="ulc-22 char-back" d="M33.4 56.1c-.3-12.7 13.2-12.7 13.2-12.7"/>
+                                <path class="ulc-22 char-vert" d="M33.4 43.1v12.7"/>
+                                <path class="ulc-22" d="M78.9 43.3s13.5 0 13.2 12.7"/>
+                                <path class="ulc-22 char-back" d="M65.7 56c-.3-12.7 13.2-12.7 13.2-12.7"/>
+                                <path class="ulc-22 char-vert" d="M65.7 43v12.7"/>
+                                <path class="ulc-22" d="M111.1 42.3s13.5 0 13.2 12.7"/>
+                                <path class="ulc-22 char-back" d="M97.9 55c-.3-12.7 13.2-12.7 13.2-12.7"/>
+                                <path class="ulc-22" d="M130.1 47.7l-33.3 7.5"/>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        <div class="panel-2">
+            <a href="planirovki/kvartiryi/" class="panel-link">
+                <div class="menu-apartment">
+                    <div class="menu-apart-white">
+                        <div class="menu-apart-items">
+                            <div class="menu-apart-item"><span data-left="-11" data-right="5" data-speed="1"></span>
+                            </div>
+                            <div class="menu-apart-item"><span data-left="-6" data-right="9" data-speed="0.6"></span>
+                            </div>
+                            <div class="menu-apart-item"><span data-left="-11" data-right="5" data-speed="0.8"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-text">подобрать<br>квартиру</div>
+            </a>
+        </div>
+
+        <div class="big-menu">
+            <div class="bm-langs">
+                <a href="/galereya/arxitektura.html" class="lang ru active">
+                    RU
+                </a>
+            </div>
+            <div class="bm-wrap">
+                <div class="bm-column">
+                    <a href="aktivnyij-dom/" class="bm-js bm-link " title='"Unna-Park"'>"Unna-Park"</a>
+                    <ul>
+                        <li><a href="aktivnyij-dom/o-komplekse.html" class="bm-js bm-sub-link ">О комплексе</a></li>
+                        <li><a href="aktivnyij-dom/raspolozhenie/" class="bm-js bm-sub-link ">Расположение</a></li>
+                        <li><a href="aktivnyij-dom/genplan.html" class="bm-js bm-sub-link ">Генплан</a></li>
+                        <li><a href="aktivnyij-dom/preimushhestva.html" class="bm-js bm-sub-link ">Преимущества</a></li>
+                        <li><a href="aktivnyij-dom/texnicheskie-xarakteristiki.html" class="bm-js bm-sub-link ">Технические
+                            характеристики</a></li>
+                        <li><a href="aktivnyij-dom/o-developere.html" class="bm-js bm-sub-link ">О девелопере</a></li>
+                        <li><a href="aktivnyij-dom/dokumentyi.html" class="bm-js bm-sub-link ">Документация</a></li>
+                    </ul>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+                <div class="bm-column">
+                    <a href="usloviya-pokupki/" class="bm-js bm-link " title='Условия покупки'>Условия&#160;покупки</a>
+                    <ul>
+                        <li><a href="usloviya-pokupki/variantyi-oplatyi/" class="bm-js bm-sub-link ">Варианты оплаты</a>
+                        </li>
+                        <li><a href="usloviya-pokupki/akczii/" class="bm-js bm-sub-link ">Акции</a></li>
+                    </ul>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+                <div class="bm-column">
+                    <a href="galereya/" class="bm-js bm-link " title='Галерея'>Галерея</a>
+                    <ul>
+                        <li><a href="galereya/arxitektura.html" class="bm-js bm-sub-link ">Архитектура</a></li>
+                        <li><a href="galereya/intereryi.html" class="bm-js bm-sub-link ">Интерьеры</a></li>
+                        <li><a href="galereya/xod-stroitelstva1.html" class="bm-js bm-sub-link ">Ход строительства</a>
+                        </li>
+                        <li><a href="galereya/pryamoj-efir.html" class="bm-js bm-sub-link ">Прямой эфир</a></li>
+                    </ul>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+                <div class="bm-column">
+                    <a href="planirovki/" class="bm-js bm-link " title='Планировки'>Планировки</a>
+                    <ul>
+                        <li><a href="planirovki/kvartiryi/" class="bm-js bm-sub-link ">Квартиры</a></li>
+                        <li><a href="planirovki/kladovki.html" class="bm-js bm-sub-link ">Кладовые</a></li>
+                        <li><a href="planirovki/pomeshheniya-dlya-biznesa/" class="bm-js bm-sub-link ">Помещения для
+                            бизнеса</a></li>
+                    </ul>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+                <div class="bm-column">
+                    <a href="novosti/" class="bm-js bm-link " title='Новости'>Новости</a>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+                <div class="bm-column">
+                    <a href="kontaktyi.html" class="bm-js bm-link " title='Контакты'>Контакты</a>
+
+                    <div class="bm-line"></div>
+                    <div class="bm-circ"></div>
+                </div>
+
+
+            </div>
+
+            <div class="bm-bot">
+                <p><a href="/"><img src="assets/images/unna-logo.svg" alt="logo"></a></p>
+                <p><a href="tel:+380671231324" class="header-tel bm-tel ">+380671231324</a></p>
+                <p>
+                    <a class="header-address " href="">Киев, пр. Алишера Навои 55</a>
+                    <a class="header-mail " href="mailto:info@unna-park.com"
+                       title="info@unna-park.com">info@unna-park.com</a>
+                </p>
+            </div>
+        </div>
+    </aside>
+
+
+    <!--right side-->
+    <aside class="right-side">
+        <div class="right-top">
+            <a class="header-tel scale-js-1 " href="tel:+380671231324">+ 380671231324</a>
+            <a class="header-address scale-js-17" href="kontaktyi.html">Киев, пр. Алишера Навои 55</a>
+            <a class="header-mail scale-js-3" href="mailto:info@unna-park.com" title="@unna-park">info@unna-park.com</a>
+
+        </div>
+
+        <div class="sub-preview">
+            <a href="" class="booklet">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 258 237.84">
+                    <g transform="translate(0 10)">
+                        <path fill="#fff"
+                              d="M248,18.9V226.2c-11.2-2.9-36.2-8.3-69.4-8.3-21.6,0-42.8,7.1-49.4,9.5a115.64,115.64,0,0,0-44.8-9.5,330.52,330.52,0,0,0-74.3,8.5V18.6A327.74,327.74,0,0,1,84.4,9.8,106.4,106.4,0,0,1,124.1,18s5,1.6,7.3.5a5.12,5.12,0,0,0,2.4-3.7,4.94,4.94,0,0,0-2.7-4.4A115.87,115.87,0,0,0,84.3,0C39.5,0,5.1,9.7,3.6,10.1A5,5,0,0,0,0,14.9V232.8a4.93,4.93,0,0,0,2,4,4.72,4.72,0,0,0,3,1,6.75,6.75,0,0,0,1.4-.2c.3-.1,34.6-9.7,77.9-9.7a106.4,106.4,0,0,1,39.7,8.2s3.7,1.7,5,1.7,5-1.5,5-1.5c7.2-2.5,26.1-8.4,44.6-8.4,43.2,0,72.5,9.6,72.8,9.7a5.15,5.15,0,0,0,4.5-.7,4.88,4.88,0,0,0,2.1-4V14.8Z"/>
+                        <path fill="#fff"
+                              d="M133.8,14.8a4.94,4.94,0,0,0-2.7-4.4A115.87,115.87,0,0,0,84.3,0C39.5,0,5.1,9.7,3.6,10.1A5,5,0,0,0,0,14.9V232.8a4.93,4.93,0,0,0,2,4,4.72,4.72,0,0,0,3,1,6.75,6.75,0,0,0,1.4-.2c.3-.1,34.6-9.7,77.9-9.7a106.4,106.4,0,0,1,39.7,8.2s3.7,1.7,5,1.7,5-1.5,5-1.5M131.1,18.5a4.56,4.56,0,0,0,2.6-3.7M125,225.7a116.07,116.07,0,0,0-40.8-7.8,330.52,330.52,0,0,0-74.3,8.5V18.6A327.74,327.74,0,0,1,84.2,9.8,106.4,106.4,0,0,1,123.9,18s-.3.3.8.7Z"/>
+                        <path fill="none" stroke="#fff" stroke-width="10" d="M132 17 C 165 0, 210 0, 258 17"/>
+                    </g>
+                </svg>
+                <span>Скачать<br>буклет</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=KdM44-w3SAU" class="movie">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 22">
+                    <g>
+                        <rect class="video-1" x="0.5" y="0.5" width="27" height="21"/>
+                        <line class="video-1" x1="5.5" x2="5.5" y2="22"/>
+                        <line class="video-1" x1="22.5" x2="22.5" y2="22"/>
+                        <g class="video-lines">
+                            <line class="video-1" x1="23" y1="0.5" x2="27" y2="0.5"/>
+                            <line class="video-1" x1="23" y1="5.5" x2="27" y2="5.5"/>
+                            <line class="video-1" x1="23" y1="11.5" x2="27" y2="11.5"/>
+                            <line class="video-1" x1="23" y1="16.5" x2="27" y2="16.5"/>
+                        </g>
+                        <g class="video-lines">
+                            <line class="video-1" x1="1" y1="0.5" x2="5" y2="0.5"/>
+                            <line class="video-1" x1="1" y1="5.5" x2="5" y2="5.5"/>
+                            <line class="video-1" x1="1" y1="11.5" x2="5" y2="11.5"/>
+                            <line class="video-1" x1="1" y1="16.5" x2="5" y2="16.5"/>
+                        </g>
+                        <polygon class="video-2 triangle" points="11.5 7 11.5 15 17 11 11.5 7"/>
+                    </g>
+                </svg>
+                <span>Смотреть&nbsp;видео-<br>презентацию</span>
+            </a>
+        </div>
+    </aside>
+
+    <!--arrows-->
+    <a href="usloviya-pokupki/" class="arrow-left scale-js-1">
+        <span>Условия покупки</span>
+        <span class="icon-left-arrow-g"></span>
+    </a>
+
+    <a href="planirovki/" class="arrow-right scale-js-1">
+        <span>Планировки</span>
+        <span class="icon-right-arrow-g"></span>
+    </a>
+
+    <!--callback-->
+    <a href="" class="callback scale-js-2">
+        <div class="callback-wrap">
+            <img src="assets/images/callback.png" alt="callback">
+        </div>
+    </a>
+
+
+    <!--content-->
+    <div class="content">
+        <div class="content-wrap">
+            <h1>Галерея</h1>
+            <h2>Архитектура</h2>
+            <div class="content-text">
+                <!--more btn-->
+                <div class="scr-more">
+                    <img src="assets/images/mouse.png" alt="mouse">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="gallery-wrap">
+                    <div class="img-sector">
+                        <div class="sector-wrap">
+                            <div class="img-wrap" data-img="1">
+                                <div class="img-shadow">
+                                    <img class="arc-img" src="/assets/images/Foto/4_3.jpg" alt="slider">
+                                </div>
+                                <p class="img-title"></p>
+                                <div class="img-line"></div>
+                                <div class="img-data">
+                                    <div class="slide">
+                                        <img src="/assets/images/Foto/4_3.jpg" alt="slider">
+                                        <span class="slide-text"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="img-wrap" data-img="2">
+                                <div class="img-shadow">
+                                    <img class="arc-img" src="/assets/images/Foto/12.jpg" alt="slider">
+                                </div>
+                                <p class="img-title"></p>
+                                <div class="img-line"></div>
+                                <div class="img-data">
+                                    <div class="slide">
+                                        <img src="/assets/images/Foto/12.jpg" alt="slider">
+                                        <span class="slide-text"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="img-wrap" data-img="3">
+                                <div class="img-shadow">
+                                    <img class="arc-img" src="/assets/images/Foto/3_3.jpg" alt="slider">
+                                </div>
+                                <p class="img-title"></p>
+                                <div class="img-line"></div>
+                                <div class="img-data">
+                                    <div class="slide">
+                                        <img src="/assets/images/Foto/3_3.jpg" alt="slider">
+                                        <span class="slide-text"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-sector">
+                        <div class="sector-wrap">
+                            <div class="img-wrap" data-img="4">
+                                <div class="img-shadow">
+                                    <img class="arc-img" src="/assets/images/Foto/7-1.jpg" alt="slider">
+                                </div>
+                                <p class="img-title"></p>
+                                <div class="img-line"></div>
+                                <div class="img-data">
+                                    <div class="slide">
+                                        <img src="/assets/images/Foto/7-1.jpg" alt="slider">
+                                        <span class="slide-text"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="img-wrap" data-img="5">
+                                <div class="img-shadow">
+                                    <img class="arc-img" src="/assets/images/Foto/5_2.jpg" alt="slider">
+                                </div>
+                                <p class="img-title"></p>
+                                <div class="img-line"></div>
+                                <div class="img-data">
+                                    <div class="slide">
+                                        <img src="/assets/images/Foto/5_2.jpg" alt="slider">
+                                        <span class="slide-text"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="img-wrap" data-img="6">
+                                <div class="img-shadow">
+                                    <img class="arc-img" src="/assets/images/Foto/View09.jpg" alt="slider">
+                                </div>
+                                <p class="img-title"></p>
+                                <div class="img-line"></div>
+                                <div class="img-data">
+                                    <div class="slide">
+                                        <img src="/assets/images/Foto/View09.jpg" alt="slider">
+                                        <span class="slide-text"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-wrap" data-img="7">
+                        <div class="img-shadow">
+                            <img class="arc-img" src="/assets/images/Foto/7_1.jpg" alt="slider">
+                        </div>
+                        <p class="img-title"></p>
+                        <div class="img-line"></div>
+                        <div class="img-data">
+                            <div class="slide">
+                                <img src="/assets/images/Foto/7_1.jpg" alt="slider">
+                                <span class="slide-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-wrap" data-img="8">
+                        <div class="img-shadow">
+                            <img class="arc-img" src="/assets/images/Foto/6_4.jpg" alt="slider">
+                        </div>
+                        <p class="img-title"></p>
+                        <div class="img-line"></div>
+                        <div class="img-data">
+                            <div class="slide">
+                                <img src="/assets/images/Foto/6_4.jpg" alt="slider">
+                                <span class="slide-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<div class="slider">
+    <div class="slider-wrap">
+        <div class="slider-container">
+            <!--close-->
+            <div class="slider-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34">
+                    <path style="fill: none;stroke:#fff;stroke-width:1.5px;" d="M0,0 22,22M22,0 0,22 "></path>
+                </svg>
+            </div>
+            <div class="slider-bot">
+                <!--center-->
+                <div class="slider-nav">
+                    <div class="slider-left">
+                        <div class="slider-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24">
+                                <path style="fill: none;stroke:#fff;stroke-width:1.2px;"
+                                      d="M11,0 0,11 M0,11 11,22"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="slider-center">
+                        <span class="count-current">0</span>/<span class="count-max">0</span>
+                    </div>
+                    <div class="slider-right">
+                        <div class="slider-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24">
+                                <path style="fill: none;stroke:#fff;stroke-width:1.2px;"
+                                      d="M0,0 11,11 M11,11 0,22"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer  ">
+    <div class="foot-left scale-js-1">
+        <a class="unna-dev" href="/"><img src="assets/images/unna-development.svg" alt=""></a>
+    </div>
+
+
+    <div class="foot-menu">
+        <div class="foot-line">
+            <a href="galereya/" class="circ">
+                <span>Галерея</span>
+            </a>
+            <div class="segment first active"></div>
+            <a href="galereya/arxitektura.html" class="circ first active"><span>Архитектура</span></a>
+            <div class="segment "></div>
+            <a href="galereya/intereryi.html" class="circ "><span>Интерьеры</span></a>
+            <div class="segment "></div>
+            <a href="galereya/xod-stroitelstva1.html" class="circ "><span>Ход строительства</span></a>
+            <div class="segment last"></div>
+            <a href="galereya/pryamoj-efir.html" class="circ last"><span>Прямой эфир</span></a>
+        </div>
+    </div>
+
+
+    <div class="foot-right foot-scale">
+        <!--sit on site-->
+        <div class="on-site">
+            <div class="on-site-count">1</div>
+            <div class="on-site-text">человек сейчас на сайте</div>
+        </div>
+        <!--fresh-->
+        <div class="fresh">
+            <div class="created">сайт разработан</div>
+            <a href="http://freshweb.agency/" target="_blank">
+                <div class="fresh-logo">
+                    <span>F</span><span>R</span><span>E</span><span>S</span><span>H</span></div>
+            </a>
+            <div class="creative">CREATIVE WEB AGENCY</div>
+        </div>
+    </div>
+
+</footer>
+</div>
+
+
+<!--scripts-->
+<!--libs-->
+
+<script src="assets/js/sub-section.min.js"></script>
+
+<script src="assets/js/architecture.min.js"></script>
+
+
+</body>
+</html>

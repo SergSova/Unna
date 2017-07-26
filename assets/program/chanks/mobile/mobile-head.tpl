@@ -101,7 +101,7 @@
             <a class="logo" href="/"><img src="assets/images/logo-menu.png" alt="unna logo"></a>
             <div class="right">
                 <div class="menu-phone">
-                    <a href="tel:+38[[++kontakt-phone]]" class="mobile-phone"><i class="icon-phone"></i></a>
+                    <a href="tel:+38[[#[[++site_start]].kontakt-phone]]" class="mobile-phone"><i class="icon-phone"></i></a>
                 </div>
             </div>
         </div>
@@ -139,7 +139,7 @@
             </div>
         </div>
         <div class="menu-apartment">
-            <a class="link-delay" href="get-apartment.html"></a>
+            <a class="link-delay" [[*id:is=`[[babelId?&id=`31`]]`:then=`onclick="return false"`]] href="[[~[[babelId?&id=`31`]]]]"></a>
             <div class="menu-apart-white">
                 <div class="menu-apart-items">
                     <div class="menu-apart-item">
@@ -156,7 +156,7 @@
             <span>[[%select? &namespace=`unna`]] [[%apartment? &namespace=`unna`]]</span>
         </div>
         <div class="menu-phone">
-            <a href="tel:+38[[++kontakt-phone]]" class="mobile-phone"><i class="icon-phone"></i></a>
+            <a href="tel:+38[[#[[++site_start]].kontakt-phone]]" class="mobile-phone"><i class="icon-phone"></i></a>
         </div>
         <div class="menu-lang">
             [[!BabelLinks? &tpl=`tpl.babel`]]

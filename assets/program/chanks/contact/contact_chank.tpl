@@ -24,7 +24,7 @@
 </div>
 <div id="direction-popup">
     <div class="popup-inner">
-        <img src="assets/images/driving-direction.png" alt="Как доехать">
+        <img src="assets/images/driving-direction-[[++cultureKey]].png" alt="Как доехать">
     </div>
 </div>
 <div id="contactsMap"></div>

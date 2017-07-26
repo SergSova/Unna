@@ -14,16 +14,16 @@ $(window).on('load', function () {
   var curX, curY, diffX, diffY, sumX = 0, sumY = 0, prevX, prevY;
 
   //redirect
-  var links= wrap.find('.foot-line .circ');
-  var curInd, prevHref, nextHref;
-
-  links.each(function (i) {
-    if ($(this).hasClass('active')) {
-      curInd = i;
-      prevHref = links.eq(curInd - 1).attr('href');
-      nextHref = links.eq(curInd + 1).attr('href');
-    }
-  });
+  // var links= wrap.find('.foot-line .circ');
+  // var curInd, prevHref, nextHref;
+  //
+  // links.each(function (i) {
+  //   if ($(this).hasClass('active')) {
+  //     curInd = i;
+  //     prevHref = links.eq(curInd - 1).attr('href');
+  //     nextHref = links.eq(curInd + 1).attr('href');
+  //   }
+  // });
 
   //height content
   sizeTextContent();
@@ -61,14 +61,16 @@ $(window).on('load', function () {
       }
       //redirection
       if (sector < 0) {
-        window.location.href = prevHref
+        sector = 0;
+        // window.location.href = prevHref
       } else if (sector > (imgS.length - 1)) {
-        if (nextHref) window.location.href = nextHref
+        sector = (imgS.length - 1);
+        // if (nextHref) window.location.href = nextHref
       }
 
       if (galleryH > 0) {
         sector = 0;
-        galleryH = 0
+        galleryH = 0;
       } else if (galleryH < -(imgS.length - 1) * imgS.height()) {
         galleryH = -(imgS.length - 1) * imgS.height();
         sector = imgS.length - 1;

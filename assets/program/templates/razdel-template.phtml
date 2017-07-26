@@ -8,18 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>[[*pagetitle:striptags]]</title>
     [[$seo.tpl]]
-    [[+visit:is=`1`:then=`[[$preloder-style]]`:else=`[[$query-loder-style]]`]]
+    [[$preloder-style]]
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300&amp;subset=cyrillic-ext" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/assets.css">
     <link rel="stylesheet" href="assets/css/active-house.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="assets/js/lib/queryLoader.js"></script>
 </head>
 <body>
-[[+visit:is=`1`:then=`[[$preloder-box-sript]]`:else=`[[$queryLoader]]`]]
+[[$preloder-box-sript]]
 <div class="wrapper" style="background-image: url([[*katalog_image_bg]])">
     <!--left side-->
     [[$left-side]]
@@ -46,22 +43,24 @@
         </div>
     </a>
 
-    <a href="[[!btnMore]]" class="btn-more scale-js-2">
-        <span>Подробнее</span>
-        <i class="icon-right-arrow-g"></i>
-    </a>
+
     <!--content-->
     <div class="content">
         <div class="page-title">
             <h1>[[*pagetitle:limit=`16`]]</h1>
-            <h2>[[*longtitle]]</h2>
+            [[*id:is=`[[++site_start]]`:then=`<h2>[[*longtitle]]</h2>`:else=`<p class="active-text">[[*longtitle]]</p>`]]
+
         </div>
         [[*id:is=`[[++site_start]]`:then=`
-        <div class="action">
+        <div class="action scale-js-2">
                 <a href="[[~[[babelId?&id=`36`]]]]" class="action-left">
                     <div class="action-logo">%</div>
                 </a>
-                [[!getResources?
+
+            <a href="[[~[[babelId?&id=`36`]]]]?id=[[*main_action]]" class="action-right">
+                <span>[[#[[*main_action]].pagetitle]]</span>
+            </a>
+                [[!g1etResources?
                 &parents=`[[babelId?&id=`36`]]`
                 &limit=`1`
                 &sortby=`{publishedon:ASC}`
@@ -70,6 +69,11 @@
                 ]]
         </div>
         `]]
+        
+        <a href="[[!btnMore]]" class="btn-more">
+          <span>[[%more?&namespace=`unna`]]</span>
+        <i class="icon-right-arrow-g"></i>
+    </a>
     </div>
 
 
@@ -77,13 +81,14 @@
     [[$foot]]
 </div>
 
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
-<!--scripts-->
-[[+visit:ne=`1`:then=`
-<script type='text/javascript'>
-    QueryLoader.init();
+<script>
+    window.onload = function () {
+        document.getElementsByClassName('preload-svg')[0].style.zIndex = '-1'
+    }
 </script>
-`]]
 
 <script src="assets/js/section.min.js"></script>
 

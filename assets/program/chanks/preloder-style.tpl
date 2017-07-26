@@ -1,74 +1,125 @@
 <style>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		backface-visibility: hidden;
-	}
+    .preload-svg {
+        position: fixed;
+        z-index: 1000;
+        background: #00191B;
+        width: 100%;
+        height: 100%;
+    }
 
-	html,
-	body {
-		height: 100%;
-		width: 100%;
-		font-size: 0;
-	}
+    .preload-svg svg {
+        display: block;
+        margin: auto;
+        width: 320px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
-	.preload-box {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-	}
+    #logo-chars path {
+        stroke-dasharray: 21;
+        stroke-dashoffset: 0;
+    }
 
-	.preload-item {
-		display: inline-block;
-		width: 25%;
-		height: 50%;
-		overflow: hidden;
-		transition: 1s linear;
-	}
+    #logo-chars path.char-vert {
+        stroke-dasharray: 13;
+        stroke-dashoffset: 0;
+    }
 
-	.preload-item.anim {
-		opacity: .7;
-	}
+    #logo-chars path:last-child {
+        stroke-dasharray: 35;
+        stroke-dashoffset: 0;
+    }
 
-	.preload-inner {
-		width: 100vw;
-		height: 100vh;
-		opacity: 1;
-		background: url('[[#[[*parent]].katalog_image_bg_blur:default=`assets/images/gallery-blur.jpg`]]') no-repeat center;
-		background-size: cover;
-	}
+    .preload-svg svg #logo-chars path {
+        animation: prel-char-anim 3s linear 0s infinite;
+    }
 
-	.preload-item:nth-child(2) .preload-inner {
-		margin-left: -25vw;
-	}
+    .preload-svg svg #logo-chars path:last-child {
+        animation: prel-char-anim-last 3s linear 0s infinite;
+    }
 
-	.preload-item:nth-child(3) .preload-inner {
-		margin-left: -50vw;
-	}
+    .preload-svg svg #logo-chars path.char-vert {
+        animation: prel-char-anim-vert 3s linear 0s infinite;
+    }
 
-	.preload-item:nth-child(4) .preload-inner {
-		margin-left: -75vw;
-	}
+    .preload-svg svg #logo-chars path.char-back {
+        animation: prel-char-anim-back 3s linear 0s infinite;
+    }
 
-	.preload-item:nth-child(5) .preload-inner {
-		margin-top: -50vh;
-	}
+    @keyframes prel-char-anim {
+        30% {
+            opacity: 0;
+            stroke-dashoffset: 0;
+        }
+        31% {
+            stroke-dashoffset: 21;
+        }
+        40% {
+            opacity: 1;
+        }
+        60% {
+            stroke-dashoffset: 0;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
 
-	.preload-item:nth-child(6) .preload-inner {
-		margin-top: -50vh;
-		margin-left: -25vw;
-	}
+    @keyframes prel-char-anim-vert {
+        30% {
+            opacity: 0;
+            stroke-dashoffset: 0;
+        }
+        31% {
+            stroke-dashoffset: 14;
+        }
+        40% {
+            opacity: 1;
+        }
+        60% {
+            stroke-dashoffset: 0;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
 
-	.preload-item:nth-child(7) .preload-inner {
-		margin-top: -50vh;
-		margin-left: -50vw;
-	}
+    @keyframes prel-char-anim-last {
+        30% {
+            opacity: 0;
+            stroke-dashoffset: 0;
+        }
+        31% {
+            stroke-dashoffset: 35;
+        }
+        40% {
+            opacity: 1;
+        }
+        60% {
+            stroke-dashoffset: 0;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
 
-	.preload-item:nth-child(8) .preload-inner {
-		margin-top: -50vh;
-		margin-left: -75vw;
-	}
+    @keyframes prel-char-anim-back {
+        30% {
+            opacity: 0;
+            stroke-dashoffset: 0;
+        }
+        31% {
+            stroke-dashoffset: -21;
+        }
+        40% {
+            opacity: 1;
+        }
+        60% {
+            stroke-dashoffset: 0;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
 </style>

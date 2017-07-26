@@ -47,7 +47,7 @@
 	<div class="body ">
 		<ul>
 			<li>
-				<div class="range-slider sizes disabled">
+				<div class="range-slider sizes">
 					<div class="ui-slider-range-left"></div>
 					<div class="ui-slider-range"></div>
 					<div class="ui-slider-range-right"></div>
@@ -65,7 +65,7 @@
 				</div>
 			</li>
 			<li>
-				<div class="range-slider prices disabled">
+				<div class="range-slider prices">
 					<div class="ui-slider-range-left"></div>
 					<div class="ui-slider-range"></div>
 					<div class="ui-slider-range-right"></div>

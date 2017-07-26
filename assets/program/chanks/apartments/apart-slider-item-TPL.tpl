@@ -1,5 +1,5 @@
 <div class="slide">
 	<a href="[[+image]]" data-lightbox="apart">
-		<img src="[[+image:phpthumbof=`w=293&h=185&zc=0`]]"/>
+		<img src="[[+image]]"/>
 	</a>
 </div>

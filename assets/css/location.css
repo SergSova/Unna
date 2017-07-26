@@ -119,6 +119,10 @@
     max-width: 1300px;
 }
 
+.content-text {
+    transform-origin: left top;
+}
+
 #locationMap {
     position: absolute;
     left: 0;
@@ -374,6 +378,19 @@
     .location-filter .location-type {
         margin-bottom: 20px;
     }
+}
+
+.left-side,
+.right-side {
+    pointer-events: none;
+}
+
+.sandwich-wrap,
+.header-logo,
+.panel-2,
+.big-menu,
+.right-top {
+    pointer-events: auto;
 }
 
 

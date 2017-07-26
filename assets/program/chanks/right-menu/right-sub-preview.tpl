@@ -1,5 +1,5 @@
 <div class="sub-preview">
-    <a href="[[#[[babelId?&id=`27`]].buklet_PDF]]" class="booklet">
+    <a target="_blank" href="[[#[[babelId?&id=`27`]].buklet_PDF]]" class="booklet">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 258 237.84">
             <g transform="translate(0 10)">
                 <path fill="#fff"
@@ -9,9 +9,9 @@
                 <path fill="none" stroke="#fff" stroke-width="10" d="M132 17 C 165 0, 210 0, 258 17"/>
             </g>
         </svg>
-        <span>Скачать<br>буклет</span>
+        <span>[[%download?&namespace=`unna`]]<br>[[%buklet?&namespace=`unna`]]</span>
     </a>
-    <a href="[[#[[babelId?&id=`27`]].presentation]]" class="movie">
+    <a target="_blank"href="[[#[[babelId?&id=`27`]].presentation]]" class="movie">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 22">
             <g>
                 <rect class="video-1" x="0.5" y="0.5" width="27" height="21"/>
@@ -32,6 +32,6 @@
                 <polygon class="video-2 triangle" points="11.5 7 11.5 15 17 11 11.5 7"/>
             </g>
         </svg>
-        <span>Смотреть&nbsp;видео-<br>презентацию</span>
+        <span>[[%look?&namespace=`unna`]]&nbsp;[[%video?&namespace=`unna`]]-<br>[[%presentation?&namespace=`unna`]]</span>
     </a>
 </div>

@@ -500,6 +500,48 @@ h2 {
     transition: 0s linear !important;
 }
 
+.send-messages {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.form.access #form-submit, .form.access .input-container, .form.error #form-submit, .form.error .input-container {
+    opacity: 0;
+    z-index: 0
+}
+
+.form.access .send-messages, .form.error .send-messages {
+    z-index: 1
+}
+
+.form.access .send-success, .form.error .send-error {
+    opacity: 1
+}
+
+.send-error, .send-success {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 70%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: 0;
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 50px;
+    text-align: center;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s
+}
+
+.form-title {
+    display: none;
+}
+
 .form-container {
     pointer-events: auto;
     display: inline-block;
@@ -526,7 +568,7 @@ h2 {
     backface-visibility: hidden;
 }
 
-form {
+.form {
     position: relative;
     width: 100%;
     max-width: 500px;
@@ -790,6 +832,19 @@ input,
     100% {
         opacity: 0;
     }
+}
+
+.left-side,
+.right-side {
+    pointer-events: none;
+}
+
+.sandwich-wrap,
+.header-logo,
+.panel-2,
+.big-menu,
+.right-top {
+    pointer-events: auto;
 }
 
 

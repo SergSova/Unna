@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>[[*pagetitle]]</title>
-    [[+visit:is=`1`:then=`[[$preloder-style]]`:else=`[[$query-loder-style]]`]]
+    [[+visit:is=`11`:then=`[[$preloder-style]]`:else=`[[$query-loder-style]]`]]
+    [[$preloder-style]]
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/assets.css">
@@ -20,18 +21,10 @@
     <link rel="stylesheet" href="assets/css/building.css">
     `]]
     [[$seo.tpl]]
-
-    <link rel="stylesheet" href="assets/css/queryLoader.css">
-    <script
-            src="https://code.jquery.com/jquery-1.12.4.min.js"
-            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-            crossorigin="anonymous"></script>
 </head>
 <body>
-
-[[+visit:is=`1`:then=`[[$preloder-box-sript]]`:else=`[[$queryLoader]]`]]
-
-<div class="wrapper">
+[[$preloder-box-sript]]
+<div class="wrapper" style="background-image:url([[#[[*parent]].katalog_image_bg_blur]])">
 
     <!--left side-->
     [[$left-side]]
@@ -76,18 +69,16 @@
 
 <!--scripts-->
 <!--libs-->
-[[+visit:ne=`1`:then=`
-<script type='text/javascript'>
-    QueryLoader.init();
+<script
+        src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+<script>
+    window.onload = function () {
+        document.getElementsByClassName('preload-svg')[0].style.zIndex = '-1'
+    }
 </script>
-`]]
-<!--<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>-->
-<script src="assets/js/lightbox.min.js"></script>
-<!---->
-<script src="assets/js/nav.js"></script>
-<script src="assets/js/scale.js"></script>
-<script src="assets/js/foot-menu.js"></script>
-<script src="assets/js/start-anim.js"></script>
+<script src="assets/js/sub-section.min.js"></script>
 [[*id:in=`[[babelId?&ids=`21,22`]]`:then=`
 <script src="assets/js/architecture.min.js"></script>
 `]]

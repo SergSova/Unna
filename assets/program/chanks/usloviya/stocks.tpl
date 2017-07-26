@@ -16,6 +16,7 @@
     [[!getResources?
     &parents=`[[*id]]`
     &tpl=`action-item-TPL`
+    &sortby=`{"publishedon":"ASC"}`
     &includeTVs=`1`
     &includeContent=`1`
     &showHidden=`1`

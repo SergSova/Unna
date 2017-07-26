@@ -4,6 +4,10 @@ $(window).on('load', function () {
   var foot = wrap.find('.footer');
   var text = wrap.find('.content-text');
   var w = $(window).width();
+  var h = $(window).height();
+
+  var specItems = wrap.find('.spec-item');
+
 
   //height content
   heightTextContent();
@@ -39,7 +43,7 @@ $(window).on('load', function () {
       }
     });
     //add img src
-    text.find('img').click(function () {
+    text.find('img').on('click', function () {
       var src = $(this).attr('src');
       var prom = new $.Deferred();
       prom.resolve(imgExp
@@ -53,15 +57,25 @@ $(window).on('load', function () {
         //close button
         imgExp.find('.slider-close')
           .click(function () {
-          imgExp.removeClass('active')
-        }).offset({
+            imgExp.removeClass('active')
+          }).offset({
           left: imgExp.find('img').offset().left + imgExp.find('img').width() - 60,
           top: imgExp.find('img').offset().top + 30
         });
       })
     });
-  });
+    if (wrap.find('.unna-content').length > 0) {
+      wrap.find('.unna-content img').off();
+    }
 
+  });
+  //crutch
+  // setTimeout(function () {
+  //   if(wrap.find('.unna-content').length > 0) {
+  //     console.log('unclick');
+  //     wrap.find('.unna-content img').off();
+  //   }
+  // }, 1000);
 
   //alignment images in content
   if (text.find('p images')) {
@@ -80,6 +94,7 @@ $(window).on('load', function () {
       .removeClass('icon-pdf-file-outlined-interface-symbol')
       .addClass('icon-download')
   });
+
 
   //redirect with scrollbar
   // var links = wrap.find('.foot-line .circ');
@@ -103,7 +118,17 @@ $(window).on('load', function () {
   //   }
   // });
 
+
+  var specArr = [];
+  specItems.each(function () {
+    var top = $(this)[0].getBoundingClientRect().top;
+    specArr.push(top);
+  });
+
+
   $(".content-text").mCustomScrollbar({
+    scrollInertia: 300,
+    mouseWheel: { scrollAmount: 60 },
     callbacks: {
       // onTotalScrollBack: function () {
       //   window.location.href = prevHref
@@ -114,6 +139,18 @@ $(window).on('load', function () {
       // onInit: function () {
       //   $(document).off('wheel');
       // }
+      whileScrolling: function () {
+        //Specifications
+
+        if(specItems.length > 0) {
+          specItems.each(function () {
+            var top = $(this)[0].getBoundingClientRect().top;
+            if (top <= h / 9 * 8) {
+              $(this).addClass('anim');
+            }
+          })
+        }
+      }
     }
   });
 

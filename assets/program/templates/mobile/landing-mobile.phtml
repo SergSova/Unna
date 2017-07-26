@@ -114,13 +114,23 @@
 <section class="section7 developer" id="[[#[[babelId?&id=`30`]].alias]]">
     <div class="container">
         <h2>[[#[[babelId?&id=`30`]].pagetitle:striptags]]</h2>
-        <img src="assets/images/logo-small.png" alt="Unna logo">
         <p>[[#[[babelId?&id=`30`]].content]]</p>
+    </div>
+</section>
+<section class="section9 partners">
+    <div class="container">
+        <div class="pertners">
+            [[!getImageList?
+            &docid=`[[babelId?&id=`30`]]`
+            &tvname=`migx-partners-catalog`
+            &tpl=`partner-catalog-mobile-item`
+            ]]
+        </div>
     </div>
 </section>
 <section class="section8 perspective">
     <div class="container">
-        <h2>Проекты в перспективе</h2>
+        <h2>[[#[[babelId?&id=`30`]].project_title]]</h2>
         [[!getImageList?
         &docid=`[[babelId?&id=`30`]]`
         &tvname=`migx-project-colection`
@@ -128,18 +138,6 @@
         <h3>[[+title]]</h3>`
         ]]
         <p>[[#[[babelId?&id=`30`]].content:striptags:limit=`250`]]</p>
-    </div>
-</section>
-<section class="section9 partners">
-    <div class="container">
-        <h2>Партнеры</h2>
-        <div class="pertners">
-            [[!getImageList?
-            &docid=`[[babelId?&id=`30`]]`
-            &tvname=`migx-partners-colection`
-            &tpl=`@CODE: <a href="[[+link]]"><img src="[[+icon]]" alt="[[+title]] logo" title="[[+title]]"></a>`
-            ]]
-        </div>
     </div>
 </section>
 <section class="section10 documentation" id="[[#[[babelId?&id=`5`]].alias]]">
